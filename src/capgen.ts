@@ -108,7 +108,7 @@ export function generate_crs84_tile_matrixs(
 
 export function generate_capabilities(
   service: Service,
-  layers: Layers,
+  layers: Layers | MapLayer[],
   tile_matrix_sets: TileMatrixSet[]
 ) {
   const env = new Environment();
@@ -197,7 +197,7 @@ export class MapLayer {
     public abstract: string,
     public id: string,
     public bbox: [CRS_Point, CRS_Point],
-    public tile_matrix_set: DefaultTileMatrixSetName,
+    public tile_matrix_set: DefaultTileMatrixSetName | string,
     public url: string
   ) {
     this.wmts_url = trans_url(url);

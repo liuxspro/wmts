@@ -1,6 +1,7 @@
 import { Application } from "jsr:@oak/oak/application";
 import { Router } from "jsr:@oak/oak/router";
 import { tianditu_layers } from "./maps/tianditu.ts";
+// import { cap as tianditu_js } from "./maps/tianditu_js.ts";
 import {
   default_matrix,
   default_service,
@@ -15,7 +16,7 @@ router.get("/", (ctx) => {
 });
 
 // 天地图
-router.get("/wmts/tianditu", (ctx) => {
+router.get("/tianditu", (ctx) => {
   const headers = ctx.request.headers;
   const tdt_tk = headers.get("tdt") || ctx.request.url.searchParams.get("tdt");
   if (tdt_tk) {
@@ -44,6 +45,11 @@ router.get("/wmts/tianditu", (ctx) => {
     ctx.response.body = "tianditu token not set";
   }
 });
+
+// router.get("/js", (ctx) => {
+//   ctx.response.type = "";
+//   ctx.response.body = tianditu_js;
+// });
 
 const app = new Application();
 app.use(router.routes());
