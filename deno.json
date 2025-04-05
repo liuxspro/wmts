@@ -1,0 +1,14 @@
+{
+  "tasks": {
+    "dev": "deno run -A --watch ./src/server.ts",
+    "build": "deno run -A ./src/build.ts"
+  },
+  "deploy": {
+    "project": "148f8cbf-1faa-48ff-ad8e-bd6cb6c7c271",
+    "exclude": [
+      "**/node_modules","**/.git"
+    ],
+    "include": [],
+    "entrypoint": "src\\server.ts"
+  }
+}
