@@ -10,6 +10,6 @@ deployctl deploy --entrypoint .\src\server.ts
 
 ## Maps
 
-### 天地图 `/wmts/tianditu`
+### 天地图 `/tianditu`
 
-天地图需要 token (key)，请求`/wmts/tianditu`时, 可通过添加查询参数`?tdt=<token>`或者在 header 标头中添加`tdt`参数
+天地图需要 token (key)，请求`/tianditu`时, 可通过添加查询参数`?tdt=<token>`或者在 header 标头中添加`tdt`参数
