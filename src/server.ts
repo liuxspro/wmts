@@ -1,7 +1,7 @@
 import { Application } from "jsr:@oak/oak/application";
 import { Router } from "jsr:@oak/oak/router";
 import { tianditu_layers } from "./maps/tianditu.ts";
-// import { cap as tianditu_js } from "./maps/tianditu_js.ts";
+import { gen_sd_cap } from "./maps/tianditu_sd.ts";
 import {
   default_matrix,
   default_service,
@@ -44,6 +44,14 @@ router.get("/tianditu", (ctx) => {
     ctx.response.status = 404;
     ctx.response.body = "tianditu token not set";
   }
+});
+
+router.get("/tianditu/sdhis/:id/:el", (ctx) => {
+  const { id, el } = ctx.params;
+  const z = parseInt(el);
+  const tk = ctx.request.url.searchParams.get("tk") || "";
+  ctx.response.type = "text/xml;charset=UTF-8";
+  ctx.response.body = gen_sd_cap(id, 3, z, tk);
 });
 
 // router.get("/js", (ctx) => {
