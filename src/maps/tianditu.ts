@@ -1,10 +1,4 @@
-import {
-  mercator_bbox,
-  MapLayer,
-  generate_capabilities,
-  default_service,
-  default_matrix,
-} from "../capgen.ts";
+import { mercator_bbox, MapLayer, generate_capabilities, Service, default_matrix } from "../capgen.ts";
 
 const tianditu_w = {
   vec_w: "天地图 - 矢量地图",
@@ -26,6 +20,11 @@ const tianditu_c = {
   ibo_c: "天地图 - 全球境界（EPSG:4490）",
 };
 
+export const service: Service = {
+  title: "天地图服务",
+  abstract: "天地图服务",
+  keywords: ["天地图", "天地图服务"],
+};
 const tianditu_w_layers: MapLayer[] = [];
 
 Object.entries(tianditu_w).forEach(([key, value]) => {
@@ -58,7 +57,7 @@ Object.entries(tianditu_c).forEach(([key, value]) => {
 
 export const tianditu_layers = [...tianditu_w_layers, ...tianditu_c_layers];
 
-export const cap = generate_capabilities(default_service, tianditu_layers, [
+export const cap = generate_capabilities(service, tianditu_layers, [
   default_matrix.WebMercatorQuad,
   default_matrix.CGCS2000,
 ]);

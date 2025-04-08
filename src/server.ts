@@ -1,13 +1,9 @@
 import { Application } from "jsr:@oak/oak/application";
 import { Router } from "jsr:@oak/oak/router";
-import { tianditu_layers } from "./maps/tianditu.ts";
+import { send } from "jsr:@oak/oak/send";
+import { tianditu_layers, service as tdt_service } from "./maps/tianditu.ts";
 import { gen_sd_cap } from "./maps/tianditu_sd.ts";
-import {
-  default_matrix,
-  default_service,
-  generate_capabilities,
-  MapLayer,
-} from "./capgen.ts";
+import { default_matrix, default_service, generate_capabilities, MapLayer } from "./capgen.ts";
 
 const router = new Router();
 
@@ -35,11 +31,10 @@ router.get("/tianditu", (ctx) => {
     });
 
     ctx.response.type = "text/xml;charset=UTF-8";
-    ctx.response.body = generate_capabilities(
-      default_service,
-      layersWithToken,
-      [default_matrix.WebMercatorQuad, default_matrix.CGCS2000]
-    );
+    ctx.response.body = generate_capabilities(tdt_service, layersWithToken, [
+      default_matrix.WebMercatorQuad,
+      default_matrix.CGCS2000,
+    ]);
   } else {
     ctx.response.status = 404;
     ctx.response.body = "tianditu token not set";
@@ -54,10 +49,12 @@ router.get("/tianditu/sdhis/:id/:el", (ctx) => {
   ctx.response.body = gen_sd_cap(id, 3, z, tk);
 });
 
-// router.get("/js", (ctx) => {
-//   ctx.response.type = "";
-//   ctx.response.body = tianditu_js;
-// });
+router.get("/dist/:filename", async (ctx) => {
+  const filename = ctx.params.filename; // 动态获取文件名
+  await send(ctx, filename, {
+    root: `${Deno.cwd()}/dist`,
+  });
+});
 
 const app = new Application();
 app.use(router.routes());
