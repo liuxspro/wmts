@@ -1,13 +1,19 @@
-import { mercator_bbox, MapLayer, generate_capabilities, Service, default_matrix } from "../capgen.ts";
+import {
+  mercator_bbox,
+  MapLayer,
+  generate_capabilities,
+  Service,
+  default_matrix,
+} from "../capgen.ts";
 
 const tianditu_w = {
-  vec_w: "天地图 - 矢量地图",
-  cva_w: "天地图 - 矢量注记",
-  img_w: "天地图 - 影像地图",
-  cia_w: "天地图 - 影像注记",
-  ter_w: "天地图 - 地形晕染",
-  cta_w: "天地图 - 地形注记",
-  ibo_w: "天地图 - 全球境界",
+  vec_w: "天地图 - 矢量地图（EPSG:3857）",
+  cva_w: "天地图 - 矢量注记（EPSG:3857）",
+  img_w: "天地图 - 影像地图（EPSG:3857）",
+  cia_w: "天地图 - 影像注记（EPSG:3857）",
+  ter_w: "天地图 - 地形晕染（EPSG:3857）",
+  cta_w: "天地图 - 地形注记（EPSG:3857）",
+  ibo_w: "天地图 - 全球境界（EPSG:3857）",
 };
 
 const tianditu_c = {
