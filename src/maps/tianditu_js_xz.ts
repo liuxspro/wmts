@@ -30,8 +30,8 @@ const xz_maps = {
 };
 
 const xz_bbox: [CRS_Point, CRS_Point] = [
-  { lon: 117.0703125, lat: 34.1015625 }, // 西南角 (LowerCorner)
-  { lon: 117.421875, lat: 34.453125 }, // 东北角 (UpperCorner)
+  { lon: 116.015625, lat: 33.398438 }, // 西南角 (LowerCorner)
+  { lon: 118.828125, lat: 35.156250 }, // 东北角 (UpperCorner)
 ];
 
 const xz_matrix: TileMatrixSet = {
