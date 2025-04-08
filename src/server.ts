@@ -3,7 +3,7 @@ import { Router } from "jsr:@oak/oak/router";
 import { send } from "jsr:@oak/oak/send";
 import { tianditu_layers, service as tdt_service } from "./maps/tianditu.ts";
 import { gen_sd_cap } from "./maps/tianditu_sd.ts";
-import { default_matrix, default_service, generate_capabilities, MapLayer } from "./capgen.ts";
+import { default_matrix, generate_capabilities, MapLayer } from "./capgen.ts";
 
 const router = new Router();
 
