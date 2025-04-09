@@ -19,7 +19,7 @@ export interface Layer {
   id: string;
   bbox: [CRS_Point, CRS_Point];
   tile_matrix_set: DefaultTileMatrixSetName;
-  url: string;
+  wmts_url: string;
 }
 
 export type Layers = Layer[];
