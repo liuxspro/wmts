@@ -29,5 +29,3 @@ export const debug = generate_capabilities(
   [debug_layer, debug_layer_4326],
   [default_matrix.WorldCRS84Quad, default_matrix.WebMercatorQuad]
 );
-
-console.log(debug);

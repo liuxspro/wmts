@@ -1,7 +1,7 @@
 import { Application } from "jsr:@oak/oak/application";
 import { Router } from "jsr:@oak/oak/router";
 import { send } from "jsr:@oak/oak/send";
-import { tianditu_layers, service as tdt_service } from "./maps/tianditu.ts";
+import { service as tdt_service, tianditu_layers } from "./maps/tianditu.ts";
 import { gen_sd_cap } from "./maps/tianditu_sd.ts";
 import { default_matrix, generate_capabilities, MapLayer } from "./capgen.ts";
 
@@ -24,7 +24,7 @@ router.get("/tianditu", (ctx) => {
         layer.id,
         layer.bbox,
         layer.tile_matrix_set,
-        layer.url
+        layer.url,
       );
       newLayer.set_token("tk", tdt_tk);
       return newLayer;
