@@ -4,7 +4,7 @@ import {
   generate_capabilities,
   default_service,
   default_matrix,
-} from "../capgen.ts";
+} from "@liuxspro/capgen";
 
 const satellite = new MapLayer(
   "Google Map - Satellite",

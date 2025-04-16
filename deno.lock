@@ -1,6 +1,7 @@
 {
   "version": "4",
   "specifiers": {
+    "jsr:@liuxspro/capgen@0.1": "0.1.0",
     "jsr:@oak/commons@1": "1.0.0",
     "jsr:@oak/oak@*": "17.1.3",
     "jsr:@std/assert@1": "1.0.9",
@@ -14,9 +15,16 @@
     "jsr:@std/media-types@1": "1.1.0",
     "jsr:@std/path@1": "1.0.8",
     "npm:minijinja-js@*": "2.8.0",
+    "npm:minijinja-js@^2.9.0": "2.9.0",
     "npm:path-to-regexp@6.2.1": "6.2.1"
   },
   "jsr": {
+    "@liuxspro/capgen@0.1.0": {
+      "integrity": "a5eb4560ed1627a381c8637990c2ab1eff1ba4538224e970f4fab3de58b15047",
+      "dependencies": [
+        "npm:minijinja-js@^2.9.0"
+      ]
+    },
     "@oak/commons@1.0.0": {
       "integrity": "49805b55603c3627a9d6235c0655aa2b6222d3036b3a13ff0380c16368f607ac",
       "dependencies": [
@@ -77,8 +85,16 @@
     "minijinja-js@2.8.0": {
       "integrity": "sha512-Niju9JB7wH2iowyJgd1UGFop2VyzaeviupPmnR6CrgOuYuHnmO8hLnL3/beK5Eb5CMcQU51OFQOm8b5dMmcAqQ=="
     },
+    "minijinja-js@2.9.0": {
+      "integrity": "sha512-NDrwVXH5c+VfA41LrmINjlKUY+udSUAVSRjafyu0SiRkKJbczceR7DJK17UToZ59zc61dEroH78tesEYDLmegQ=="
+    },
     "path-to-regexp@6.2.1": {
       "integrity": "sha512-JLyh7xT1kizaEvcaXOQwOc2/Yhw6KZOvPf1S8401UyLk86CU79LN3vl7ztXGm/pZ+YjoyAJ4rxmHwbkBXJX+yw=="
     }
+  },
+  "workspace": {
+    "dependencies": [
+      "jsr:@liuxspro/capgen@0.1"
+    ]
   }
 }

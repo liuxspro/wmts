@@ -7,15 +7,15 @@
 
 import {
   MapLayer,
-  CRS_Point,
+  GeoPoint,
   generate_capabilities,
   Service,
   TileMatrixSet,
   generate_crs84_tile_matrixs,
-} from "../capgen.ts";
+} from "@liuxspro/capgen";
 
 const host = "https://service.sdmap.gov.cn/hisimage";
-const sd_bbox: [CRS_Point, CRS_Point] = [
+const sd_bbox: [GeoPoint, GeoPoint] = [
   { lon: 114.2298, lat: 33.9389 }, // 西南角 (LowerCorner)
   { lon: 123.4005, lat: 38.9048 }, // 东北角 (UpperCorner)
 ];

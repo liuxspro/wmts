@@ -4,7 +4,7 @@ import {
   generate_capabilities,
   Service,
   default_matrix,
-} from "../capgen.ts";
+} from "@liuxspro/capgen";
 
 const tianditu_w = {
   vec_w: "天地图 - 矢量地图（EPSG:3857）",

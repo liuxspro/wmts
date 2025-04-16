@@ -11,13 +11,13 @@
  */
 
 import {
-  CRS_Point,
+  GeoPoint,
   default_service,
   generate_capabilities,
   generate_crs84_tile_matrixs,
   MapLayer,
   TileMatrixSet,
-} from "../capgen.ts";
+} from "@liuxspro/capgen";
 
 const xz_maps = {
   BZ_DOM_24_QS: "徐州 2024 年影像",
@@ -29,9 +29,9 @@ const xz_maps = {
   BZ_DOM_18_QS: "徐州 2018 年影像",
 };
 
-const xz_bbox: [CRS_Point, CRS_Point] = [
+const xz_bbox: [GeoPoint, GeoPoint] = [
   { lon: 116.015625, lat: 33.398438 }, // 西南角 (LowerCorner)
-  { lon: 118.828125, lat: 35.156250 }, // 东北角 (UpperCorner)
+  { lon: 118.828125, lat: 35.15625 }, // 东北角 (UpperCorner)
 ];
 
 const xz_matrix: TileMatrixSet = {

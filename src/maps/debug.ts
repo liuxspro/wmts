@@ -4,7 +4,7 @@ import {
   generate_capabilities,
   MapLayer,
   mercator_bbox,
-} from "../capgen.ts";
+} from "@liuxspro/capgen";
 
 const debug_layer = new MapLayer(
   "测试瓦片 EPSG:3857",

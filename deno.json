@@ -9,5 +9,8 @@
     "exclude": ["**/node_modules", "**/.git"],
     "include": [],
     "entrypoint": "src\\server.ts"
+  },
+  "imports": {
+    "@liuxspro/capgen": "jsr:@liuxspro/capgen@^0.1.0"
   }
 }

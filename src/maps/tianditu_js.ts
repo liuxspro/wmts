@@ -11,16 +11,16 @@
 
 import {
   MapLayer,
-  CRS_Point,
+  GeoPoint,
   generate_capabilities,
   default_service,
   default_matrix,
-} from "../capgen.ts";
+} from "@liuxspro/capgen";
 
 const host = "https://jiangsu.tianditu.gov.cn";
 const zyx = "MapServer/tile/{z}/{y}/{x}";
 
-const js_bbox: [CRS_Point, CRS_Point] = [
+const js_bbox: [GeoPoint, GeoPoint] = [
   { lon: 116.10358, lat: 30.710719 }, // 西南角 (LowerCorner)
   { lon: 122.090304, lat: 35.212659 }, // 东北角 (UpperCorner)
 ];
