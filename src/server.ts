@@ -37,7 +37,8 @@ router.get("/tianditu", (ctx) => {
         layer.id,
         layer.bbox,
         layer.tile_matrix_set,
-        layer.url
+        layer.url,
+        layer.format
       );
       newLayer.set_token("tk", token);
       return newLayer;

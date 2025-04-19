@@ -11,6 +11,6 @@
     "entrypoint": "src\\server.ts"
   },
   "imports": {
-    "@liuxspro/capgen": "jsr:@liuxspro/capgen@^0.1.0"
+    "@liuxspro/capgen": "jsr:@liuxspro/capgen@^0.1.1"
   }
 }
