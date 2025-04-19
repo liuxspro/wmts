@@ -21,6 +21,15 @@ router.get("/tianditu", (ctx) => {
   const tdt_tk = headers.get("tdt") || ctx.request.url.searchParams.get("tdt");
   if (tdt_tk) {
     // 创建图层副本并设置token
+    let token = "";
+    // 处理请求参数后携带 `/1.0.0/WMTSCapabilities.xml`的情况（arcgis 10.2）
+    if (tdt_tk.includes("/")) {
+      token = tdt_tk.split("/")[0];
+    }
+    // 处理请求参数后携带 `?SERVICE=WMTS&VERSION=1.0.0&REQUEST=GetCapabilities`的情况（arcgis 10.2）
+    if (tdt_tk.includes("?")) {
+      token = tdt_tk.split("?")[0];
+    }
     const layersWithToken = tianditu_layers.map((layer) => {
       const newLayer = new MapLayer(
         layer.title,
@@ -30,7 +39,7 @@ router.get("/tianditu", (ctx) => {
         layer.tile_matrix_set,
         layer.url
       );
-      newLayer.set_token("tk", tdt_tk);
+      newLayer.set_token("tk", token);
       return newLayer;
     });
 
