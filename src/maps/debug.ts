@@ -12,7 +12,8 @@ const debug_layer = new MapLayer(
   "debug3857",
   mercator_bbox,
   "WebMercatorQuad",
-  "https://liuxspro-service.deno.dev/tile/debug/{z}/{x}/{y}"
+  "https://liuxspro-service.deno.dev/tile/debug/{z}/{x}/{y}",
+  "image/png"
 );
 
 const debug_layer_4326 = new MapLayer(
@@ -21,7 +22,8 @@ const debug_layer_4326 = new MapLayer(
   "debug4326",
   mercator_bbox,
   "WorldCRS84Quad",
-  "https://liuxspro-service.deno.dev/tile/debug/{z}/{x}/{y}"
+  "https://liuxspro-service.deno.dev/tile/debug/{z}/{x}/{y}",
+  "image/png"
 );
 
 export const debug = generate_capabilities(

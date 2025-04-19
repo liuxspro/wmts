@@ -36,7 +36,15 @@ const service: Service = {
  */
 export function gen_sd_cap(id: string, sl: number, el: number, tk: string) {
   const tile_url = `${host}/${id}?tk=${tk}&layer=c&style=c&tilematrixset=c&Service=WMTS&Request=GetTile&TileMatrix={z}&TileCol={x}&TileRow={y}`;
-  const layer = new MapLayer(id, id, id, sd_bbox, "CGCS2000Quad", tile_url);
+  const layer = new MapLayer(
+    id,
+    id,
+    id,
+    sd_bbox,
+    "CGCS2000Quad",
+    tile_url,
+    "image/jpeg"
+  );
   const cgcs2000_quad: TileMatrixSet = {
     title: "CRS84 for the World",
     id: "CGCS2000Quad",

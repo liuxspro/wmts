@@ -53,7 +53,8 @@ Object.entries(xz_maps).forEach(([key, name]) => {
       key,
       xz_bbox,
       "CGCS2000Quad",
-      `http://221.229.211.117/DOM/wmts/${key}/${key}/${key}_Matrix_0/{z}/{y}/{x}.png`
+      `http://221.229.211.117/DOM/wmts/${key}/${key}/${key}_Matrix_0/{z}/{y}/{x}.png`,
+      "image/jpeg"
     )
   );
 });

@@ -12,7 +12,8 @@ const satellite = new MapLayer(
   "gmap_sat",
   mercator_bbox,
   "WebMercatorQuad",
-  "https://mt1.google.com/vt/lyrs=s&x={x}&y={y}&z={z}"
+  "https://mt1.google.com/vt/lyrs=s&x={x}&y={y}&z={z}",
+  "image/jpeg"
 );
 
 const terrain_bg = new MapLayer(
@@ -21,7 +22,8 @@ const terrain_bg = new MapLayer(
   "gmap_terrain",
   mercator_bbox,
   "WebMercatorQuad",
-  "http://mt0.google.com/vt/lyrs=p&x={x}&y={y}&z={z}&s=Ga&apistyle=s.e:l|p.v:off,s.t:1|s.e.g|p.v:off,s.t:3|s.e.g|p.v:off,s.t:2|s.e.g|p.v:off"
+  "http://mt0.google.com/vt/lyrs=p&x={x}&y={y}&z={z}&s=Ga&apistyle=s.e:l|p.v:off,s.t:1|s.e.g|p.v:off,s.t:3|s.e.g|p.v:off,s.t:2|s.e.g|p.v:off",
+  "image/jpeg"
 );
 
 export const layers = [satellite, terrain_bg];

@@ -71,7 +71,8 @@ Object.entries(map_url).forEach(([key, url]) => {
       key,
       js_bbox,
       "CGCS2000Quad",
-      url
+      url,
+      "image/jpeg"
     )
   );
 });

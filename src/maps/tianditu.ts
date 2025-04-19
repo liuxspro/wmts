@@ -49,13 +49,17 @@ export const tianditu_layers: MapLayer[] = [];
 
 Object.entries(tianditu_w).forEach(([key, value]) => {
   const format = img_format[key as keyof typeof tianditu_w];
+  let matrix_name = "WebMercatorQuad";
+  if (key.includes("_c")) {
+    matrix_name = "CGCS2000Quad";
+  }
   tianditu_layers.push(
     new MapLayer(
       value,
       value,
       `tianditu_${key}`,
       mercator_bbox,
-      "WebMercatorQuad",
+      matrix_name,
       `https://t6.tianditu.gov.cn/DataServer?T=${key}&x={x}&y={y}&l={z}`,
       format
     )
