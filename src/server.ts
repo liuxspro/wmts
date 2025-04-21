@@ -21,7 +21,7 @@ router.get("/tianditu", (ctx) => {
   const tdt_tk = headers.get("tdt") || ctx.request.url.searchParams.get("tdt");
   if (tdt_tk) {
     // 创建图层副本并设置token
-    let token = "";
+    let token = tdt_tk;
     // 处理请求参数后携带 `/1.0.0/WMTSCapabilities.xml`的情况（arcgis 10.2）
     if (tdt_tk.includes("/")) {
       token = tdt_tk.split("/")[0];
@@ -38,7 +38,7 @@ router.get("/tianditu", (ctx) => {
         layer.bbox,
         layer.tile_matrix_set,
         layer.url,
-        layer.format
+        layer.format,
       );
       newLayer.set_token("tk", token);
       return newLayer;
