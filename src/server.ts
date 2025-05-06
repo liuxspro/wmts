@@ -18,7 +18,7 @@ router.get("/", (ctx) => {
 // 天地图
 router.get("/tianditu", (ctx) => {
   const headers = ctx.request.headers;
-  const tdt_tk = headers.get("tdt") || ctx.request.url.searchParams.get("tdt");
+  const tdt_tk = headers.get("tk") || ctx.request.url.searchParams.get("tk");
   if (tdt_tk) {
     // 创建图层副本并设置token
     let token = tdt_tk;
