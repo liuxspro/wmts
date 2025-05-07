@@ -18,7 +18,8 @@ router.get("/", (ctx) => {
 // 天地图
 router.get("/tianditu", (ctx) => {
   const headers = ctx.request.headers;
-  const tdt_tk = headers.get("tk") || ctx.request.url.searchParams.get("tk");
+  const tk_name = 'tdt'; // 如果用tk, arcgis 设置的自定义参数会导致瓦片URL tk 重复
+  const tdt_tk = headers.get(tk_name) || ctx.request.url.searchParams.get(tk_name);
   if (tdt_tk) {
     // 创建图层副本并设置token
     let token = tdt_tk;
