@@ -29,7 +29,7 @@ const china_bbox: [GeoPoint, GeoPoint] = [
   { lon: 73.49895477, lat: 3.83254099 }, // 西南角 (LowerCorner)
   { lon: 135.08738708, lat: 53.55849838 }, // 东北角 (UpperCorner)
 ];
-const matrix = generate_crs84_tile_matrixs(2, 18);
+const matrix = generate_crs84_tile_matrixs(2, 15);
 
 const matrix_less = matrix.map((t) => {
   const n = t.identifier;
@@ -54,11 +54,11 @@ export const service: Service = {
 };
 
 const layers = {
-  qg250w_20210416_ZAZSeOGX: "全国 1:250 万地质图",
-  qg150w_20210416_BIwqE0wU: "全国 1:150 万地质图",
-  全国100万地质图_20210330_rpam5kdJ: "全国 1:100 万地质图",
-  qg50w_20210416_F7qGy9A7: "全国 1:50 万地质图",
-  qg20_20210401_FCnDDRJd: "全国 1:20 万地质图",
+  qg250w_20210416_ZAZSeOGX: "全国 1:250 万地质图", // 最大 16 级（17）
+  qg150w_20210416_BIwqE0wU: "全国 1:150 万地质图", // 最大 14 级（15）
+  全国100万地质图_20210330_rpam5kdJ: "全国 1:100 万地质图", // 最大 11 级（12）
+  qg50w_20210416_F7qGy9A7: "全国 1:50 万地质图", // 最大 13 级（14）
+  qg20_20210401_FCnDDRJd: "全国 1:20 万地质图", // 最大 14 级（15）
 };
 
 export const geocloud_layers: MapLayer[] = [];
