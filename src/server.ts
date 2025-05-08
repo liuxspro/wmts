@@ -2,6 +2,11 @@ import { Application } from "jsr:@oak/oak/application";
 import { Router } from "jsr:@oak/oak/router";
 import { send } from "jsr:@oak/oak/send";
 import { service as tdt_service, tianditu_layers } from "./maps/tianditu.ts";
+import {
+  geocloud_layers,
+  geocloud_quad,
+  service as geocloud_service,
+} from "./maps/geocloud.ts";
 import { gen_sd_cap } from "./maps/tianditu_sd.ts";
 import {
   default_matrix,
@@ -18,8 +23,9 @@ router.get("/", (ctx) => {
 // 天地图
 router.get("/tianditu", (ctx) => {
   const headers = ctx.request.headers;
-  const tk_name = 'tdt'; // 如果用tk, arcgis 设置的自定义参数会导致瓦片URL tk 重复
-  const tdt_tk = headers.get(tk_name) || ctx.request.url.searchParams.get(tk_name);
+  const tk_name = "tdt"; // 如果用tk, arcgis 设置的自定义参数会导致瓦片URL tk 重复
+  const tdt_tk = headers.get(tk_name) ||
+    ctx.request.url.searchParams.get(tk_name);
   if (tdt_tk) {
     // 创建图层副本并设置token
     let token = tdt_tk;
@@ -53,6 +59,32 @@ router.get("/tianditu", (ctx) => {
   } else {
     ctx.response.status = 404;
     ctx.response.body = "tianditu token not set";
+  }
+});
+
+router.get("/geocloud", (ctx) => {
+  const headers = ctx.request.headers;
+  const token = headers.get("tk") || ctx.request.url.searchParams.get("tk");
+  if (token) {
+    const layersWithToken = geocloud_layers.map((layer) => {
+      const newLayer = new MapLayer(
+        layer.title,
+        layer.abstract,
+        layer.id,
+        layer.bbox,
+        layer.tile_matrix_set,
+        layer.url,
+        layer.format,
+      );
+      newLayer.set_token("tk", token);
+      return newLayer;
+    });
+    ctx.response.type = "text/xml;charset=UTF-8";
+    ctx.response.body = generate_capabilities(
+      geocloud_service,
+      layersWithToken,
+      [geocloud_quad],
+    );
   }
 });
 
