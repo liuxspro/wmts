@@ -43,7 +43,7 @@ export const img_format = {
 export const service: Service = {
   title: "天地图服务",
   abstract: "天地图服务",
-  keywords: ["天地图", "天地图服务"],
+  keywords: ["天地图"],
 };
 export const tianditu_layers: MapLayer[] = [];
 
