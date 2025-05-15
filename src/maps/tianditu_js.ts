@@ -13,7 +13,7 @@ import {
   MapLayer,
   GeoPoint,
   generate_capabilities,
-  default_service,
+  Service,
   default_matrix,
 } from "@liuxspro/capgen";
 
@@ -76,7 +76,12 @@ Object.entries(map_url).forEach(([key, url]) => {
     )
   );
 });
+export const service: Service = {
+  title: "天地图 江苏",
+  abstract: "天地图 江苏 历史影像",
+  keywords: ["天地图", "江苏", "历史影像"],
+};
 
-export const cap = generate_capabilities(default_service, tianditu_js_layers, [
+export const cap = generate_capabilities(service, tianditu_js_layers, [
   default_matrix.CGCS2000,
 ]);

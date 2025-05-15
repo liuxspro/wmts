@@ -2,8 +2,8 @@ import {
   default_matrix,
   generate_capabilities,
   MapLayer,
+  Service,
   mercator_bbox,
-  default_service,
 } from "@liuxspro/capgen";
 
 const HOST = "https://wprd02.is.autonavi.com";
@@ -40,6 +40,12 @@ const annotes = new MapLayer(
 
 const layers: MapLayer[] = [satellite, street, annotes];
 
-export const cap = generate_capabilities(default_service, layers, [
+export const service: Service = {
+  title: "高德地图",
+  abstract: "高德地图",
+  keywords: ["高德地图"],
+};
+
+export const cap = generate_capabilities(service, layers, [
   default_matrix.WebMercatorQuad,
 ]);

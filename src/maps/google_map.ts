@@ -2,7 +2,7 @@ import {
   mercator_bbox,
   MapLayer,
   generate_capabilities,
-  default_service,
+  Service,
   default_matrix,
 } from "@liuxspro/capgen";
 
@@ -28,6 +28,12 @@ const terrain_bg = new MapLayer(
 
 export const layers = [satellite, terrain_bg];
 
-export const cap = generate_capabilities(default_service, layers, [
+export const service: Service = {
+  title: "谷歌地图",
+  abstract: "谷歌地图",
+  keywords: ["谷歌地图"],
+};
+
+export const cap = generate_capabilities(service, layers, [
   default_matrix.WebMercatorQuad,
 ]);
