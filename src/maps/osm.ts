@@ -35,7 +35,7 @@ const osm_de = new MapLayer(
 // from OsmAnd
 // https://osmand.net/docs/user/map/raster-maps/
 const osmand = new MapLayer(
-  "OpenStreetMap Standard HD (OsmAnd 521px)",
+  "OpenStreetMap Standard HD (OsmAnd 512px)",
   "OsmAnd tile layer",
   "osm_and",
   mercator_bbox,
