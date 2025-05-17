@@ -23,7 +23,7 @@ const osm = new MapLayer(
 
 // German fork of the Standard tile layer
 const osm_de = new MapLayer(
-  "OpenStreetMap Standard(German fork)",
+  "OpenStreetMap Standard (German fork)",
   "German fork of the Standard tile layer",
   "osm_de",
   mercator_bbox,
@@ -32,7 +32,19 @@ const osm_de = new MapLayer(
   "image/png",
 );
 
-export const layers = [osm, osm_de];
+// from OsmAnd
+// https://osmand.net/docs/user/map/raster-maps/
+const osmand = new MapLayer(
+  "OpenStreetMap Standard HD (OsmAnd 521px)",
+  "OsmAnd tile layer",
+  "osm_and",
+  mercator_bbox,
+  "WebMercatorQuadHd",
+  "https://tile.osmand.net/hd/{z}/{x}/{y}.png",
+  "image/png",
+);
+
+export const layers = [osm, osm_de, osmand];
 
 export const service: Service = {
   title: "OpenStreetMap",
@@ -42,4 +54,5 @@ export const service: Service = {
 
 export const cap = generate_capabilities(service, layers, [
   default_matrix.WebMercatorQuad,
+  default_matrix.WebMercatorQuadHd,
 ]);
