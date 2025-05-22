@@ -5,6 +5,7 @@ import { cap as xuzhou } from "./maps/tianditu_js_xz.ts";
 import { cap as osm } from "./maps/osm.ts";
 import { cap as shipxy } from "./maps/shipxy.ts";
 import { cap as amap } from "./maps/amap.ts";
+import { cap as beijing } from "./maps/tianditu/beijing.ts";
 
 export const maps = {
   debug,
@@ -14,4 +15,5 @@ export const maps = {
   osm,
   shipxy,
   amap,
+  beijing,
 };
