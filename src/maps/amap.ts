@@ -38,7 +38,7 @@ const annotes = new MapLayer(
   "image/png",
 );
 
-const layers: MapLayer[] = [satellite, street, annotes];
+export const layers: MapLayer[] = [satellite, street, annotes];
 
 export const service: Service = {
   title: "高德地图",

@@ -21,7 +21,7 @@ const haitu = new MapLayer(
   "image/png",
 );
 
-const layers = [haitu];
+export const layers = [haitu];
 
 export const service: Service = {
   title: "船讯网",
