@@ -3,11 +3,12 @@
  */
 
 import {
-  default_matrix,
-  generate_capabilities,
+  Capabilities,
   MapLayer,
   mercator_bbox,
   Service,
+  web_mercator_quad,
+  web_mercator_quad_hd,
 } from "@liuxspro/capgen";
 
 // OpenStreetMap's Standard tile layer
@@ -16,7 +17,7 @@ const osm = new MapLayer(
   "OpenStreetMap's Standard tile layer",
   "osm_std",
   mercator_bbox,
-  "WebMercatorQuad",
+  web_mercator_quad.clone(),
   "https://tile.openstreetmap.org/{z}/{x}/{y}.png",
   "image/png",
 );
@@ -27,7 +28,7 @@ const osm_de = new MapLayer(
   "German fork of the Standard tile layer",
   "osm_de",
   mercator_bbox,
-  "WebMercatorQuad",
+  web_mercator_quad.clone(),
   "https://tile.openstreetmap.de/{z}/{x}/{y}.png",
   "image/png",
 );
@@ -39,7 +40,7 @@ const osmand = new MapLayer(
   "OsmAnd tile layer",
   "osm_and",
   mercator_bbox,
-  "WebMercatorQuadHd",
+  web_mercator_quad_hd.clone(),
   "https://tile.osmand.net/hd/{z}/{x}/{y}.png",
   "image/png",
 );
@@ -52,7 +53,4 @@ export const service: Service = {
   keywords: ["OpenStreetMap", "osm"],
 };
 
-export const cap = generate_capabilities(service, layers, [
-  default_matrix.WebMercatorQuad,
-  default_matrix.WebMercatorQuadHd,
-]);
+export const cap = new Capabilities(service, layers).xml;

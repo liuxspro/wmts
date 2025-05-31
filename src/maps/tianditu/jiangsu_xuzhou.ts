@@ -7,16 +7,14 @@
  * 瓦片模板
  * http://221.229.211.117/DOM/wmts/BZ_DOM_24_QS/BZ_DOM_24_QS/BZ_DOM_24_QS_Matrix_0/18/40587/216393.png
  * http://221.229.211.117/DOM/wmts?SERVICE=WMTS&REQUEST=GetTile&VERSION=1.0.0&LAYER=BZ_DOM_24_QS&STYLE=BZ_DOM_24_QS&TILEMATRIXSET=BZ_DOM_24_QS_Matrix_0&TILEMATRIX=18&TILEROW=40587&TILECOL=216393
- *
  */
 
 import {
+  Capabilities,
   GeoPoint,
-  default_service,
-  generate_capabilities,
-  generate_crs84_tile_matrixs,
   MapLayer,
-  TileMatrixSet,
+  Service,
+  world_crs84_quad,
 } from "@liuxspro/capgen";
 
 const xz_maps = {
@@ -34,15 +32,6 @@ const xz_bbox: [GeoPoint, GeoPoint] = [
   { lon: 118.828125, lat: 35.15625 }, // 东北角 (UpperCorner)
 ];
 
-const xz_matrix: TileMatrixSet = {
-  title: "CRS84 for Xu Zhou",
-  id: "CGCS2000Quad",
-  supported_crs: "EPSG:4490",
-  wellknown_scale_set:
-    "http://www.opengis.net/def/wkss/OGC/1.0/GoogleCRS84Quad",
-  tile_matrixs: generate_crs84_tile_matrixs(11, 18),
-};
-
 const xz_layers: MapLayer[] = [];
 
 Object.entries(xz_maps).forEach(([key, name]) => {
@@ -52,13 +41,15 @@ Object.entries(xz_maps).forEach(([key, name]) => {
       name,
       key,
       xz_bbox,
-      "CGCS2000Quad",
+      world_crs84_quad.clone().setZoom(11, 18),
       `http://221.229.211.117/DOM/wmts/${key}/${key}/${key}_Matrix_0/{z}/{y}/{x}.png`,
-      "image/jpeg"
-    )
+      "image/jpeg",
+    ),
   );
 });
-
-export const cap = generate_capabilities(default_service, xz_layers, [
-  xz_matrix,
-]);
+const service: Service = {
+  title: "天地图 徐州",
+  abstract: "天地图 徐州 历史影像",
+  keywords: ["天地图", "徐州", "历史影像"],
+};
+export const cap = new Capabilities(service, xz_layers).xml;

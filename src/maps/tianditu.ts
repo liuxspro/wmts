@@ -1,9 +1,10 @@
 import {
-  mercator_bbox,
+  Capabilities,
+  cgcs2000_quad,
   MapLayer,
-  generate_capabilities,
+  mercator_bbox,
   Service,
-  default_matrix,
+  web_mercator_quad,
 } from "@liuxspro/capgen";
 
 const tianditu_w = {
@@ -49,9 +50,9 @@ export const tianditu_layers: MapLayer[] = [];
 
 Object.entries(tianditu_w).forEach(([key, value]) => {
   const format = img_format[key as keyof typeof tianditu_w];
-  let matrix_name = "WebMercatorQuad";
+  let matrix = web_mercator_quad;
   if (key.includes("_c")) {
-    matrix_name = "CGCS2000Quad";
+    matrix = cgcs2000_quad;
   }
   tianditu_layers.push(
     new MapLayer(
@@ -59,14 +60,11 @@ Object.entries(tianditu_w).forEach(([key, value]) => {
       value,
       `tianditu_${key}`,
       mercator_bbox,
-      matrix_name,
+      matrix,
       `https://t6.tianditu.gov.cn/DataServer?T=${key}&x={x}&y={y}&l={z}`,
-      format
-    )
+      format,
+    ),
   );
 });
 
-export const cap = generate_capabilities(service, tianditu_layers, [
-  default_matrix.WebMercatorQuad,
-  default_matrix.CGCS2000,
-]);
+export const cap = new Capabilities(service, tianditu_layers);

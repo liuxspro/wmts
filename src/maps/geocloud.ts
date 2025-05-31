@@ -17,35 +17,17 @@
  */
 
 import {
-  generate_capabilities,
-  generate_crs84_tile_matrixs,
+  Capabilities,
+  GeoPoint,
   MapLayer,
   Service,
-  TileMatrixSet,
-  GeoPoint,
+  world_crs84_quad_less,
 } from "@liuxspro/capgen";
 
 const china_bbox: [GeoPoint, GeoPoint] = [
   { lon: 73.49895477, lat: 3.83254099 }, // 西南角 (LowerCorner)
   { lon: 135.08738708, lat: 53.55849838 }, // 东北角 (UpperCorner)
 ];
-const matrix = generate_crs84_tile_matrixs(2, 15);
-
-const matrix_less = matrix.map((t) => {
-  const n = t.identifier;
-  const less = parseInt(n) - 1;
-  t.identifier = String(less);
-  return t;
-});
-
-export const geocloud_quad: TileMatrixSet = {
-  title: "CRS84 for the World",
-  id: "WorldCRS84Quad",
-  supported_crs: "EPSG:4326",
-  wellknown_scale_set:
-    "http://www.opengis.net/def/wkss/OGC/1.0/GoogleCRS84Quad",
-  tile_matrixs: matrix_less,
-};
 
 export const service: Service = {
   title: "地质云 GeoCloud",
@@ -65,20 +47,19 @@ export const geocloud_layers: MapLayer[] = [];
 
 Object.entries(layers).forEach(([key, value]) => {
   const HOST = "https://igss.cgs.gov.cn:6160";
-  const url = `${HOST}/igs/rest/ogc/${key}/WMTSServer/1.0.0/${key}/default/EPSG%3A4326_${key}_028mm_GB/{z}/{y}/{x}.png?`;
+  const url =
+    `${HOST}/igs/rest/ogc/${key}/WMTSServer/1.0.0/${key}/default/EPSG%3A4326_${key}_028mm_GB/{z}/{y}/{x}.png?`;
   geocloud_layers.push(
     new MapLayer(
       value,
       value,
       key,
       china_bbox,
-      "WorldCRS84Quad",
+      world_crs84_quad_less.clone().setZoom(2, 15),
       url,
-      "image/png"
-    )
+      "image/png",
+    ),
   );
 });
 
-export const cap = generate_capabilities(service, geocloud_layers, [
-  geocloud_quad,
-]);
+export const cap = new Capabilities(service, geocloud_layers);

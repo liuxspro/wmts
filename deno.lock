@@ -1,7 +1,8 @@
 {
   "version": "4",
   "specifiers": {
-    "jsr:@liuxspro/capgen@~0.1.2": "0.1.2",
+    "jsr:@es-toolkit/es-toolkit@^1.38.0": "1.38.0",
+    "jsr:@liuxspro/capgen@~0.2.1": "0.2.1",
     "jsr:@oak/commons@1": "1.0.1",
     "jsr:@oak/oak@*": "17.1.4",
     "jsr:@std/assert@1": "1.0.13",
@@ -15,15 +16,20 @@
     "jsr:@std/io@0.224": "0.224.9",
     "jsr:@std/media-types@1": "1.1.0",
     "jsr:@std/path@1": "1.0.9",
+    "npm:@types/node@*": "22.12.0",
     "npm:minijinja-js@*": "2.8.0",
     "npm:minijinja-js@^2.9.0": "2.9.0",
     "npm:path-to-regexp@6.2.1": "6.2.1",
     "npm:path-to-regexp@^6.3.0": "6.3.0"
   },
   "jsr": {
-    "@liuxspro/capgen@0.1.2": {
-      "integrity": "630189370492da2d64e6dc2f684d59401fbdf38f2a83251b160fc7905290e824",
+    "@es-toolkit/es-toolkit@1.38.0": {
+      "integrity": "7a3fa3bbe873116ec37ed68ef1df6b8ec3d89bac56edd354b7d12ff8cc0d5a0a"
+    },
+    "@liuxspro/capgen@0.2.1": {
+      "integrity": "d01bb326c682a73e3aaec0fb76259015d5d6e7783e2cb02673fafaf002deeda6",
       "dependencies": [
+        "jsr:@es-toolkit/es-toolkit",
         "npm:minijinja-js@^2.9.0"
       ]
     },
@@ -128,6 +134,12 @@
     }
   },
   "npm": {
+    "@types/node@22.12.0": {
+      "integrity": "sha512-Fll2FZ1riMjNmlmJOdAyY5pUbkftXslB5DgEzlIuNaiWhXd00FhWxVC/r4yV/4wBb9JfImTu+jiSvXTkJ7F/gA==",
+      "dependencies": [
+        "undici-types"
+      ]
+    },
     "minijinja-js@2.8.0": {
       "integrity": "sha512-Niju9JB7wH2iowyJgd1UGFop2VyzaeviupPmnR6CrgOuYuHnmO8hLnL3/beK5Eb5CMcQU51OFQOm8b5dMmcAqQ=="
     },
@@ -139,11 +151,14 @@
     },
     "path-to-regexp@6.3.0": {
       "integrity": "sha512-Yhpw4T9C6hPpgPeA28us07OJeqZ5EzQTkbfwuhsUg0c237RomFoETJgmp2sa3F/41gfLE6G5cqcYwznmeEeOlQ=="
+    },
+    "undici-types@6.20.0": {
+      "integrity": "sha512-Ny6QZ2Nju20vw1SRHe3d9jVu6gJ+4e3+MMpqu7pqE5HT6WsTSlce++GQmK5UXS8mzV8DSYHrQH+Xrf2jVcuKNg=="
     }
   },
   "workspace": {
     "dependencies": [
-      "jsr:@liuxspro/capgen@~0.1.2"
+      "jsr:@liuxspro/capgen@~0.2.1"
     ]
   }
 }

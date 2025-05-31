@@ -10,11 +10,11 @@
  */
 
 import {
-  MapLayer,
+  Capabilities,
+  cgcs2000_quad,
   GeoPoint,
-  generate_capabilities,
+  MapLayer,
   Service,
-  default_matrix,
 } from "@liuxspro/capgen";
 
 const host = "https://jiangsu.tianditu.gov.cn";
@@ -44,18 +44,28 @@ const map_name = {
 };
 
 const map_url = {
-  js_yxdt_1966: `${host}/historyraster/rest/services/History/yxdt_js_1966_2k/${zyx}`,
-  js_yxdt_1976: `${host}/historyraster/rest/services/History/yxdt_js_1976_2k/${zyx}`,
-  js_yxdt_2005: `${host}/historyraster/rest/services/History/js_yxdt_2005/${zyx}`,
-  js_yxdt_2010: `${host}/historyraster/rest/services/History/js_yxdt_2010/${zyx}`,
-  js_yxdt_2012: `${host}/historyraster/rest/services/History/js_yxdt_2012/${zyx}`,
-  js_yxdt_2014: `${host}/historyraster/rest/services/History/js_yxdt_2014/${zyx}`,
+  js_yxdt_1966:
+    `${host}/historyraster/rest/services/History/yxdt_js_1966_2k/${zyx}`,
+  js_yxdt_1976:
+    `${host}/historyraster/rest/services/History/yxdt_js_1976_2k/${zyx}`,
+  js_yxdt_2005:
+    `${host}/historyraster/rest/services/History/js_yxdt_2005/${zyx}`,
+  js_yxdt_2010:
+    `${host}/historyraster/rest/services/History/js_yxdt_2010/${zyx}`,
+  js_yxdt_2012:
+    `${host}/historyraster/rest/services/History/js_yxdt_2012/${zyx}`,
+  js_yxdt_2014:
+    `${host}/historyraster/rest/services/History/js_yxdt_2014/${zyx}`,
   js_yxdt_2016: `${host}/mapjs2/rest/services/MapJS/js_yxdt_2016/${zyx}`,
-  js_yxdt_2017: `${host}/historyraster/rest/services/History/js_yxdt_2017/${zyx}`,
+  js_yxdt_2017:
+    `${host}/historyraster/rest/services/History/js_yxdt_2017/${zyx}`,
   js_yxdt_2018: `${host}/mapjs2/rest/services/MapJS/js_yxdt_2018/${zyx}`,
-  js_yxdt_2019: `${host}/historyraster/rest/services/History/js_yxdt_2019/${zyx}`,
-  js_yxdt_2020: `${host}/historyraster/rest/services/History/js_yxdt_2020/${zyx}`,
-  js_yxdt_2021: `${host}/historyraster/rest/services/History/js_yxdt_2021/${zyx}`,
+  js_yxdt_2019:
+    `${host}/historyraster/rest/services/History/js_yxdt_2019/${zyx}`,
+  js_yxdt_2020:
+    `${host}/historyraster/rest/services/History/js_yxdt_2020/${zyx}`,
+  js_yxdt_2021:
+    `${host}/historyraster/rest/services/History/js_yxdt_2021/${zyx}`,
   js_yxdt_2022: `${host}/tdtsite05/rest/services/tdtjs/js_img2022_r05/${zyx}`,
   js_yxdt_2023: `${host}/tdtsite05/rest/services/tdtjs/js_img2023_r05/${zyx}`,
   js_yxdt_2024: `${host}/tdtsite05/rest/services/tdtjs/js_img2024_r05/${zyx}`,
@@ -70,10 +80,10 @@ Object.entries(map_url).forEach(([key, url]) => {
       map_name[key as keyof typeof map_name],
       key,
       js_bbox,
-      "CGCS2000Quad",
+      cgcs2000_quad,
       url,
-      "image/jpeg"
-    )
+      "image/jpeg",
+    ),
   );
 });
 export const service: Service = {
@@ -82,6 +92,4 @@ export const service: Service = {
   keywords: ["天地图", "江苏", "历史影像"],
 };
 
-export const cap = generate_capabilities(service, tianditu_js_layers, [
-  default_matrix.CGCS2000,
-]);
+export const cap = new Capabilities(service, tianditu_js_layers).xml;

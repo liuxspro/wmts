@@ -6,12 +6,11 @@
  */
 
 import {
-  MapLayer,
+  Capabilities,
+  cgcs2000_quad,
   GeoPoint,
-  generate_capabilities,
+  MapLayer,
   Service,
-  TileMatrixSet,
-  generate_crs84_tile_matrixs,
 } from "@liuxspro/capgen";
 
 const host = "https://service.sdmap.gov.cn/hisimage";
@@ -34,24 +33,23 @@ const service: Service = {
  * @param tk token
  * @returns 能力文档
  */
-export function gen_sd_cap(id: string, sl: number, el: number, tk: string) {
-  const tile_url = `${host}/${id}?tk=${tk}&layer=c&style=c&tilematrixset=c&Service=WMTS&Request=GetTile&TileMatrix={z}&TileCol={x}&TileRow={y}`;
+export function gen_sd_cap(
+  id: string,
+  sl: number,
+  el: number,
+  tk: string,
+): string {
+  const tile_url =
+    `${host}/${id}?tk=${tk}&layer=c&style=c&tilematrixset=c&Service=WMTS&Request=GetTile&TileMatrix={z}&TileCol={x}&TileRow={y}`;
   const layer = new MapLayer(
     id,
     id,
     id,
     sd_bbox,
-    "CGCS2000Quad",
+    cgcs2000_quad.clone().setZoom(sl, el),
     tile_url,
-    "image/jpeg"
+    "image/jpeg",
   );
-  const cgcs2000_quad: TileMatrixSet = {
-    title: "CRS84 for the World",
-    id: "CGCS2000Quad",
-    supported_crs: "EPSG:4490",
-    wellknown_scale_set:
-      "http://www.opengis.net/def/wkss/OGC/1.0/GoogleCRS84Quad",
-    tile_matrixs: generate_crs84_tile_matrixs(sl, el),
-  };
-  return generate_capabilities(service, [layer], [cgcs2000_quad]);
+
+  return new Capabilities(service, [layer]).xml;
 }

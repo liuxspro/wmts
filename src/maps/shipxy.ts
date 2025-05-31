@@ -1,21 +1,10 @@
 import {
-  generate_capabilities,
-  generate_tile_matrixs,
+  Capabilities,
   GeoPoint,
   MapLayer,
   Service,
-  TileMatrixSet,
+  world_mercator_quad,
 } from "@liuxspro/capgen";
-
-// See https://docs.ogc.org/is/17-083r4/17-083r4.html#toc51
-const WorldMercatorWGS84Quad: TileMatrixSet = {
-  title: "CRS84 for the World",
-  id: "WorldMercatorWGS84Quad",
-  supported_crs: "EPSG:3395",
-  wellknown_scale_set:
-    "http://www.opengis.net/def/wkss/OGC/1.0/WorldMercatorWGS84",
-  tile_matrixs: generate_tile_matrixs(0, 17),
-};
 
 export const world_mercator_bbox: [GeoPoint, GeoPoint] = [
   { lon: -180.0, lat: -85.08405903 }, // 西南角 (LowerCorner)
@@ -27,7 +16,7 @@ const haitu = new MapLayer(
   "船讯网 - 海图",
   "shipxy_ht",
   world_mercator_bbox,
-  "WorldMercatorWGS84Quad",
+  world_mercator_quad.clone().setZoom(1, 17),
   "https://m12.shipxy.com/tile.c?l=Na&m=o&x={x}&y={y}&z={z}",
   "image/png",
 );
@@ -40,6 +29,4 @@ export const service: Service = {
   keywords: ["船讯网", "海图"],
 };
 
-export const cap = generate_capabilities(service, layers, [
-  WorldMercatorWGS84Quad,
-]);
+export const cap = new Capabilities(service, layers).xml;

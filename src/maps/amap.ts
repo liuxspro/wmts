@@ -1,9 +1,9 @@
 import {
-  default_matrix,
-  generate_capabilities,
+  Capabilities,
   MapLayer,
-  Service,
   mercator_bbox,
+  Service,
+  web_mercator_quad,
 } from "@liuxspro/capgen";
 
 const HOST = "https://wprd02.is.autonavi.com";
@@ -13,9 +13,9 @@ const satellite = new MapLayer(
   "高德 - 卫星影像 (GCJ02)，有偏移",
   "amap_sat",
   mercator_bbox,
-  "WebMercatorQuad",
+  web_mercator_quad,
   `${HOST}/appmaptile?lang=zh_cn&size=1&scale=1&style=6&x={x}&y={y}&z={z}`,
-  "image/jpeg"
+  "image/jpeg",
 );
 
 const street = new MapLayer(
@@ -23,9 +23,9 @@ const street = new MapLayer(
   "高德 - 矢量地图 (GCJ02)，有偏移",
   "amap_str",
   mercator_bbox,
-  "WebMercatorQuad",
+  web_mercator_quad,
   `${HOST}/appmaptile?lang=zh_cn&size=1&scale=1&style=7&x={x}&y={y}&z={z}`,
-  "image/png"
+  "image/png",
 );
 
 const annotes = new MapLayer(
@@ -33,9 +33,9 @@ const annotes = new MapLayer(
   "高德 - 矢量注记 (GCJ02)，有偏移",
   "amap_ann",
   mercator_bbox,
-  "WebMercatorQuad",
+  web_mercator_quad,
   `${HOST}/appmaptile?lang=zh_cn&size=1&scale=1&style=8&x={x}&y={y}&z={z}`,
-  "image/png"
+  "image/png",
 );
 
 const layers: MapLayer[] = [satellite, street, annotes];
@@ -46,6 +46,4 @@ export const service: Service = {
   keywords: ["高德地图"],
 };
 
-export const cap = generate_capabilities(service, layers, [
-  default_matrix.WebMercatorQuad,
-]);
+export const cap = new Capabilities(service, layers).xml;

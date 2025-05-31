@@ -6,11 +6,11 @@
  */
 
 import {
-  default_matrix,
-  generate_capabilities,
+  Capabilities,
   GeoPoint,
   MapLayer,
   Service,
+  web_mercator_quad,
 } from "@liuxspro/capgen";
 
 const beijing_maps = {
@@ -56,7 +56,7 @@ Object.entries(beijing_maps).forEach(([key, name]) => {
       name,
       key,
       beijing_bbox,
-      "WebMercatorQuad",
+      web_mercator_quad.clone(),
       `https://beijing.tianditu.gov.cn/iserver/services/map-2022_img/rest/maps/${key}/zxyTileImage/{z}/{x}/{y}.png?width=256&height=256&transparent=true`,
       "image/png",
     ),
@@ -70,7 +70,7 @@ Object.entries(beijing_old_maps).forEach(([key, name]) => {
       name,
       key,
       beijing_old_bbox,
-      "WebMercatorQuad",
+      web_mercator_quad.clone(),
       `https://beijing.tianditu.gov.cn/iserver/services/map-2022_img/rest/maps/${key}/zxyTileImage/{z}/{x}/{y}.png?width=256&height=256&transparent=true`,
       "image/png",
     ),
@@ -82,9 +82,7 @@ export const service: Service = {
   abstract: "天地图 北京 多时相影像",
   keywords: ["天地图", "北京", "多时相影像"],
 };
-export const cap = generate_capabilities(service, [
+export const cap = new Capabilities(service, [
   ...beijing_old_layers,
   ...beijing_layers,
-], [
-  default_matrix.WebMercatorQuad,
-]);
+]).xml;
