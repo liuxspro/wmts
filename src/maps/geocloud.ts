@@ -63,3 +63,13 @@ Object.entries(layers).forEach(([key, value]) => {
 });
 
 export const cap = new Capabilities(service, geocloud_layers);
+
+export function geocloud_cap(token: string) {
+  return new Capabilities(
+    service,
+    geocloud_layers.map((layer) => {
+      layer.set_token("tk", token);
+      return layer;
+    }),
+  ).xml;
+}

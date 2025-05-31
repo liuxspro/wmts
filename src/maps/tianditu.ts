@@ -67,4 +67,14 @@ Object.entries(tianditu_w).forEach(([key, value]) => {
   );
 });
 
-export const cap = new Capabilities(service, tianditu_layers);
+export const cap = new Capabilities(service, tianditu_layers).xml;
+
+export function tianditu_cap(token: string) {
+  return new Capabilities(
+    service,
+    tianditu_layers.map((layer) => {
+      layer.set_token("tk", token);
+      return layer;
+    }),
+  ).xml;
+}
