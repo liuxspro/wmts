@@ -6,7 +6,7 @@ import { layers as osm } from "../maps/osm.ts";
 import { layers as google } from "../maps/google_map.ts";
 import { layers as amap } from "../maps/amap.ts";
 import { layers as haitu } from "../maps/shipxy.ts";
-import { layer as bing } from "../maps/bing.ts";
+import { layers as bing } from "../maps/bing.ts";
 
 export const router = new Router();
 
