@@ -6,6 +6,7 @@ import { layers as osm } from "../maps/osm.ts";
 import { layers as google } from "../maps/google_map.ts";
 import { layers as amap } from "../maps/amap.ts";
 import { layers as haitu } from "../maps/shipxy.ts";
+import { layer as bing } from "../maps/bing.ts";
 
 export const router = new Router();
 
@@ -18,5 +19,6 @@ export const service: Service = {
 router.get("/collection", (ctx) => {
   ctx.response.type = "text/xml;charset=UTF-8";
   ctx.response.body =
-    new Capabilities(service, [...osm, ...google, ...amap, ...haitu]).xml;
+    new Capabilities(service, [...osm, ...google, ...amap, ...haitu, ...bing])
+      .xml;
 });
