@@ -8,6 +8,7 @@ import { layers as amap } from "../maps/amap.ts";
 import { layers as haitu } from "../maps/shipxy.ts";
 import { layers as bing } from "../maps/bing.ts";
 import { tianditu_layers } from "../maps/tianditu.ts";
+import { esri_layers } from "../maps/esri.ts";
 
 export const router = new Router();
 
@@ -34,6 +35,7 @@ router.get("/collection", (ctx) => {
     ...haitu,
     ...bing,
     ...tianditu,
+    ...esri_layers,
   ])
     .xml;
 });
