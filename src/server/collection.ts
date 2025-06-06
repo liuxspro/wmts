@@ -21,7 +21,7 @@ const tianditu = tianditu_layers.filter((layer) => layer.id.includes("_w")).map(
 export const service: Service = {
   title: "Collection of Basemaps",
   abstract:
-    "本服务提供常用 XYZ 格式地图瓦片合集，通过标准的 WMTS 接口发布，支持各类 GIS 平台与地图应用快速调用。by liuxspro@gmail.com",
+    "本服务提供常用 XYZ 格式地图瓦片合集，通过标准 WMTS 接口发布，支持各类 GIS 平台调用。by liuxspro@gmail.com",
   keywords: ["XYZ", "basemaps"],
 };
 
