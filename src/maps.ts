@@ -6,6 +6,7 @@ import { cap as osm } from "./maps/osm.ts";
 import { cap as shipxy } from "./maps/shipxy.ts";
 import { cap as amap } from "./maps/amap.ts";
 import { cap as beijing } from "./maps/tianditu/beijing.ts";
+import { cap as esri } from "./maps/esri.ts";
 
 export const maps = {
   debug,
@@ -16,4 +17,5 @@ export const maps = {
   shipxy,
   amap,
   beijing,
+  esri,
 };

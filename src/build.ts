@@ -16,3 +16,4 @@ Object.entries(maps).forEach(async ([key, value]) => {
   await create_dist_dir();
   await Deno.writeTextFile(`./dist/${key}.xml`, value);
 });
+console.log("Done!");
