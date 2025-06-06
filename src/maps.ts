@@ -7,6 +7,7 @@ import { cap as shipxy } from "./maps/shipxy.ts";
 import { cap as amap } from "./maps/amap.ts";
 import { cap as beijing } from "./maps/tianditu/beijing.ts";
 import { cap as esri } from "./maps/esri.ts";
+import { cap as google_earth } from "./maps/google_earth.ts";
 
 export const maps = {
   debug,
@@ -18,4 +19,5 @@ export const maps = {
   amap,
   beijing,
   esri,
+  google_earth,
 };
