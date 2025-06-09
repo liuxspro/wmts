@@ -27,6 +27,8 @@ const beijing_maps = {
   tdt_img_202401: "北京 - 2024年01月影像",
   tdt_img_202403: "北京 - 2024年03月影像",
   tdt_img_202404: "北京 - 2024年04月影像",
+  tdt_img_202405: "北京 - 2024年05月影像",
+  tdt_img_202406: "北京 - 2024年06月影像",
 };
 
 const beijing_old_maps = {
