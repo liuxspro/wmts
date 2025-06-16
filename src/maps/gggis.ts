@@ -13,7 +13,7 @@ const satellite = new MapLayer(
   "gggis_sat",
   mercator_bbox,
   web_mercator_quad.clone(),
-  "https://mt3v.gggis.com/maps/vt?lyrs=r&x={x}&y={y}&z={z}",
+  "https://mt3v.gggis.com/maps/vt?lyrs=s&x={x}&y={y}&z={z}",
   "image/jpeg",
 );
 
