@@ -9,7 +9,7 @@ import { layers as haitu } from "../maps/shipxy.ts";
 import { layers as bing } from "../maps/bing.ts";
 import { tianditu_layers } from "../maps/tianditu.ts";
 import { esri_layers } from "../maps/esri.ts";
-import { gggis_erath } from "../maps/google_earth.ts";
+import { gggis } from "../maps/gggis.ts";
 
 export const router = new Router();
 
@@ -37,7 +37,7 @@ router.get("/collection", (ctx) => {
     ...bing,
     ...tianditu,
     ...esri_layers,
-    ...gggis_erath,
+    ...gggis,
   ])
     .xml;
 });
