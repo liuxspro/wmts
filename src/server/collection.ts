@@ -10,6 +10,7 @@ import { layers as bing } from "../maps/bing.ts";
 import { tianditu_layers } from "../maps/tianditu.ts";
 import { esri_layers } from "../maps/esri.ts";
 import { gggis } from "../maps/gggis.ts";
+import { layers as yandex } from "../maps/yandex.ts";
 
 export const router = new Router();
 
@@ -38,6 +39,7 @@ router.get("/collection", (ctx) => {
     ...tianditu,
     ...esri_layers,
     ...gggis,
+    ...yandex,
   ])
     .xml;
 });

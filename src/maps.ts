@@ -9,6 +9,7 @@ import { cap as beijing } from "./maps/tianditu/beijing.ts";
 import { cap as esri } from "./maps/esri.ts";
 import { cap as gggis } from "./maps/gggis.ts";
 import { cap as jl } from "./maps/tianditu/jilin.ts";
+import { cap as yandex } from "./maps/yandex.ts";
 
 export const maps = {
   debug,
@@ -22,4 +23,5 @@ export const maps = {
   esri,
   gggis,
   jl,
+  yandex,
 };
