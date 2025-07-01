@@ -28,18 +28,19 @@ export const service: Service = {
   keywords: ["XYZ", "basemaps"],
 };
 
+export const collection = new Capabilities(service, [
+  ...osm,
+  ...google,
+  ...amap,
+  ...haitu,
+  ...bing,
+  ...tianditu,
+  ...esri_layers,
+  ...gggis,
+  ...yandex,
+]).xml;
+
 router.get("/collection", (ctx) => {
   ctx.response.type = "text/xml;charset=UTF-8";
-  ctx.response.body = new Capabilities(service, [
-    ...osm,
-    ...google,
-    ...amap,
-    ...haitu,
-    ...bing,
-    ...tianditu,
-    ...esri_layers,
-    ...gggis,
-    ...yandex,
-  ])
-    .xml;
+  ctx.response.body = collection;
 });

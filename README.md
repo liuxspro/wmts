@@ -12,7 +12,7 @@ deployctl deploy --entrypoint .\src\server.ts
 
 ### 常用底图合集 `/collection`
 
-常用底图合集 All in One
+常用底图合集 All in One : `/dist/collection.xml`
 
 ### 常用底图分集
 
