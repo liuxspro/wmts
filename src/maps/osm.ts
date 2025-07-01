@@ -45,7 +45,19 @@ const osmand = new MapLayer(
   "image/png",
 );
 
-export const layers = [osm, osm_de, osmand];
+// from F4map
+// https://www.f4map.com
+const f4map_2d = new MapLayer(
+  "F4map - 2D",
+  "F4map - 2D",
+  "osm_f4map_2d",
+  mercator_bbox,
+  web_mercator_quad_hd.clone(),
+  "https://tile.f4map.com/tiles/f4_2d/{z}/{x}/{y}.png",
+  "image/png",
+);
+
+export const layers = [osm, osm_de, osmand, f4map_2d];
 
 export const service: Service = {
   title: "OpenStreetMap",
