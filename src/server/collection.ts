@@ -11,6 +11,7 @@ import { tianditu_layers } from "../maps/tianditu.ts";
 import { esri_layers } from "../maps/esri.ts";
 import { gggis } from "../maps/gggis.ts";
 import { layers as yandex } from "../maps/yandex.ts";
+import { layers as geoq } from "../maps/geoq.ts";
 
 export const router = new Router();
 
@@ -38,6 +39,7 @@ export const collection = new Capabilities(service, [
   ...esri_layers,
   ...gggis,
   ...yandex,
+  ...geoq,
 ]).xml;
 
 router.get("/collection", (ctx) => {
