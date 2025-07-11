@@ -14,6 +14,8 @@ const maps = {
   "World Ocean Base": `${HOST}/Ocean/World_Ocean_Base/${xyzpath}`,
   "World Terrain Base": `${HOST}/World_Terrain_Base/${xyzpath}`,
   "World Physical Map": `${HOST}/World_Physical_Map/${xyzpath}`,
+  "World Hillshade": `${HOST}/Elevation/World_Hillshade/${xyzpath}`,
+  "World Light Gray": `${HOST}/Canvas/World_Light_Gray_Base/${xyzpath}`,
 };
 
 export const esri_layers: MapLayer[] = [];
