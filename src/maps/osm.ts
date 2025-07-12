@@ -57,7 +57,41 @@ const f4map_2d = new MapLayer(
   "image/png",
 );
 
-export const layers = [osm, osm_de, osmand, f4map_2d];
+// from Carto
+// https://basemaps.cartocdn.com/
+const carto_voyager = new MapLayer(
+  "Carto - Voyager(nolabels)",
+  "Carto - Voyager(nolabels)",
+  "carto_voyager",
+  mercator_bbox,
+  web_mercator_quad_hd.clone(),
+  "https://basemaps.cartocdn.com/rastertiles/voyager_no_labels_no_buildings/{z}/{x}/{y}@2x.png",
+  "image/png",
+);
+
+const carto_light = new MapLayer(
+  "Carto - Light(nolabels)",
+  "Carto - Light(nolabels)",
+  "carto_light",
+  mercator_bbox,
+  web_mercator_quad_hd.clone(),
+  "https://basemaps.cartocdn.com/light_nolabels/{z}/{x}/{y}@2x.png",
+  "image/png",
+);
+
+const carto_dark = new MapLayer(
+  "Carto - Dark(nolabels)",
+  "Carto - Dark(nolabels)",
+  "carto_dark",
+  mercator_bbox,
+  web_mercator_quad_hd.clone(),
+  "https://basemaps.cartocdn.com/dark_nolabels/{z}/{x}/{y}@2x.png",
+  "image/png",
+);
+
+const carto = [carto_voyager, carto_light, carto_dark];
+
+export const layers = [osm, osm_de, osmand, f4map_2d, ...carto];
 
 export const service: Service = {
   title: "OpenStreetMap",
