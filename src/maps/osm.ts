@@ -60,8 +60,8 @@ const f4map_2d = new MapLayer(
 // from Carto
 // https://basemaps.cartocdn.com/
 const carto_voyager = new MapLayer(
-  "Carto - Voyager(nolabels)",
-  "Carto - Voyager(nolabels)",
+  "Carto - Voyager (nolabels)",
+  "Carto - Voyager (nolabels)",
   "carto_voyager",
   mercator_bbox,
   web_mercator_quad_hd.clone(),
@@ -70,8 +70,8 @@ const carto_voyager = new MapLayer(
 );
 
 const carto_light = new MapLayer(
-  "Carto - Light(nolabels)",
-  "Carto - Light(nolabels)",
+  "Carto - Light (nolabels)",
+  "Carto - Light (nolabels)",
   "carto_light",
   mercator_bbox,
   web_mercator_quad_hd.clone(),
@@ -80,8 +80,8 @@ const carto_light = new MapLayer(
 );
 
 const carto_dark = new MapLayer(
-  "Carto - Dark(nolabels)",
-  "Carto - Dark(nolabels)",
+  "Carto - Dark (nolabels)",
+  "Carto - Dark (nolabels)",
   "carto_dark",
   mercator_bbox,
   web_mercator_quad_hd.clone(),
