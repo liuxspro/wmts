@@ -18,7 +18,7 @@ const satellite = new MapLayer(
 );
 
 // See https://siyouhua.gggis.com/api/image.html
-const gggis_earth_new = new MapLayer(
+const _gggis_earth_new = new MapLayer(
   "Google Earth (谷谷地球 无水印高清)",
   "谷谷地球 无水印高清影像",
   "gggis_google_new",
@@ -35,11 +35,11 @@ const gggis_earth_timetile = new MapLayer(
   "gggis_google_time",
   mercator_bbox,
   world_crs84_quad_less.clone(),
-  "https://tileser.giiiis.com/timetile/0/{z}/{x}/{y}.jpg",
+  "http://abc.gggis.com:13001/timetile/0/{z}/{x}/{y}.jpg",
   "image/jpeg",
 );
 
-export const gggis = [gggis_earth_new, gggis_earth_timetile, satellite];
+export const gggis = [gggis_earth_timetile, satellite];
 
 export const cap = new Capabilities(
   default_service,
