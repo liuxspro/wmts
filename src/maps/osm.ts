@@ -91,7 +91,17 @@ const carto_dark = new MapLayer(
 
 const carto = [carto_voyager, carto_light, carto_dark];
 
-export const layers = [osm, osm_de, osmand, f4map_2d, ...carto];
+const windy_dark = new MapLayer(
+  "Windy - Darkmap",
+  "Windy - Darkmap",
+  "windy_dark",
+  mercator_bbox,
+  web_mercator_quad_hd.clone().setZoom(1, 11),
+  "https://tiles.windy.com/tiles/v10.0/darkmap-retina/{z}/{x}/{y}.png",
+  "image/png",
+);
+
+export const layers = [osm, osm_de, osmand, f4map_2d, ...carto, windy_dark];
 
 export const service: Service = {
   title: "OpenStreetMap",
