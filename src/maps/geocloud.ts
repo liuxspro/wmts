@@ -48,7 +48,7 @@ export const geocloud_layers: MapLayer[] = [];
 Object.entries(layers).forEach(([key, value]) => {
   const HOST = "https://igss.cgs.gov.cn:6160";
   const url =
-    `${HOST}/igs/rest/ogc/${key}/WMTSServer/1.0.0/${key}/default/EPSG%3A4326_${key}_028mm_GB/{z}/{y}/{x}.png?`;
+    `${HOST}/igs/rest/ogc/${key}/WMTSServer?Width=256&Height=256&layer=${key}&style=default&tilematrixset=EPSG%3A4326_${key}_028mm_GB&Service=WMTS&Request=GetTile&Version=1.0.0&Format=image%2Fpng&TileMatrix={z}&TileCol={x}&TileRow={y}`;
   geocloud_layers.push(
     new MapLayer(
       value,
