@@ -12,7 +12,7 @@ const bing = new MapLayer(
   "bing",
   mercator_bbox,
   web_mercator_quad.clone(),
-  "https://basemaps.deno.dev/bing/{z}/{x}/{y}",
+  "https://wmts.liuxs.pro/tile/bing/{z}/{x}/{y}",
   "image/jpeg",
 );
 
