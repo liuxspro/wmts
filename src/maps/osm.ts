@@ -101,7 +101,29 @@ const windy_dark = new MapLayer(
   "image/png",
 );
 
-export const layers = [osm, osm_de, osmand, f4map_2d, ...carto, windy_dark];
+const windy_outdoor = new MapLayer(
+  "Windy - Outdoor",
+  "Windy - Outdoor",
+  "windy_outdoor",
+  mercator_bbox,
+  web_mercator_quad_hd.clone(),
+  "https://tiles.windy.com/v1/maptiles/outdoor/256@2x/{z}/{x}/{y}/",
+  "image/png",
+);
+
+const windy_winter = new MapLayer(
+  "Windy - Winter",
+  "Windy - Outdoor",
+  "windy_outdoor",
+  mercator_bbox,
+  web_mercator_quad.clone(),
+  "https://tiles.windy.com/v1/maptiles/winter/256/{z}/{x}/{y}/",
+  "image/png",
+);
+
+const windy = [windy_dark, windy_outdoor, windy_winter];
+
+export const layers = [osm, osm_de, osmand, f4map_2d, ...carto, ...windy];
 
 export const service: Service = {
   title: "OpenStreetMap",
