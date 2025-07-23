@@ -1,35 +1,20 @@
-import { Application } from "jsr:@oak/oak/application";
-import { Router } from "jsr:@oak/oak/router";
-import { send } from "jsr:@oak/oak/send";
-
-import { router as tianditu_router } from "./server/tianditu.ts";
-import { router as geocloud_router } from "./server/geocloud.ts";
+import { Hono } from "@hono/hono";
+import { serveStatic } from "@hono/hono/deno";
 import { router as collection } from "./server/collection.ts";
+import { router as geocloud_router } from "./server/geocloud.ts";
+import { router as tianditu_router } from "./server/tianditu.ts";
 import { router as bing } from "./server/tiles/bing.ts";
 
-const router = new Router();
+const app = new Hono();
 
-router.get("/", (ctx) => {
-  ctx.response.body = "On Deno Deploy 💖";
+app.get("/", (c) => {
+  return c.html("<code>On Deno Deploy 💖</code>");
 });
 
-router.get("/dist/:filename", async (ctx) => {
-  const filename = ctx.params.filename; // 动态获取文件名
-  await send(ctx, filename, {
-    root: `${Deno.cwd()}/dist`,
-  });
-});
+app.use("/dist/*", serveStatic({ root: "./" }));
+app.route("/collection", collection);
+app.route("/geocloud", geocloud_router);
+app.route("/tianditu", tianditu_router);
+app.route("/", bing);
 
-const app = new Application();
-app.use(router.routes());
-app.use(tianditu_router.routes());
-app.use(geocloud_router.routes());
-app.use(collection.routes());
-app.use(bing.routes());
-app.use(router.allowedMethods());
-
-const port = 8080;
-
-console.log(`Server runing as http://localhost:${port}`);
-
-app.listen({ hostname: "0.0.0.0", port });
+Deno.serve(app.fetch);

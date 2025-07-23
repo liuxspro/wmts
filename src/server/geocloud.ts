@@ -1,16 +1,14 @@
 import { geocloud_cap } from "../maps/geocloud.ts";
-import { Router } from "jsr:@oak/oak/router";
+import { Hono } from "@hono/hono";
 
-export const router = new Router();
+export const router = new Hono();
 
-router.get("/geocloud", (ctx) => {
-  const headers = ctx.request.headers;
-  const token = headers.get("tk") || ctx.request.url.searchParams.get("tk");
+router.get("/", (c) => {
+  const token = c.req.header("tk") || c.req.query("tk");
   if (token) {
-    ctx.response.type = "text/xml;charset=UTF-8";
-    ctx.response.body = geocloud_cap(token);
+    c.header("Content-Type", "text/xml;charset=UTF-8");
+    return c.body(geocloud_cap(token));
   } else {
-    ctx.response.status = 404;
-    ctx.response.body = "geocloud token not set";
+    return c.text("Token is required", 400);
   }
 });

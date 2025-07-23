@@ -1,9 +1,9 @@
-import { Router } from "jsr:@oak/oak/router";
+import { Hono } from "@hono/hono";
 import { collection } from "../maps/collection.ts";
 
-export const router = new Router();
+export const router = new Hono();
 
-router.get("/collection", (ctx) => {
-  ctx.response.type = "text/xml;charset=UTF-8";
-  ctx.response.body = collection;
+router.get("/", (c) => {
+  c.header("Content-Type", "text/xml;charset=UTF-8");
+  return c.body(collection);
 });

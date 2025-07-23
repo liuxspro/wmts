@@ -1,4 +1,4 @@
-import { Router } from "jsr:@oak/oak/router";
+import { Hono } from "@hono/hono";
 
 function tileToQuadkey(x: number, y: number, z: number) {
   if (z === 0) {
@@ -15,14 +15,14 @@ function tileToQuadkey(x: number, y: number, z: number) {
   return quadkey;
 }
 
-export const router = new Router();
+export const router = new Hono();
 
-router.get("/tile/bing/:z/:x/:y", (ctx) => {
-  const { z, x, y } = ctx.params;
+router.get("/tile/bing/:z/:x/:y", (c) => {
+  const { z, x, y } = c.req.param();
   const quadkey = tileToQuadkey(parseInt(x), parseInt(y), parseInt(z));
   const redirect =
     `https://ecn.t3.tiles.virtualearth.net/tiles/a${quadkey}.jpeg?g=0&dir=dir_n`;
 
   // 重定向至 redict_url
-  ctx.response.redirect(redirect);
+  return c.redirect(redirect);
 });
