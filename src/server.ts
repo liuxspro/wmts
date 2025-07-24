@@ -1,5 +1,6 @@
 import { Hono } from "@hono/hono";
 import { serveStatic } from "@hono/hono/deno";
+import { trimTrailingSlash } from "@hono/hono/trailing-slash";
 import { router as collection } from "./server/collection.ts";
 import { router as geocloud_router } from "./server/geocloud.ts";
 import { router as tianditu_router } from "./server/tianditu.ts";
@@ -12,6 +13,8 @@ app.get("/", (c) => {
 });
 
 app.use("/dist/*", serveStatic({ root: "./" }));
+app.use(trimTrailingSlash());
+
 app.route("/collection", collection);
 app.route("/geocloud", geocloud_router);
 app.route("/tianditu", tianditu_router);
