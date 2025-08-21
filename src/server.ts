@@ -4,6 +4,7 @@ import { trimTrailingSlash } from "@hono/hono/trailing-slash";
 import { router as collection } from "./server/collection.ts";
 import { router as geocloud_router } from "./server/geocloud.ts";
 import { router as tianditu_router } from "./server/tianditu.ts";
+import { router as jl1_router } from "./server/jilin1.ts";
 import { router as bing } from "./server/tiles/bing.ts";
 
 const app = new Hono();
@@ -18,6 +19,7 @@ app.use(trimTrailingSlash());
 app.route("/collection", collection);
 app.route("/geocloud", geocloud_router);
 app.route("/tianditu", tianditu_router);
+app.route("/jl1", jl1_router);
 app.route("/", bing);
 
 Deno.serve(app.fetch);
