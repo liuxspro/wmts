@@ -47,8 +47,12 @@ export const geocloud_layers: MapLayer[] = [];
 
 Object.entries(layers).forEach(([key, value]) => {
   const HOST = "https://igss.cgs.gov.cn:6160";
+  // 100 万地质图的中文名称会导致在 arcmap 中无法加载瓦片
+  // 进行 URL 编码后方可以正常加载
+  // id 仍然为未编码的名称 否则 QGIS 无法加载
+  const ekey = encodeURIComponent(key);
   const url =
-    `${HOST}/igs/rest/ogc/${key}/WMTSServer?Width=256&Height=256&layer=${key}&style=default&tilematrixset=EPSG%3A4326_${key}_028mm_GB&Service=WMTS&Request=GetTile&Version=1.0.0&Format=image%2Fpng&TileMatrix={z}&TileCol={x}&TileRow={y}`;
+    `${HOST}/igs/rest/ogc/${ekey}/WMTSServer?Width=256&Height=256&layer=${ekey}&style=default&tilematrixset=EPSG%3A4326_${ekey}_028mm_GB&Service=WMTS&Request=GetTile&Version=1.0.0&Format=image%2Fpng&TileMatrix={z}&TileCol={x}&TileRow={y}`;
   geocloud_layers.push(
     new MapLayer(
       value,
