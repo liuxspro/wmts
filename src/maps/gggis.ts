@@ -35,7 +35,7 @@ const gggis_earth_timetile = new MapLayer(
   "gggis_google_time",
   mercator_bbox,
   world_crs84_quad_less.clone(),
-  "http://abc.gggis.com:13001/timetile/0/{z}/{x}/{y}.jpg",
+  "https://tileser.giiiis.com/timetile/0/{z}/{x}/{y}.jpg",
   "image/jpeg",
 );
 
