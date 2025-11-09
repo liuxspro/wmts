@@ -6,6 +6,18 @@ import {
   web_mercator_quad,
 } from "@liuxspro/capgen";
 
+// https://www.jl1mall.com/rskit/RSsserviceManage
+
+const jl1_2022 = new MapLayer(
+  "吉林一号 - 2022年度全国高质量一张图",
+  "吉林一号 - 2022年度全国高质量一张图",
+  "jl1_2022",
+  mercator_bbox,
+  web_mercator_quad.clone(),
+  "https://api.jl1mall.com/getMap?TileMatrix={z}&TileCol={x}&TileRow={y}&sch=wmts&route=1&mk=bd60ffe96379e0c9cbc1be02b06e3622",
+  "image/jpeg",
+);
+
 const jl1_2023 = new MapLayer(
   "吉林一号 - 2023年度全国高质量一张图",
   "吉林一号 - 2023年度全国高质量一张图",
@@ -26,7 +38,7 @@ const jl1_2024 = new MapLayer(
   "image/jpeg",
 );
 
-export const layers = [jl1_2023, jl1_2024];
+export const layers = [jl1_2022, jl1_2023, jl1_2024];
 
 export const service: Service = {
   title: "吉林一号",
