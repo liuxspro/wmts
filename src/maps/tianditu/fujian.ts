@@ -60,4 +60,15 @@ Object.entries(img_fj_2025_his).forEach(([time, name]) => {
   );
 });
 
+const ter_layer = new MapLayer(
+  "天地图 福建 地形图 2021",
+  "天地图 福建 地形图 2021",
+  "tianditu_fj_ter",
+  fj_bbox,
+  cgcs2000_quad.clone().setZoom(7, 18),
+  `https://s0.fjmap.net/ter_fj_2021/wmts?SERVICE=WMTS&REQUEST=GetTile&VERSION=1.0.0&LAYER=TER_FJ&STYLE=default&FORMAT=tiles&TILEMATRIXSET=default028mm&TILEMATRIX={z}&TILEROW={y}&TILECOL={x}`,
+);
+
+tianditu_fj_layers.push(ter_layer);
+
 export const cap = new Capabilities(service, tianditu_fj_layers).xml;
