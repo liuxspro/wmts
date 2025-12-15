@@ -1,6 +1,7 @@
 import { Hono } from "@hono/hono";
 import { tianditu_cap } from "../maps/tianditu.ts";
 import { gen_sd_cap } from "../maps/tianditu_sd.ts";
+import { cap as fujian } from "../maps/tianditu/fujian.ts";
 
 export const router = new Hono();
 
@@ -31,4 +32,9 @@ router.get("/sdhis/:id/:el", (c) => {
   const tk = c.req.query("tk") || "";
   c.header("Content-Type", "text/xml;charset=UTF-8");
   return c.body(gen_sd_cap(id, 3, z, tk));
+});
+
+router.get("/fujian", (c) => {
+  c.header("Content-Type", "text/xml;charset=UTF-8");
+  return c.body(fujian);
 });
