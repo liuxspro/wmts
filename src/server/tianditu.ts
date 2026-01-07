@@ -1,7 +1,8 @@
 import { Hono } from "@hono/hono";
-import { tianditu_cap } from "../maps/tianditu.ts";
-import { gen_sd_cap } from "../maps/tianditu_sd.ts";
-import { cap as fujian } from "../maps/tianditu/fujian.ts";
+import { tianditu_cap } from "../maps/tianditu/main.ts";
+import { gen_sd_cap } from "../maps/tianditu/shandong.ts";
+import { cap as 福建 } from "../maps/tianditu/fujian.ts";
+import { cap as 江苏 } from "../maps/tianditu/jiangsu.ts";
 
 export const router = new Hono();
 
@@ -36,5 +37,10 @@ router.get("/sdhis/:id/:el", (c) => {
 
 router.get("/fujian", (c) => {
   c.header("Content-Type", "text/xml;charset=UTF-8");
-  return c.body(fujian);
+  return c.body(福建);
+});
+
+router.get("/jiangsu", (c) => {
+  c.header("Content-Type", "text/xml;charset=UTF-8");
+  return c.body(江苏);
 });

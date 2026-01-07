@@ -5,7 +5,7 @@ import { layers as google } from "../maps/google_map.ts";
 import { layers as amap } from "../maps/amap.ts";
 import { layers as haitu } from "../maps/shipxy.ts";
 import { layers as bing } from "../maps/bing.ts";
-import { tianditu_layers } from "../maps/tianditu.ts";
+import { tianditu_layers } from "./tianditu/main.ts";
 import { esri_layers } from "../maps/esri.ts";
 import { gggis } from "../maps/gggis.ts";
 import { layers as yandex } from "../maps/yandex.ts";
