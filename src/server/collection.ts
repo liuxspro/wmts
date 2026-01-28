@@ -1,4 +1,4 @@
-import { Hono } from "@hono/hono";
+import { Hono } from "hono";
 import { collection } from "../maps/collection.ts";
 
 export const router = new Hono();

@@ -1,4 +1,4 @@
-import { Hono } from "@hono/hono";
+import { Hono } from "hono";
 import { tianditu_cap } from "../maps/tianditu/main.ts";
 import { gen_sd_cap } from "../maps/tianditu/shandong.ts";
 import { cap as 福建 } from "../maps/tianditu/fujian.ts";

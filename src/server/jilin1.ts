@@ -1,4 +1,4 @@
-import { Hono } from "@hono/hono";
+import { Hono } from "hono";
 import { jl1_cap } from "../maps/jilin1.ts";
 
 export const router = new Hono();

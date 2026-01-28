@@ -1,6 +1,6 @@
-import { Hono } from "@hono/hono";
-import { serveStatic } from "@hono/hono/deno";
-import { trimTrailingSlash } from "@hono/hono/trailing-slash";
+import { Hono } from "hono";
+import { serveStatic } from "hono/deno";
+import { trimTrailingSlash } from "hono/trailing-slash";
 import { router as collection } from "./server/collection.ts";
 import { router as geocloud_router } from "./server/geocloud.ts";
 import { router as tianditu_router } from "./server/tianditu.ts";

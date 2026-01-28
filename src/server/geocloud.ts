@@ -1,5 +1,5 @@
 import { geocloud_cap } from "../maps/geocloud.ts";
-import { Hono } from "@hono/hono";
+import { Hono } from "hono";
 
 export const router = new Hono();
 

@@ -1,4 +1,4 @@
-import { Hono } from "@hono/hono";
+import { Hono } from "hono";
 
 function tileToQuadkey(x: number, y: number, z: number) {
   if (z === 0) {
