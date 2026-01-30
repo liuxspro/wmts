@@ -16,6 +16,17 @@ const maps = {
   "World Physical Map": `${HOST}/World_Physical_Map/${xyzpath}`,
   "World Hillshade": `${HOST}/Elevation/World_Hillshade/${xyzpath}`,
   "World Light Gray": `${HOST}/Canvas/World_Light_Gray_Base/${xyzpath}`,
+  "World Dark Gray": `${HOST}/Canvas/World_Dark_Gray_Base/${xyzpath}`,
+};
+
+const maps_maxzoom = {
+  "World Imagery": 18,
+  "World Ocean Base": 10,
+  "World Terrain Base": 9,
+  "World Physical Map": 8,
+  "World Hillshade": 16,
+  "World Light Gray": 16,
+  "World Dark Gray": 16,
 };
 
 export const esri_layers: MapLayer[] = [];
@@ -27,7 +38,10 @@ Object.entries(maps).forEach(([key, value]) => {
       `ERSI ${key}`,
       `esri_${key.replaceAll(" ", "")}`,
       mercator_bbox,
-      web_mercator_quad.clone(),
+      web_mercator_quad.setZoom(
+        1,
+        maps_maxzoom[key as keyof typeof maps_maxzoom],
+      ).clone(),
       value,
       "image/jpeg",
     ),
