@@ -38,10 +38,10 @@ Object.entries(maps).forEach(([key, value]) => {
       `ERSI ${key}`,
       `esri_${key.replaceAll(" ", "")}`,
       mercator_bbox,
-      web_mercator_quad.setZoom(
+      web_mercator_quad.clone().setZoom(
         1,
         maps_maxzoom[key as keyof typeof maps_maxzoom],
-      ).clone(),
+      ),
       value,
       "image/jpeg",
     ),
