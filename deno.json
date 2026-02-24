@@ -4,12 +4,6 @@
     "build": "deno run -A ./src/build.ts",
     "deploy": "deployctl deploy"
   },
-  "deploy": {
-    "project": "148f8cbf-1faa-48ff-ad8e-bd6cb6c7c271",
-    "exclude": ["**/node_modules", "**/.git"],
-    "include": [],
-    "entrypoint": "src\\server.ts"
-  },
   "imports": {
     "@liuxspro/libs": "jsr:@liuxspro/libs@^0.1.13",
     "hono": "jsr:@hono/hono@^4.11.7",
