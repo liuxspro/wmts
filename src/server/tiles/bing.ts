@@ -1,9 +1,9 @@
 import { Hono } from "hono";
 import { XYZ } from "@liuxspro/libs/geo";
 
-export const router = new Hono();
+const app = new Hono();
 
-router.get("/tile/bing/:z/:x/:y", (c) => {
+app.get("/tile/bing/:z/:x/:y", (c) => {
   const { z, x, y } = c.req.param();
   const xyz = new XYZ(parseInt(x), parseInt(y), parseInt(z));
   const quadkey = xyz.to_bing_quadkey();
@@ -13,3 +13,5 @@ router.get("/tile/bing/:z/:x/:y", (c) => {
   // 重定向至 redict_url
   return c.redirect(redirect);
 });
+
+export default app;

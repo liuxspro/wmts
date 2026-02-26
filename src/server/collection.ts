@@ -1,9 +1,11 @@
 import { Hono } from "hono";
 import { collection } from "../maps/collection.ts";
 
-export const router = new Hono();
+const app = new Hono();
 
-router.get("/", (c) => {
+app.get("/", (c) => {
   c.header("Content-Type", "text/xml;charset=UTF-8");
   return c.body(collection);
 });
+
+export default app;
