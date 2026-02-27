@@ -10,8 +10,13 @@ import bing from "./server/tiles/bing.ts";
 const app = new Hono();
 
 app.get("/", (c) => {
-  return c.html("<code>On Deno Deploy 💖</code>");
+  return c.html(`
+<a href="/collection"  target="_blank">wmts map collection</a><br>
+<code>On Deno Deploy 💖</code>
+`);
 });
+
+app.use("/index.html", serveStatic({ root: "./src" }));
 
 app.use("/dist/*", serveStatic({ root: "./" }));
 app.use(trimTrailingSlash());
