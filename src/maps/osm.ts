@@ -131,4 +131,5 @@ export const service: Service = {
   keywords: ["OpenStreetMap", "osm"],
 };
 
-export const cap = new Capabilities(service, layers).xml;
+const cap = new Capabilities(service, layers).xml;
+export default cap;
