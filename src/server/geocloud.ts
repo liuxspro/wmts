@@ -1,9 +1,9 @@
 import { geocloud_cap } from "../maps/geocloud.ts";
 import { Hono } from "hono";
 
-export const router = new Hono();
+const app = new Hono();
 
-router.get("/", (c) => {
+app.get("/", (c) => {
   const token = c.req.header("tk") || c.req.query("tk");
   if (token) {
     c.header("Content-Type", "text/xml;charset=UTF-8");
@@ -12,3 +12,5 @@ router.get("/", (c) => {
     return c.text("Token is required", 400);
   }
 });
+
+export default app;

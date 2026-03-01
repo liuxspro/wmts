@@ -4,9 +4,9 @@ import { gen_sd_cap } from "../maps/tianditu/shandong.ts";
 import { cap as 福建 } from "../maps/tianditu/fujian.ts";
 import { cap as 江苏 } from "../maps/tianditu/jiangsu.ts";
 
-export const router = new Hono();
+const app = new Hono();
 
-router.get("/", (c) => {
+app.get("/", (c) => {
   const tk_name = "tdt"; // 如果用tk, arcgis 设置的自定义参数会导致瓦片URL tk 重复
   const tdt_tk = c.req.header(tk_name) || c.req.query(tk_name);
   if (tdt_tk) {
@@ -27,7 +27,7 @@ router.get("/", (c) => {
   }
 });
 
-router.get("/sdhis/:id/:el", (c) => {
+app.get("/sdhis/:id/:el", (c) => {
   const { id, el } = c.req.param();
   const z = parseInt(el);
   const tk = c.req.query("tk") || "";
@@ -35,12 +35,14 @@ router.get("/sdhis/:id/:el", (c) => {
   return c.body(gen_sd_cap(id, 3, z, tk));
 });
 
-router.get("/fujian", (c) => {
+app.get("/fujian", (c) => {
   c.header("Content-Type", "text/xml;charset=UTF-8");
   return c.body(福建);
 });
 
-router.get("/jiangsu", (c) => {
+app.get("/jiangsu", (c) => {
   c.header("Content-Type", "text/xml;charset=UTF-8");
   return c.body(江苏);
 });
+
+export default app;

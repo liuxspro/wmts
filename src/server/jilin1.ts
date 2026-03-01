@@ -1,9 +1,9 @@
 import { Hono } from "hono";
 import { jl1_cap } from "../maps/jilin1.ts";
 
-export const router = new Hono();
+const app = new Hono();
 
-router.get("/", (c) => {
+app.get("/", (c) => {
   const tk_name = "tk"; // 如果用tk, arcgis 设置的自定义参数会导致瓦片URL tk 重复
   const tdt_tk = c.req.header(tk_name) || c.req.query(tk_name);
   if (tdt_tk) {
@@ -23,3 +23,5 @@ router.get("/", (c) => {
     return c.text("JiLin1 token is required", 400);
   }
 });
+
+export default app;

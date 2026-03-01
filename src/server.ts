@@ -1,12 +1,13 @@
 import { Hono } from "hono";
 import { serveStatic } from "hono/deno";
 import { trimTrailingSlash } from "hono/trailing-slash";
-import collection from "./server/collection.ts";
-import { router as geocloud_router } from "./server/geocloud.ts";
-import { router as tianditu_router } from "./server/tianditu.ts";
-import { router as jl1_router } from "./server/jilin1.ts";
-import bing from "./server/tiles/bing.ts";
+
 import osm from "./server/osm.ts";
+import bing from "./server/tiles/bing.ts";
+import jl1_router from "./server/jilin1.ts";
+import collection from "./server/collection.ts";
+import geocloud_router from "./server/geocloud.ts";
+import tianditu_router from "./server/tianditu.ts";
 
 const app = new Hono();
 
