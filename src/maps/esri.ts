@@ -38,7 +38,7 @@ Object.entries(maps).forEach(([key, value]) => {
       `ERSI ${key}`,
       `esri_${key.replaceAll(" ", "")}`,
       mercator_bbox,
-      web_mercator_quad.clone().setZoom(
+      web_mercator_quad.setZoom(
         1,
         maps_maxzoom[key as keyof typeof maps_maxzoom],
       ),
@@ -54,4 +54,5 @@ export const service: Service = {
   keywords: ["ESRI"],
 };
 
-export const cap = new Capabilities(service, esri_layers).xml;
+const cap = new Capabilities(service, esri_layers).xml;
+export default cap;
