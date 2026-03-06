@@ -1,18 +1,23 @@
 {
   "version": "5",
   "specifiers": {
+    "jsr:@es-toolkit/es-toolkit@^1.38.0": "1.44.0",
     "jsr:@hono/hono@^4.11.7": "4.11.7",
-    "jsr:@liuxspro/capgen@~0.2.3": "0.2.3",
+    "jsr:@liuxspro/capgen@~0.2.1": "0.2.1",
     "jsr:@liuxspro/libs@~0.1.13": "0.1.13",
-    "npm:minijinja-js@^2.15.1": "2.17.1"
+    "npm:minijinja-js@^2.9.0": "2.15.1"
   },
   "jsr": {
+    "@es-toolkit/es-toolkit@1.44.0": {
+      "integrity": "647a7e777945a3ac81bd1783670f85429c2a661510d9af36becc6963ddfca00d"
+    },
     "@hono/hono@4.11.7": {
       "integrity": "2a0dc00088fbef98b76f575e3c4ab3d2c770d5e6095be215ae05c2aef25b363a"
     },
-    "@liuxspro/capgen@0.2.3": {
-      "integrity": "7b6603009b7adc832e748f896deabd442a6ce78e36a24e6d1a454539646b3255",
+    "@liuxspro/capgen@0.2.1": {
+      "integrity": "d01bb326c682a73e3aaec0fb76259015d5d6e7783e2cb02673fafaf002deeda6",
       "dependencies": [
+        "jsr:@es-toolkit/es-toolkit",
         "npm:minijinja-js"
       ]
     },
@@ -21,14 +26,14 @@
     }
   },
   "npm": {
-    "minijinja-js@2.17.1": {
-      "integrity": "sha512-Q9vlhYmjSEqc64/cVNZpAX27+YUFZdBE5tw/d4snd1j2jo5ORMxS1Vh5Hev/Sx+AMhXkRPcSnB2PnTs8qKnkrg=="
+    "minijinja-js@2.15.1": {
+      "integrity": "sha512-I+fGgYYDh/Io1kJ1YSD1Mc9sdlK4Fdm6vHeV0qLY12684+RN3GBy9KFmykhN1fY4FGXyqKteBMDeSKkynuC79A=="
     }
   },
   "workspace": {
     "dependencies": [
       "jsr:@hono/hono@^4.11.7",
-      "jsr:@liuxspro/capgen@~0.2.3",
+      "jsr:@liuxspro/capgen@~0.2.1",
       "jsr:@liuxspro/libs@~0.1.13"
     ]
   }
