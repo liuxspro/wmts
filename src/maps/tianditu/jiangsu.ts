@@ -41,6 +41,10 @@ const map_name = {
   js_yxdt_2022: "江苏 2022年影像地图",
   js_yxdt_2023: "江苏 2023年影像地图",
   js_yxdt_2024: "江苏 2024年影像地图",
+  js_yxdt_2025Q1: "江苏 2025年1季度影像地图",
+  js_yxdt_2025Q2: "江苏 2025年2季度影像地图",
+  js_yxdt_2025Q3: "江苏 2025年3季度影像地图",
+  js_yxdt_2025Q4: "江苏 2025年4季度影像地图",
 };
 
 const map_url = {
@@ -69,6 +73,11 @@ const map_url = {
   js_yxdt_2022: `${host}/tdtsite05/rest/services/tdtjs/js_img2022_r05/${zyx}`,
   js_yxdt_2023: `${host}/tdtsite05/rest/services/tdtjs/js_img2023_r05/${zyx}`,
   js_yxdt_2024: `${host}/tdtsite05/rest/services/tdtjs/js_img2024_r05/${zyx}`,
+  js_yxdt_2025Q1: `${host}/tdtsite05/rest/services/tdtjs/js_img2025r2q1/${zyx}`,
+  js_yxdt_2025Q2: `${host}/tdtsite05/rest/services/tdtjs/js_img2025r2q2/${zyx}`,
+  js_yxdt_2025Q3: `${host}/tdtsite05/rest/services/tdtjs/js_img2025r2q3/${zyx}`,
+  js_yxdt_2025Q4:
+    `${host}/tdtsite06/rest/services/quarterlyImg/img2025q4r2/${zyx}`,
 };
 
 const tianditu_js_layers: MapLayer[] = [];
@@ -92,4 +101,5 @@ export const service: Service = {
   keywords: ["天地图", "江苏", "历史影像"],
 };
 
-export const cap = new Capabilities(service, tianditu_js_layers).xml;
+const cap = new Capabilities(service, tianditu_js_layers).xml;
+export default cap;

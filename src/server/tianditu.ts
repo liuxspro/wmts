@@ -2,7 +2,7 @@ import { Hono } from "hono";
 import { tianditu_cap } from "../maps/tianditu/main.ts";
 import { gen_sd_cap } from "../maps/tianditu/shandong.ts";
 import { cap as 福建 } from "../maps/tianditu/fujian.ts";
-import { cap as 江苏 } from "../maps/tianditu/jiangsu.ts";
+import 江苏 from "../maps/tianditu/jiangsu.ts";
 
 const app = new Hono();
 
