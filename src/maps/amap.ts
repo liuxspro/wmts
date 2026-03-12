@@ -46,4 +46,5 @@ export const service: Service = {
   keywords: ["高德地图"],
 };
 
-export const cap = new Capabilities(service, layers).xml;
+const cap = new Capabilities(service, layers).xml;
+export default cap;
