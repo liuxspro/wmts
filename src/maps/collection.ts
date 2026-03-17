@@ -10,6 +10,7 @@ import { esri_layers } from "../maps/esri.ts";
 import { gggis } from "../maps/gggis.ts";
 import { layers as yandex } from "../maps/yandex.ts";
 import { layers as geoq } from "../maps/geoq.ts";
+import { layers as emodnet } from "../maps/emodnet.ts";
 
 const tianditu = tianditu_layers.filter((layer) => layer.id.includes("_w")).map(
   (layer) => {
@@ -36,4 +37,5 @@ export const collection = new Capabilities(service, [
   ...gggis,
   ...yandex,
   ...geoq,
+  ...emodnet,
 ]).xml;
