@@ -61,13 +61,6 @@ const gd_maps = [
     maxZoom: 18,
     crs: "cgcs2000",
   },
-  {
-    key: "DOM_2023",
-    name: "广东省2023年影像图",
-    minZoom: 7,
-    maxZoom: 18,
-    crs: "cgcs2000",
-  },
 ];
 
 export const gd_layers = gd_maps.map((map) => {
