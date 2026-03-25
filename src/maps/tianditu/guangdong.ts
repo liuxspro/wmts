@@ -19,8 +19,8 @@ const service: Service = {
 };
 
 const gd_bbox: [GeoPoint, GeoPoint] = [
-  { lon: 106.87499999999976, lat: 19.31114335506459 }, // 西南角 (LowerCorner)
-  { lon: 118.12499999999973, lat: 27.05912578437399 }, // 东北角 (UpperCorner)
+  { lon: 106.875, lat: 19.3111 }, // 西南角 (LowerCorner)
+  { lon: 118.125, lat: 27.0591 }, // 东北角 (UpperCorner)
 ];
 
 const host = "https://guangdong.tianditu.gov.cn/geostar";
@@ -34,6 +34,13 @@ const gd_maps = [
     crs: "web_mercator",
   },
   {
+    key: "GDJBNTBHTB",
+    name: "广东省永久基本农田保护图斑",
+    minZoom: 7,
+    maxZoom: 15,
+    crs: "cgcs2000",
+  },
+  {
     key: "SQSXWPSJ",
     name: "广东省三区三线专题图",
     minZoom: 7,
@@ -45,6 +52,62 @@ const gd_maps = [
     name: "广东省50万基础地质图",
     minZoom: 7,
     maxZoom: 17,
+    crs: "cgcs2000",
+  },
+  {
+    key: "SWDTZ_50W",
+    name: "广东省50万水文地质图",
+    minZoom: 7,
+    maxZoom: 17,
+    crs: "cgcs2000",
+  },
+  {
+    key: "DOM_GZ_90ND_GK",
+    name: "广州市90年代影像电子地图",
+    minZoom: 7,
+    maxZoom: 17,
+    crs: "cgcs2000",
+  },
+  {
+    key: "DOM_2000_2015_GK",
+    name: "广东省2015年影像图",
+    minZoom: 7,
+    maxZoom: 17,
+    crs: "cgcs2000",
+  },
+  {
+    key: "dom_2016",
+    name: "广东省2016年影像图",
+    minZoom: 7,
+    maxZoom: 18,
+    crs: "cgcs2000",
+  },
+  {
+    key: "DOM_2017",
+    name: "广东省2017年影像图",
+    minZoom: 7,
+    maxZoom: 18,
+    crs: "cgcs2000",
+  },
+  {
+    key: "DOM_2018",
+    name: "广东省2018年影像图",
+    minZoom: 7,
+    maxZoom: 18,
+    crs: "cgcs2000",
+  },
+  {
+    key: "DOM_2019",
+    name: "广东省2019年影像图",
+    minZoom: 7,
+    maxZoom: 18,
+    crs: "cgcs2000",
+  },
+  {
+    key: "DOM_2020",
+    name: "广东省2020年影像图",
+    minZoom: 7,
+    maxZoom: 18,
     crs: "cgcs2000",
   },
   {
