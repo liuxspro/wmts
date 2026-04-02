@@ -4,6 +4,7 @@ import { gen_sd_cap } from "../maps/tianditu/shandong.ts";
 import { cap as 福建 } from "../maps/tianditu/fujian.ts";
 import 江苏 from "../maps/tianditu/jiangsu.ts";
 import 广东 from "../maps/tianditu/guangdong.ts";
+import 温州 from "../maps/tianditu/wenzhou.ts";
 
 const app = new Hono();
 
@@ -48,6 +49,11 @@ app.get("/jiangsu", (c) => {
 app.get("/guangdong", (c) => {
   c.header("Content-Type", "text/xml;charset=UTF-8");
   return c.body(广东);
+});
+
+app.get("/wenzhou", (c) => {
+  c.header("Content-Type", "text/xml;charset=UTF-8");
+  return c.body(温州);
 });
 
 export default app;
