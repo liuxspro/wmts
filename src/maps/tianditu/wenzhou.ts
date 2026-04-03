@@ -57,14 +57,43 @@ export const custom_cgcs2000_quad = new CustomCRS84TileMatrixSet(
   19,
 );
 
-const wz_layer: MapLayer = new MapLayer(
-  "2025年0.5米影像地图",
-  "2025年0.5米影像地图",
-  "wz_2025",
-  wz_bbox,
-  custom_cgcs2000_quad,
-  "https://tdt.wzmap.gov.cn/wzmap/CGCS2000_2025yx/default/Custom_CGCS2000_2025yx/{z}/{y}/{x}.png?serviceCode=4b1f4d30f912a2b9a85249bc87362e88",
-);
+const host = "https://tdt.wzmap.gov.cn";
 
-const cap = new Capabilities(default_service, [wz_layer]).xml;
+const wz_maps = [
+  {
+    name: "2025年0.5米影像地图",
+    id: "CGCS2000_2025yx",
+    serviceCode: "4b1f4d30f912a2b9a85249bc87362e88",
+  },
+  {
+    name: "2024年0.5米影像地图",
+    id: "CGCS2000_2024yx",
+    serviceCode: "e497a434a874585d6ded52b48faa5652",
+  },
+  {
+    name: "2023年0.5米影像地图",
+    id: "CGCS2000_2023yx",
+    serviceCode: "ab0cd19a92d07e219a89757662047327",
+  },
+  {
+    name: "2022年0.5米影像地图",
+    id: "CGCS2000_2022yx",
+    serviceCode: "d0c6a532d491edcd4914b32e0c53353f",
+  },
+  // 2021、2020采用了不同的瓦片矩阵集🤣
+];
+
+export const wz_layers = wz_maps.map((map) => {
+  return new MapLayer(
+    map.name,
+    map.name,
+    map.id,
+    wz_bbox,
+    custom_cgcs2000_quad.clone(),
+    `${host}/wzmap/${map.id}/default/Custom_${map.id}/{z}/{y}/{x}.png?serviceCode=${map.serviceCode}`,
+    "image/png",
+  );
+});
+
+const cap = new Capabilities(default_service, wz_layers).xml;
 export default cap;
