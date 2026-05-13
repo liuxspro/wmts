@@ -9,6 +9,7 @@ import jl1_router from "./server/jilin1.ts";
 import collection from "./server/collection.ts";
 import geocloud_router from "./server/geocloud.ts";
 import tianditu_router from "./server/tianditu.ts";
+import huggs_router from "./server/hubgs.ts";
 
 const app = new Hono();
 
@@ -38,6 +39,7 @@ app.use(trimTrailingSlash());
 
 app.route("/collection", collection);
 app.route("/geocloud", geocloud_router);
+app.route("/hubgs", huggs_router);
 app.route("/tianditu", tianditu_router);
 app.route("/jl1", jl1_router);
 app.route("/osm", osm);
