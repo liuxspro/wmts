@@ -52,4 +52,5 @@ const service: Service = {
   abstract: "天地图 徐州 历史影像",
   keywords: ["天地图", "徐州", "历史影像"],
 };
-export const cap = new Capabilities(service, xz_layers).xml;
+const cap = new Capabilities(service, xz_layers).xml;
+export default cap;

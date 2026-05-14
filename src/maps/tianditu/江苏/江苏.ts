@@ -45,6 +45,7 @@ const map_name = {
   js_yxdt_2025Q2: "江苏 2025年2季度影像地图",
   js_yxdt_2025Q3: "江苏 2025年3季度影像地图",
   js_yxdt_2025Q4: "江苏 2025年4季度影像地图",
+  img2026q1r2: "江苏 2026年1季度影像地图",
 };
 
 const map_url = {
@@ -78,6 +79,8 @@ const map_url = {
   js_yxdt_2025Q3: `${host}/tdtsite05/rest/services/tdtjs/js_img2025r2q3/${zyx}`,
   js_yxdt_2025Q4:
     `${host}/tdtsite06/rest/services/quarterlyImg/img2025q4r2/${zyx}`,
+  img2026q1r2:
+    `${host}/tdtsite06/rest/services/quarterlyImg/img2026q1r2/${zyx}`,
 };
 
 const tianditu_js_layers: MapLayer[] = [];

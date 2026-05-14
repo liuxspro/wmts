@@ -2,7 +2,7 @@ import { Hono } from "hono";
 import { tianditu_cap } from "../maps/tianditu/main.ts";
 import { gen_sd_cap } from "../maps/tianditu/shandong.ts";
 import { cap as 福建 } from "../maps/tianditu/fujian.ts";
-import 江苏 from "../maps/tianditu/jiangsu.ts";
+import 江苏 from "../maps/tianditu/江苏/router.ts";
 import 广东 from "../maps/tianditu/guangdong.ts";
 import 温州 from "../maps/tianditu/wenzhou.ts";
 
@@ -41,10 +41,7 @@ app.get("/fujian", (c) => {
   return c.body(福建);
 });
 
-app.get("/jiangsu", (c) => {
-  c.header("Content-Type", "text/xml;charset=UTF-8");
-  return c.body(江苏);
-});
+app.route("/jiangsu", 江苏);
 
 app.get("/guangdong", (c) => {
   c.header("Content-Type", "text/xml;charset=UTF-8");
