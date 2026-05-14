@@ -1,0 +1,107 @@
+[
+  {
+    "name": 1966,
+    "id": "image1966-2",
+    "url": "//jiangsu.tianditu.gov.cn/historyraster/rest/services/History/yxdt_js_1966_2k/MapServer"
+  },
+  {
+    "name": 1976,
+    "id": "image1976",
+    "url": "//jiangsu.tianditu.gov.cn/historyraster/rest/services/History/yxdt_js_1976_2k/MapServer"
+  },
+  {
+    "name": "2002-2004",
+    "id": "image2002-2004",
+    "url": "//jiangsu.tianditu.gov.cn/historyraster/rest/services/History/js_yxdt_2005/MapServer"
+  },
+  {
+    "name": 2010,
+    "id": "image2010",
+    "url": "//jiangsu.tianditu.gov.cn/historyraster/rest/services/History/js_yxdt_2010/MapServer"
+  },
+  {
+    "name": 2012,
+    "id": "image2012",
+    "url": "//jiangsu.tianditu.gov.cn/historyraster/rest/services/History/js_yxdt_2012/MapServer"
+  },
+  {
+    "name": 2014,
+    "id": "image2014",
+    "url": "//jiangsu.tianditu.gov.cn/historyraster/rest/services/History/js_yxdt_2014/MapServer"
+  },
+  {
+    "name": 2016,
+    "id": "image2016",
+    "url": "//jiangsu.tianditu.gov.cn/mapjs2/rest/services/MapJS/js_yxdt_2016/MapServer"
+  },
+  {
+    "name": 2017,
+    "id": "image2017",
+    "url": "//jiangsu.tianditu.gov.cn/historyraster/rest/services/History/js_yxdt_2017/MapServer"
+  },
+  {
+    "name": 2018,
+    "id": "image2018",
+    "url": "//jiangsu.tianditu.gov.cn/mapjs2/rest/services/MapJS/js_yxdt_2018/MapServer"
+  },
+  {
+    "name": 2019,
+    "id": "image2019",
+    "url": "//jiangsu.tianditu.gov.cn/historyraster/rest/services/History/js_yxdt_2019/MapServer"
+  },
+  {
+    "name": 2020,
+    "id": "image2020",
+    "url": "//jiangsu.tianditu.gov.cn/historyraster/rest/services/History/js_yxdt_2020/MapServer"
+  },
+  {
+    "name": 2021,
+    "id": "image2021",
+    "url": "//jiangsu.tianditu.gov.cn/historyraster/rest/services/History/js_yxdt_2021/MapServer"
+  },
+  {
+    "name": 2022,
+    "id": "image2022",
+    "url": "//jiangsu.tianditu.gov.cn/tdtsite05/rest/services/tdtjs/js_img2022_r05/MapServer"
+  },
+  {
+    "name": 2023,
+    "id": "image2023",
+    "url": "//jiangsu.tianditu.gov.cn/tdtsite05/rest/services/tdtjs/js_img2023_r05/MapServer"
+  },
+  {
+    "name": "2024年1-4月",
+    "id": "image2024",
+    "url": "//jiangsu.tianditu.gov.cn/mapjs2/rest/services/MapJS/js_img_2024/MapServer"
+  },
+  {
+    "name": "2024年4季度",
+    "id": "image2024q4",
+    "url": "//jiangsu.tianditu.gov.cn/tdtsite05/rest/services/tdtjs/js_img2024r2q4/MapServer"
+  },
+  {
+    "name": "2025年1季度",
+    "id": "image2025q1",
+    "url": "//jiangsu.tianditu.gov.cn/tdtsite05/rest/services/tdtjs/js_img2025r2q1/MapServer"
+  },
+  {
+    "name": "2025年2季度",
+    "id": "image2025q2",
+    "url": "//jiangsu.tianditu.gov.cn/tdtsite05/rest/services/tdtjs/js_img2025r2q2/MapServer"
+  },
+  {
+    "name": "2025年3季度",
+    "id": "image2025q3",
+    "url": "//jiangsu.tianditu.gov.cn/tdtsite05/rest/services/tdtjs/js_img2025r2q3/MapServer"
+  },
+  {
+    "name": "2025年4季度",
+    "id": "image2025q4",
+    "url": "//jiangsu.tianditu.gov.cn/tdtsite06/rest/services/quarterlyImg/img2025q4r2/MapServer"
+  },
+  {
+    "name": "2026年1季度",
+    "id": "image2026q1",
+    "url": "//jiangsu.tianditu.gov.cn/tdtsite06/rest/services/quarterlyImg/img2026q1r2/MapServer"
+  }
+]
