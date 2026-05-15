@@ -26,7 +26,7 @@ const js_bbox: [GeoPoint, GeoPoint] = [
 
 const js_layer = jiangsu_maps.map((map) => {
   return new MapLayer(
-    `江苏 ${map.name}年影像地图`,
+    `江苏 ${map.name} 影像地图`,
     `${map.name}`,
     map.id,
     js_bbox,
