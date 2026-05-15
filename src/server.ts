@@ -10,6 +10,7 @@ import collection from "./server/collection.ts";
 import geocloud_router from "./server/geocloud.ts";
 import tianditu_router from "./server/tianditu.ts";
 import huggs_router from "./server/hubgs.ts";
+import test from "./server/test.ts";
 
 const app = new Hono();
 
@@ -45,5 +46,6 @@ app.route("/jl1", jl1_router);
 app.route("/osm", osm);
 app.route("/esri", esri);
 app.route("/", bing);
+app.route("/test", test);
 
 Deno.serve(app.fetch);
