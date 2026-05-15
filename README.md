@@ -20,9 +20,8 @@ deployctl deploy --entrypoint .\src\server.ts
 - esri : `/dist/esri.xml`
 - OSM : `/dist/osm.xml`
 - 谷歌 :`/dist/google.xml`
-- 谷谷 : `/dist/gggis.xml`
-- 天地图江苏: `/dist/tianditu_js.xml`
-- 天地图北京: `/dist/beijing.xml`
+- 天地图江苏: `/tianditu/jiangsu`
+- 天地图广东: `/tianditu/guangdong`
 
 ### 天地图 自行设置tk `/tianditu`
 
