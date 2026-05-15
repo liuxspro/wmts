@@ -2,14 +2,12 @@ import { Hono } from "hono";
 import { serveStatic } from "hono/deno";
 import { trimTrailingSlash } from "hono/trailing-slash";
 
-import osm from "./server/osm.ts";
 import bing from "./server/tiles/bing.ts";
-import esri from "./server/esri.ts";
 import jl1_router from "./server/jilin1.ts";
 import collection from "./server/collection.ts";
 import geocloud_router from "./server/geocloud.ts";
 import tianditu_router from "./server/tianditu.ts";
-import huggs_router from "./server/hubgs.ts";
+import { esri_router, hubgs_router, osm_router } from "./server/router.ts";
 import test from "./server/test.ts";
 
 const app = new Hono();
@@ -40,11 +38,11 @@ app.use(trimTrailingSlash());
 
 app.route("/collection", collection);
 app.route("/geocloud", geocloud_router);
-app.route("/hubgs", huggs_router);
+app.route("/hubgs", hubgs_router);
 app.route("/tianditu", tianditu_router);
 app.route("/jl1", jl1_router);
-app.route("/osm", osm);
-app.route("/esri", esri);
+app.route("/osm", osm_router);
+app.route("/esri", esri_router);
 app.route("/", bing);
 app.route("/test", test);
 
