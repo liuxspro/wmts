@@ -7,7 +7,7 @@ import { layers as haitu } from "../maps/shipxy.ts";
 import { layers as bing } from "../maps/bing.ts";
 import { tianditu_layers } from "./tianditu/main.ts";
 import { esri_layers } from "../maps/esri.ts";
-import { gggis } from "../maps/gggis.ts";
+// import { gggis } from "../maps/gggis.ts";
 import { layers as yandex } from "../maps/yandex.ts";
 import { layers as geoq } from "../maps/geoq.ts";
 import { layers as emodnet } from "../maps/emodnet.ts";
@@ -34,7 +34,7 @@ export const collection = new Capabilities(service, [
   ...bing,
   ...tianditu,
   ...esri_layers,
-  ...gggis,
+  // ...gggis,
   ...yandex,
   ...geoq,
   ...emodnet,
