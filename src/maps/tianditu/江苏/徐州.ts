@@ -28,8 +28,8 @@ const xz_maps = {
 };
 
 const xz_bbox: [GeoPoint, GeoPoint] = [
-  { lon: 116.015625, lat: 33.398438 }, // 西南角 (LowerCorner)
-  { lon: 118.828125, lat: 35.15625 }, // 东北角 (UpperCorner)
+  [116.015625, 33.398438], // 西南角 (LowerCorner)
+  [118.828125, 35.15625], // 东北角 (UpperCorner)
 ];
 
 const xz_layers: MapLayer[] = [];

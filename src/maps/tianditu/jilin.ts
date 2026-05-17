@@ -7,8 +7,8 @@ import {
 } from "@liuxspro/capgen";
 
 const jl_bbox: [GeoPoint, GeoPoint] = [
-  { lon: 121.149676, lat: 39.533551 }, // 西南角 (LowerCorner)
-  { lon: 131.791571, lat: 47.134905 }, // 东北角 (UpperCorner)
+  [121.149676, 39.533551], // 西南角 (LowerCorner)
+  [131.791571, 47.134905], // 东北角 (UpperCorner)
 ];
 
 const jl_2024 = new MapLayer(

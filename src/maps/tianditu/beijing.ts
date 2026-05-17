@@ -38,14 +38,14 @@ const beijing_old_maps = {
 };
 
 const beijing_bbox: [GeoPoint, GeoPoint] = [
-  { lon: 115.413811, lat: 39.443493 }, // 西南角 (LowerCorner)
-  { lon: 117.506111, lat: 41.058609 }, // 东北角 (UpperCorner)
+  [115.413811, 39.443493], // 西南角 (LowerCorner)
+  [117.506111, 41.058609], // 东北角 (UpperCorner)
 ];
 
 // 1951、1966、1996年影像范围
 const beijing_old_bbox: [GeoPoint, GeoPoint] = [
-  { lon: 116.28899792, lat: 39.82830693 },
-  { lon: 116.47452581, lat: 39.98153392 },
+  [116.28899792, 39.82830693],
+  [116.47452581, 39.98153392],
 ];
 
 const beijing_layers: MapLayer[] = [];

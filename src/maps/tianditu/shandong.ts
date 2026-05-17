@@ -15,8 +15,8 @@ import {
 
 const host = "https://service.sdmap.gov.cn/hisimage";
 const sd_bbox: [GeoPoint, GeoPoint] = [
-  { lon: 114.2298, lat: 33.9389 }, // 西南角 (LowerCorner)
-  { lon: 123.4005, lat: 38.9048 }, // 东北角 (UpperCorner)
+  [114.2298, 33.9389], // 西南角 (LowerCorner)
+  [123.4005, 38.9048], // 东北角 (UpperCorner)
 ];
 const service: Service = {
   title: "山东天地图历史影像",
