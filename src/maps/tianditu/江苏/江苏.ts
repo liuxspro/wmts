@@ -12,16 +12,16 @@
 import jiangsu_maps from "./jiangsu.json" with { type: "json" };
 
 import {
+  type BBox,
   Capabilities,
   cgcs2000_quad,
-  GeoPoint,
   MapLayer,
   Service,
 } from "@liuxspro/capgen";
 
-const js_bbox: [GeoPoint, GeoPoint] = [
-  { lon: 116.10358, lat: 30.710719 }, // 西南角 (LowerCorner)
-  { lon: 122.090304, lat: 35.212659 }, // 东北角 (UpperCorner)
+const js_bbox: BBox = [
+  [116.10358, 30.710719],
+  [122.090304, 35.212659],
 ];
 
 const js_layer = jiangsu_maps.map((map) => {

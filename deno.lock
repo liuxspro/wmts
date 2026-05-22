@@ -3,7 +3,7 @@
   "specifiers": {
     "jsr:@es-toolkit/es-toolkit@^1.45.1": "1.45.1",
     "jsr:@hono/hono@^4.12.18": "4.12.18",
-    "jsr:@liuxspro/capgen@~0.2.4": "0.2.4",
+    "jsr:@liuxspro/capgen@0.3": "0.3.0",
     "jsr:@liuxspro/libs@~0.1.13": "0.1.15",
     "npm:minijinja-js@^2.15.1": "2.15.1"
   },
@@ -17,8 +17,8 @@
     "@hono/hono@4.12.18": {
       "integrity": "854fd0628abd7703a1583807f1ae8f99399604b9452b6a2a777fd3e097977b8c"
     },
-    "@liuxspro/capgen@0.2.4": {
-      "integrity": "22dc54580ade6e1682bff744e7d61ef62f8599289d8aa6f9de958e87fabb56be",
+    "@liuxspro/capgen@0.3.0": {
+      "integrity": "cd3bb343c3fa6aca81cea0b4e161d9e0d14f5b4405fda2b6a437dc243c4757c6",
       "dependencies": [
         "jsr:@es-toolkit/es-toolkit",
         "npm:minijinja-js"
@@ -39,7 +39,7 @@
   "workspace": {
     "dependencies": [
       "jsr:@hono/hono@^4.12.18",
-      "jsr:@liuxspro/capgen@~0.2.4",
+      "jsr:@liuxspro/capgen@0.3",
       "jsr:@liuxspro/libs@~0.1.13"
     ]
   }

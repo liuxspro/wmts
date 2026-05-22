@@ -7,13 +7,13 @@ import {
 } from "@liuxspro/capgen";
 
 const H49C001002_bbox: [GeoPoint, GeoPoint] = [
-  { lon: 109.488208, lat: 32.010468 }, // 西南角 (LowerCorner)
-  { lon: 111.005311, lat: 30.994445 }, // 东北角 (UpperCorner)
+  [109.488208, 32.010468], // 西南角 (LowerCorner)
+  [111.005311, 30.994445], // 东北角 (UpperCorner)
 ];
 
 const I49C004003_bbox: [GeoPoint, GeoPoint] = [
-  { lon: 110.985680, lat: 33.013289 },
-  { lon: 112.510033, lat: 31.997054 },
+  [110.985680, 33.013289],
+  [112.510033, 31.997054],
 ];
 
 const H49C001002 = new MapLayer(

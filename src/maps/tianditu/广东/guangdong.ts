@@ -28,8 +28,8 @@ const service: Service = {
 };
 
 const gd_bbox: [GeoPoint, GeoPoint] = [
-  { lon: 106.875, lat: 19.3111 }, // 西南角 (LowerCorner)
-  { lon: 118.125, lat: 27.0591 }, // 东北角 (UpperCorner)
+  [106.875, 19.3111], // 西南角 (LowerCorner)
+  [118.125, 27.0591], // 东北角 (UpperCorner)
 ];
 
 const host = "https://guangdong.tianditu.gov.cn/geostar";

@@ -7,8 +7,8 @@ import {
 } from "@liuxspro/capgen";
 
 const wz_bbox: [GeoPoint, GeoPoint] = [
-  { lon: 118.12500556109484, lat: 25.312498793347345 }, // 西南角 (LowerCorner)
-  { lon: 123.75000566602114, lat: 30.937498898273667 }, // 东北角 (UpperCorner)
+  [118.12500556109484, 25.312498793347345], // 西南角 (LowerCorner)
+  [123.75000566602114, 30.937498898273667], // 东北角 (UpperCorner)
 ];
 
 interface TileMatrix {

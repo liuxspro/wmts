@@ -25,8 +25,8 @@ import {
 } from "@liuxspro/capgen";
 
 const china_bbox: [GeoPoint, GeoPoint] = [
-  { lon: 73.49895477, lat: 3.83254099 }, // 西南角 (LowerCorner)
-  { lon: 135.08738708, lat: 53.55849838 }, // 东北角 (UpperCorner)
+  [73.49895477, 3.83254099], // 西南角 (LowerCorner)
+  [135.08738708, 53.55849838], // 东北角 (UpperCorner)
 ];
 
 export const service: Service = {
