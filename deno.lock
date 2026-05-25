@@ -1,24 +1,24 @@
 {
   "version": "5",
   "specifiers": {
-    "jsr:@es-toolkit/es-toolkit@^1.45.1": "1.45.1",
-    "jsr:@hono/hono@^4.12.18": "4.12.18",
-    "jsr:@liuxspro/capgen@0.3": "0.3.0",
-    "jsr:@liuxspro/libs@~0.1.13": "0.1.15",
-    "npm:minijinja-js@^2.15.1": "2.15.1"
+    "jsr:@es-toolkit/es-toolkit@^1.45.1": "1.46.1",
+    "jsr:@hono/hono@^4.12.23": "4.12.23",
+    "jsr:@liuxspro/capgen@~0.3.1": "0.3.1",
+    "jsr:@liuxspro/libs@~0.1.15": "0.1.15",
+    "npm:minijinja-js@^2.15.1": "2.17.1"
   },
   "jsr": {
-    "@es-toolkit/es-toolkit@1.45.1": {
-      "integrity": "fcfce61ab4ac4db2fd45841ac86f6101b271d4e3a094dc7edbb14fd41289471b"
+    "@es-toolkit/es-toolkit@1.46.1": {
+      "integrity": "88088d95646fd8b4277414865f8af4e3b241f9422ab750c4be10e8debed7a676"
     },
     "@hono/hono@4.11.7": {
       "integrity": "2a0dc00088fbef98b76f575e3c4ab3d2c770d5e6095be215ae05c2aef25b363a"
     },
-    "@hono/hono@4.12.18": {
-      "integrity": "854fd0628abd7703a1583807f1ae8f99399604b9452b6a2a777fd3e097977b8c"
+    "@hono/hono@4.12.23": {
+      "integrity": "9d9f3da498f69c311b5f92d973eb3b8ebc973b5fd2b4972781b556e07818a745"
     },
-    "@liuxspro/capgen@0.3.0": {
-      "integrity": "cd3bb343c3fa6aca81cea0b4e161d9e0d14f5b4405fda2b6a437dc243c4757c6",
+    "@liuxspro/capgen@0.3.1": {
+      "integrity": "a9c90054f7745070293b52f7ac39c9ff6b30896253a5f46785aed50a4569546c",
       "dependencies": [
         "jsr:@es-toolkit/es-toolkit",
         "npm:minijinja-js"
@@ -32,15 +32,15 @@
     }
   },
   "npm": {
-    "minijinja-js@2.15.1": {
-      "integrity": "sha512-I+fGgYYDh/Io1kJ1YSD1Mc9sdlK4Fdm6vHeV0qLY12684+RN3GBy9KFmykhN1fY4FGXyqKteBMDeSKkynuC79A=="
+    "minijinja-js@2.17.1": {
+      "integrity": "sha512-Q9vlhYmjSEqc64/cVNZpAX27+YUFZdBE5tw/d4snd1j2jo5ORMxS1Vh5Hev/Sx+AMhXkRPcSnB2PnTs8qKnkrg=="
     }
   },
   "workspace": {
     "dependencies": [
-      "jsr:@hono/hono@^4.12.18",
-      "jsr:@liuxspro/capgen@0.3",
-      "jsr:@liuxspro/libs@~0.1.13"
+      "jsr:@hono/hono@^4.12.23",
+      "jsr:@liuxspro/capgen@~0.3.1",
+      "jsr:@liuxspro/libs@~0.1.15"
     ]
   }
 }
