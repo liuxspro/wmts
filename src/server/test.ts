@@ -16,7 +16,10 @@ const service: Service = {
 };
 
 app.get("/4326", (c) => {
-  const url = c.req.url.split("url=")[1];
+  let url = c.req.url.split("url=")[1];
+  url = url.replace("%7Bz%7D", "{z}")
+    .replace("%7Bx%7D", "{x}")
+    .replace("%7By%7D", "{y}");
   const test_layer = new MapLayer(
     "测试瓦片 EPSG:4326",
     "测试瓦片WMTS 4326",
