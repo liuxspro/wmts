@@ -16,10 +16,21 @@ const bing = new MapLayer(
   "image/jpeg",
 );
 
-export const layers = [bing];
+// from https://gis.sinica.edu.tw/worldmap/
+const bing_aerial = new MapLayer(
+  "Bing Aerial",
+  "Bing Aerial",
+  "bing_aerial",
+  mercator_bbox,
+  web_mercator_quad.clone(),
+  "https://gis.sinica.edu.tw/worldmap/file-exists.php?img=BingA-jpg-{z}-{x}-{y}",
+  "image/jpeg",
+);
+
+export const layers = [bing, bing_aerial];
 
 export const service: Service = {
-  title: "Bing Virtual Earth",
+  title: "Bing",
   abstract: "Bing Virtual Earth",
   keywords: ["Bing Virtual Earth"],
 };
