@@ -16,26 +16,9 @@ import test from "./server/test.ts";
 
 const app = new Hono();
 
-app.get("/", (c) => {
-  return c.html(`
-<ul>
-  <li><a href="/osm"  target="_blank">osm</a></li>
-  <li><a href="/esri"  target="_blank">esri</a></li>
-  <li><a href="/collection"  target="_blank">wmts map collection</a></li>
-</ul>
-<div style="
-  text-align: center;
-  position: fixed;
-  bottom: 10px;
-  display: flex;
-  justify-content: center;
-  width: 100%;
-">
-  <code>On Deno Deploy 💖</code>
-</div>
+const HTML = await Deno.readTextFile(new URL("./index.html", import.meta.url));
 
-`);
-});
+app.get("/", (c) => c.html(HTML));
 
 app.use("/dist/*", serveStatic({ root: "./" }));
 app.use(trimTrailingSlash());

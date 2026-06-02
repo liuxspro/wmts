@@ -1,0 +1,266 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>WMTS Maps</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      body {
+        font-family:
+          system-ui,
+          -apple-system,
+          "Segoe UI",
+          Roboto,
+          sans-serif;
+        background: #f5f7fa;
+        color: #1a1a2e;
+        min-height: 100vh;
+      }
+      .container {
+        max-width: 1000px;
+        margin: 0 auto;
+        padding: 48px 24px 80px;
+      }
+      header {
+        text-align: center;
+        margin-bottom: 48px;
+      }
+      header h1 {
+        font-size: 2.25rem;
+        font-weight: 700;
+        background: linear-gradient(135deg, #2563eb, #7c3aed);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+      }
+      header p {
+        color: #64748b;
+        margin-top: 8px;
+        font-size: 1rem;
+      }
+      .grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+        gap: 16px;
+      }
+      .card {
+        display: flex;
+        flex-direction: column;
+        background: #fff;
+        border: 1px solid #e2e8f0;
+        border-radius: 12px;
+        padding: 20px;
+        text-decoration: none;
+        color: inherit;
+        cursor: pointer;
+        transition:
+          box-shadow 0.2s,
+          border-color 0.2s;
+      }
+      .card:hover {
+        border-color: #2563eb;
+        box-shadow: 0 4px 16px rgba(37, 99, 235, 0.1);
+      }
+      .card-header {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        margin-bottom: 8px;
+      }
+      .card-name {
+        font-weight: 600;
+        font-size: 1.05rem;
+      }
+      .badge {
+        font-size: 0.7rem;
+        font-weight: 500;
+        color: #d97706;
+        background: #fef3c7;
+        padding: 2px 8px;
+        border-radius: 6px;
+      }
+      .card-desc {
+        font-size: 0.875rem;
+        color: #64748b;
+        line-height: 1.5;
+        flex: 1;
+      }
+      .card-link {
+        font-size: 0.8rem;
+        color: #2563eb;
+        font-family: "SF Mono", "Cascadia Code", "JetBrains Mono", monospace;
+        margin-top: 12px;
+        word-break: break-all;
+      }
+      /* Group card */
+      .card.group {
+        cursor: pointer;
+        user-select: none;
+      }
+      .card.group .chevron {
+        margin-left: auto;
+        font-size: 0.85rem;
+        color: #94a3b8;
+        transition: transform 0.25s;
+      }
+      .card.group.open .chevron {
+        transform: rotate(180deg);
+      }
+      /* Children wrapper */
+      .group-children {
+        display: contents;
+      }
+      .group-children .card {
+        border-left: 3px solid #a5b4fc;
+        border-radius: 10px;
+      }
+      .group-children .card:hover {
+        border-color: #6366f1;
+        border-left-width: 3px;
+      }
+      /* Hide group children */
+      .group-children.hidden {
+        display: none;
+      }
+      footer {
+        text-align: center;
+        margin-top: 48px;
+        color: #94a3b8;
+        font-size: 0.85rem;
+      }
+      footer code {
+        background: #e2e8f0;
+        padding: 2px 8px;
+        border-radius: 4px;
+        font-size: 0.8rem;
+      }
+      @media (max-width: 640px) {
+        .container {
+          padding: 32px 16px 64px;
+        }
+        header h1 {
+          font-size: 1.75rem;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <header>
+        <h1>WMTS Maps</h1>
+        <p>将 XYZ 瓦片转换为标准 WMTS 服务，支持各类 GIS 平台调用</p>
+      </header>
+      <div class="grid" id="grid"></div>
+      <footer>
+        <code>On Deno Deploy 💖</code>
+      </footer>
+    </div>
+    <script>
+      const items = [
+        { name: "OSM", path: "/osm", desc: "OpenStreetMap 标准地图" },
+        { name: "Esri", path: "/esri", desc: "Esri 全球影像与街道地图" },
+        {
+          name: "Collection",
+          path: "/collection",
+          desc: "常用底图合集，整合多种地图源",
+        },
+        { name: "HubGS", path: "/hubgs", desc: "湖北地质一张图" },
+        {
+          name: "Geocloud",
+          path: "/geocloud",
+          desc: "Geocloud 在线地图（需 tk token）",
+          need_token: true,
+        },
+        {
+          name: "吉林一号",
+          path: "/jl1",
+          desc: "吉林一号卫星影像（需 tk token）",
+          need_token: true,
+        },
+        {
+          name: "天地图",
+          path: "/tianditu",
+          desc: "天地图 WMTS（需 tk/tdt token）",
+          need_token: true,
+        },
+        {
+          type: "group",
+          name: "天地图省级",
+          desc: "部分天地图省级节点",
+          children: [
+            {
+              name: "天地图·广东",
+              path: "/tianditu/guangdong",
+              desc: "天地图广东分节点",
+            },
+            {
+              name: "天地图·江苏",
+              path: "/tianditu/jiangsu",
+              desc: "天地图江苏分节点",
+            },
+            {
+              name: "天地图·福建",
+              path: "/tianditu/fujian",
+              desc: "天地图福建分节点",
+            },
+            {
+              name: "天地图·温州",
+              path: "/tianditu/wenzhou",
+              desc: "天地图温州分节点",
+            },
+          ],
+        },
+      ];
+
+      function renderCard(s) {
+        const isLink = !s.type || s.type !== "group";
+        const tag = isLink ? "a" : "div";
+        const cls = isLink ? "card" : "card group";
+        const extraAttr = isLink ? ` href="${s.path}" target="_blank"` : "";
+        return `<${tag}${extraAttr} class="${cls}" data-group="${s.type === "group" ? "true" : ""}">
+        <div class="card-header">
+          <span class="card-name">${s.name}</span>
+          ${s.need_token ? '<span class="badge">Token</span>' : ""}
+          ${s.type === "group" ? '<span class="chevron">&#9660;</span>' : ""}
+        </div>
+        <div class="card-desc">${s.desc}</div>
+        ${s.path ? `<div class="card-link">${s.path}</div>` : ""}
+      </${tag}>`;
+      }
+
+      let html = "";
+      for (const item of items) {
+        html += renderCard(item);
+        if (item.type === "group") {
+          html += `<div class="group-children hidden" data-parent="${item.name}">`;
+          for (const child of item.children) {
+            html += renderCard(child);
+          }
+          html += `</div>`;
+        }
+      }
+
+      const grid = document.getElementById("grid");
+      grid.innerHTML = html;
+
+      // Toggle group expand/collapse
+      grid.addEventListener("click", (e) => {
+        const card = e.target.closest(".card.group");
+        if (!card) return;
+        const parentName = card.querySelector(".card-name")?.textContent;
+        const children = grid.querySelector(
+          `.group-children[data-parent="${parentName}"]`,
+        );
+        if (children) {
+          children.classList.toggle("hidden");
+          card.classList.toggle("open");
+        }
+      });
+    </script>
+  </body>
+</html>
