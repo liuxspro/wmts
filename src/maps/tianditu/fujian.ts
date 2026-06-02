@@ -8,14 +8,14 @@
  */
 
 import {
+  BBox,
   Capabilities,
   cgcs2000_quad,
-  GeoPoint,
   MapLayer,
   Service,
 } from "@liuxspro/capgen";
 
-const fj_bbox: [GeoPoint, GeoPoint] = [
+const fj_bbox: BBox = [
   [115.4958786070348, 23.013545965473952],
   [121.47440903584844, 29.032646732660623],
 ];

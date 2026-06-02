@@ -6,15 +6,15 @@
  */
 
 import {
+  BBox,
   Capabilities,
   cgcs2000_quad,
-  GeoPoint,
   MapLayer,
   Service,
 } from "@liuxspro/capgen";
 
 const host = "https://service.sdmap.gov.cn/hisimage";
-const sd_bbox: [GeoPoint, GeoPoint] = [
+const sd_bbox: BBox = [
   [114.2298, 33.9389], // 西南角 (LowerCorner)
   [123.4005, 38.9048], // 东北角 (UpperCorner)
 ];

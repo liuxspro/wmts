@@ -6,8 +6,8 @@
  */
 
 import {
+  BBox,
   Capabilities,
-  GeoPoint,
   MapLayer,
   Service,
   web_mercator_quad,
@@ -37,13 +37,13 @@ const beijing_old_maps = {
   tdt_img_1996: "北京 - 1996年影像",
 };
 
-const beijing_bbox: [GeoPoint, GeoPoint] = [
+const beijing_bbox: BBox = [
   [115.413811, 39.443493], // 西南角 (LowerCorner)
   [117.506111, 41.058609], // 东北角 (UpperCorner)
 ];
 
 // 1951、1966、1996年影像范围
-const beijing_old_bbox: [GeoPoint, GeoPoint] = [
+const beijing_old_bbox: BBox = [
   [116.28899792, 39.82830693],
   [116.47452581, 39.98153392],
 ];

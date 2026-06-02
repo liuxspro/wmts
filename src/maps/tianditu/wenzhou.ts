@@ -1,13 +1,13 @@
 import {
+  BBox,
   Capabilities,
   CRS84TileMatrixSet,
   default_service,
-  GeoPoint,
   MapLayer,
   TileMatrix,
 } from "@liuxspro/capgen";
 
-const wz_bbox: [GeoPoint, GeoPoint] = [
+const wz_bbox: BBox = [
   [118.12500556109484, 25.312498793347345], // 西南角 (LowerCorner)
   [123.75000566602114, 30.937498898273667], // 东北角 (UpperCorner)
 ];

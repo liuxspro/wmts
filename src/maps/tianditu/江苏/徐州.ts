@@ -10,8 +10,8 @@
  */
 
 import {
+  BBox,
   Capabilities,
-  GeoPoint,
   MapLayer,
   Service,
   world_crs84_quad,
@@ -27,7 +27,7 @@ const xz_maps = {
   BZ_DOM_18_QS: "徐州 2018 年影像",
 };
 
-const xz_bbox: [GeoPoint, GeoPoint] = [
+const xz_bbox: BBox = [
   [116.015625, 33.398438], // 西南角 (LowerCorner)
   [118.828125, 35.15625], // 东北角 (UpperCorner)
 ];

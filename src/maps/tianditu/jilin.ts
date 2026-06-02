@@ -1,12 +1,12 @@
 import {
+  BBox,
   Capabilities,
   cgcs2000_quad,
   default_service,
-  GeoPoint,
   MapLayer,
 } from "@liuxspro/capgen";
 
-const jl_bbox: [GeoPoint, GeoPoint] = [
+const jl_bbox: BBox = [
   [121.149676, 39.533551], // 西南角 (LowerCorner)
   [131.791571, 47.134905], // 东北角 (UpperCorner)
 ];

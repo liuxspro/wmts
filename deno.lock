@@ -4,7 +4,7 @@
     "jsr:@es-toolkit/es-toolkit@^1.45.1": "1.46.1",
     "jsr:@hono/hono@^4.12.23": "4.12.23",
     "jsr:@liuxspro/capgen@~0.3.1": "0.3.1",
-    "jsr:@liuxspro/libs@~0.1.15": "0.1.15",
+    "jsr:@liuxspro/libs@~0.1.16": "0.1.16",
     "npm:minijinja-js@^2.15.1": "2.17.1"
   },
   "jsr": {
@@ -27,8 +27,8 @@
     "@liuxspro/libs@0.1.13": {
       "integrity": "9008a39a5be810d625655368af6e7902db7213c6d7e500648c1271401480aa10"
     },
-    "@liuxspro/libs@0.1.15": {
-      "integrity": "ae46341b741d8baa741c0101ce3034555d7aa8c7091f6315dfbbb980a4d3673a"
+    "@liuxspro/libs@0.1.16": {
+      "integrity": "8deffe00251f2fd1199a08a739b4e42ea5e4f99502cb311681879de2db0f6023"
     }
   },
   "npm": {
@@ -40,7 +40,7 @@
     "dependencies": [
       "jsr:@hono/hono@^4.12.23",
       "jsr:@liuxspro/capgen@~0.3.1",
-      "jsr:@liuxspro/libs@~0.1.15"
+      "jsr:@liuxspro/libs@~0.1.16"
     ]
   }
 }

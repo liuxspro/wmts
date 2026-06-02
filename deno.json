@@ -5,7 +5,7 @@
     "deploy": "deployctl deploy"
   },
   "imports": {
-    "@liuxspro/libs": "jsr:@liuxspro/libs@^0.1.15",
+    "@liuxspro/libs": "jsr:@liuxspro/libs@^0.1.16",
     "hono": "jsr:@hono/hono@^4.12.23",
     "@liuxspro/capgen": "jsr:@liuxspro/capgen@^0.3.1"
   }
