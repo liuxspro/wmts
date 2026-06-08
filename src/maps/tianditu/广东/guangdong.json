@@ -1,12 +1,5 @@
 [
   {
-    "key": "gdsyjjbntbhtb_mercator",
-    "name": "广东省永久基本农田保护图斑（墨卡托）",
-    "minZoom": 7,
-    "maxZoom": 15,
-    "crs": "web_mercator"
-  },
-  {
     "key": "GDJBNTBHTB",
     "name": "广东省永久基本农田保护图斑",
     "minZoom": 7,
