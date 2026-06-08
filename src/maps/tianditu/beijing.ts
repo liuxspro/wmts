@@ -88,3 +88,5 @@ export const cap = new Capabilities(service, [
   ...beijing_old_layers,
   ...beijing_layers,
 ]).xml;
+
+export default cap;
