@@ -85,6 +85,11 @@
     "url": "//jiangsu.tianditu.gov.cn/tdtsite05/rest/services/tdtjs/js_img2025r2q1/MapServer"
   },
   {
+    "name": "2025年1-4月",
+    "id": "img2025",
+    "url": "//jiangsu.tianditu.gov.cn/tdtsite05/rest/services/tdtjs/js_img2025_r05/MapServer"
+  },
+  {
     "name": "2025年2季度",
     "id": "image2025q2",
     "url": "//jiangsu.tianditu.gov.cn/tdtsite05/rest/services/tdtjs/js_img2025r2q2/MapServer"
