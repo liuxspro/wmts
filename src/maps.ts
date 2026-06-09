@@ -3,7 +3,7 @@ import esri from "./maps/esri.ts";
 import amap from "./maps/amap.ts";
 import { cap as google } from "./maps/google_map.ts";
 import { cap as shipxy } from "./maps/shipxy.ts";
-import { cap as beijing } from "./maps/tianditu/beijing.ts";
+import { cap as beijing } from "./maps/tianditu/beijing/beijing_outdate.ts";
 import { cap as gggis } from "./maps/gggis.ts";
 import { cap as jl } from "./maps/tianditu/jilin.ts";
 import { cap as yandex } from "./maps/yandex.ts";
