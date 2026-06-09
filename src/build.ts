@@ -1,5 +1,6 @@
 import { maps } from "./maps.ts";
 import { get_jiangsu_config } from "./maps/tianditu/江苏/get_config.ts";
+import { get_config as get_beijing_config } from "./maps/tianditu/beijing/get_config.ts";
 
 async function create_dist_dir() {
   try {
@@ -18,6 +19,13 @@ console.log("Getting jiangsu maps...");
 await Deno.writeTextFile(
   `./src/maps/tianditu/江苏/jiangsu.json`,
   JSON.stringify(jiangsu_maps, null, 2),
+);
+
+const beijing_maps = await get_beijing_config();
+console.log("Getting beijing maps...");
+await Deno.writeTextFile(
+  `./src/maps/tianditu/beijing/beijing.json`,
+  JSON.stringify(beijing_maps, null, 2),
 );
 
 Object.entries(maps).forEach(async ([key, value]) => {

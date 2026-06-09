@@ -6,7 +6,7 @@ import { create_router } from "../utils.ts";
 import 江苏 from "../maps/tianditu/江苏/router.ts";
 import 广东 from "../maps/tianditu/广东/router.ts";
 import 温州 from "../maps/tianditu/wenzhou.ts";
-import 北京 from "../maps/tianditu/beijing.ts";
+import beijing from "../maps/tianditu/beijing/router.ts";
 
 const app = new Hono();
 
@@ -41,7 +41,7 @@ app.get("/sdhis/:id/:el", (c) => {
 app.route("/fujian", create_router(福建));
 app.route("/jiangsu", 江苏);
 app.route("/guangdong", 广东);
-app.route("/beijing", create_router(北京));
+app.route("/beijing", beijing);
 
 app.get("/wenzhou", (c) => {
   c.header("Content-Type", "text/xml;charset=UTF-8");
