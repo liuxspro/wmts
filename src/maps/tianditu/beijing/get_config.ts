@@ -28,6 +28,7 @@ headers.append(
 const options = {
   method: "POST",
   headers: headers,
+  signal: AbortSignal.timeout(10_000),
 };
 
 async function get_years() {

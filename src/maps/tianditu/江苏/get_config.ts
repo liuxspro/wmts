@@ -8,7 +8,12 @@ export async function get_jiangsu_config() {
   const config_url =
     "https://jiangsu.tianditu.gov.cn/server/mulitdate/getConfig?type=多时相配置";
 
-  const response = await fetch(config_url);
+  const response = await fetch(config_url, {
+    signal: AbortSignal.timeout(10_000),
+  });
+  if (!response.ok) {
+    throw new Error(`获取江苏配置失败: HTTP ${response.status}`);
+  }
   const data = await response.json();
   const items = data["config"]["items"];
   const maps = items.map((item: MapItem) => {
