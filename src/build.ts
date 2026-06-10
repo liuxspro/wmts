@@ -15,29 +15,38 @@ async function create_dist_dir() {
 }
 
 async function main() {
-  const jiangsu_maps = await get_jiangsu_config();
-  console.log("Getting jiangsu maps...");
-  await Deno.writeTextFile(
-    `./src/maps/tianditu/江苏/jiangsu.json`,
-    JSON.stringify(jiangsu_maps, null, 2),
-  );
+  try {
+    console.log("Getting jiangsu maps...");
+    const jiangsu_maps = await get_jiangsu_config();
+    await Deno.writeTextFile(
+      `./src/maps/tianditu/江苏/jiangsu.json`,
+      JSON.stringify(jiangsu_maps, null, 2),
+    );
+  } catch (err) {
+    console.error("获取江苏配置失败，跳过:", err);
+  }
 
-  const beijing_maps = await get_beijing_config();
-  console.log("Getting beijing maps...");
-  await Deno.writeTextFile(
-    `./src/maps/tianditu/beijing/beijing.json`,
-    JSON.stringify(beijing_maps, null, 2),
-  );
+  try {
+    console.log("Getting beijing maps...");
+    const beijing_maps = await get_beijing_config();
+    await Deno.writeTextFile(
+      `./src/maps/tianditu/beijing/beijing.json`,
+      JSON.stringify(beijing_maps, null, 2),
+    );
+  } catch (err) {
+    console.error("获取北京配置失败，跳过:", err);
+  }
 
   await create_dist_dir();
   for (const [key, value] of Object.entries(maps)) {
-    await Deno.writeTextFile(`./dist/${key}.xml`, value);
+    try {
+      await Deno.writeTextFile(`./dist/${key}.xml`, value);
+    } catch (err) {
+      console.error(`写入 ${key}.xml 失败，跳过:`, err);
+    }
   }
 
   console.log("Done!");
 }
 
-main().catch((err) => {
-  console.error("Build failed:", err);
-  Deno.exit(1);
-});
+main();
