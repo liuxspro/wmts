@@ -8,6 +8,7 @@ import geocloud_router from "./server/geocloud.ts";
 import tianditu_router from "./server/tianditu.ts";
 import {
   collection_router,
+  debug_router,
   esri_router,
   hubgs_router,
   osm_router,
@@ -32,5 +33,6 @@ app.route("/osm", osm_router);
 app.route("/esri", esri_router);
 app.route("/", bing);
 app.route("/test", test);
+app.route("/debug", debug_router);
 
 Deno.serve(app.fetch);

@@ -4,7 +4,9 @@ import {
   mercator_bbox,
   Service,
   web_mercator_quad,
+  web_mercator_quad_dpi96,
   world_crs84_quad,
+  world_crs84_quad_dpi96,
 } from "@liuxspro/capgen";
 
 const debug_layer = new MapLayer(
@@ -17,12 +19,32 @@ const debug_layer = new MapLayer(
   "image/png",
 );
 
+const debug_layer_dpi96 = new MapLayer(
+  "测试瓦片 EPSG:3857 DPI96",
+  "显示图块的行列号",
+  "debug3857dpi96",
+  mercator_bbox,
+  web_mercator_quad_dpi96.clone().setZoom(0, 20),
+  "https://service.liuxs.pro/tile/debug/{z}/{x}/{y}",
+  "image/png",
+);
+
 const debug_layer_4326 = new MapLayer(
   "测试瓦片 EPSG:4326",
   "显示图块的行列号",
   "debug4326",
   mercator_bbox,
-  world_crs84_quad.clone().setZoom(0, 20),
+  world_crs84_quad.clone().setZoom(1, 20),
+  "https://service.liuxs.pro/tile/debug/{z}/{x}/{y}",
+  "image/png",
+);
+
+const debug_layer_4326_dpi96 = new MapLayer(
+  "测试瓦片 EPSG:4326 DPI96",
+  "显示图块的行列号",
+  "debug4326dpi96",
+  mercator_bbox,
+  world_crs84_quad_dpi96.clone().setZoom(1, 20),
   "https://service.liuxs.pro/tile/debug/{z}/{x}/{y}",
   "image/png",
 );
@@ -45,7 +67,13 @@ const service: Service = {
 
 const debug = new Capabilities(
   service,
-  [debug_layer, debug_layer_4326, debug_layer_4326_quad],
+  [
+    debug_layer,
+    debug_layer_4326,
+    debug_layer_dpi96,
+    debug_layer_4326_dpi96,
+    debug_layer_4326_quad,
+  ],
 ).xml;
 
 export default debug;
