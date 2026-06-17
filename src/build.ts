@@ -1,6 +1,7 @@
 import { maps } from "./maps.ts";
 import { get_jiangsu_config } from "./maps/tianditu/江苏/get_config.ts";
 import { get_config as get_beijing_config } from "./maps/tianditu/beijing/get_config.ts";
+import { getConfig as get_hunan_config } from "./maps/tianditu/hunan/get_config.ts";
 
 async function create_dist_dir() {
   try {
@@ -35,6 +36,17 @@ async function main() {
     );
   } catch (err) {
     console.error("获取北京配置失败，跳过:", err);
+  }
+
+  try {
+    console.log("Getting hunan maps...");
+    const hunan_maps = await get_hunan_config();
+    await Deno.writeTextFile(
+      `./src/maps/tianditu/hunan/hunan.json`,
+      JSON.stringify(hunan_maps, null, 2),
+    );
+  } catch (err) {
+    console.error("获取湖南配置失败，跳过:", err);
   }
 
   await create_dist_dir();
