@@ -13,7 +13,7 @@ import {
   hubgs_router,
   osm_router,
 } from "./server/router.ts";
-import test from "./server/test.ts";
+import wrap from "./server/wrap.ts";
 
 const app = new Hono();
 
@@ -32,7 +32,7 @@ app.route("/jl1", jl1_router);
 app.route("/osm", osm_router);
 app.route("/esri", esri_router);
 app.route("/", bing);
-app.route("/test", test);
+app.route("/wrap", wrap);
 app.route("/debug", debug_router);
 
 Deno.serve(app.fetch);
