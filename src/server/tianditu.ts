@@ -4,6 +4,7 @@ import { gen_sd_cap } from "../maps/tianditu/shandong.ts";
 import { cap as 福建 } from "../maps/tianditu/fujian.ts";
 import { create_router } from "../utils.ts";
 import 江苏 from "../maps/tianditu/江苏/router.ts";
+import 浙江 from "../maps/tianditu/zhejiang/zhejiang.ts";
 import 广东 from "../maps/tianditu/广东/router.ts";
 import 温州 from "../maps/tianditu/wenzhou.ts";
 import beijing from "../maps/tianditu/beijing/router.ts";
@@ -46,6 +47,7 @@ app.route("/guangdong", 广东);
 app.route("/beijing", beijing);
 app.route("/shanghai", create_router(shanghai));
 app.route("/hunan", create_router(hunan));
+app.route("/zhejiang", create_router(浙江));
 
 app.get("/wenzhou", (c) => {
   c.header("Content-Type", "text/xml;charset=UTF-8");

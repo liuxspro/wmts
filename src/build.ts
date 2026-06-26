@@ -2,6 +2,7 @@ import { maps } from "./maps.ts";
 import { get_jiangsu_config } from "./maps/tianditu/江苏/get_config.ts";
 import { get_config as get_beijing_config } from "./maps/tianditu/beijing/get_config.ts";
 import { getConfig as get_hunan_config } from "./maps/tianditu/hunan/get_config.ts";
+import { getConfig as get_zhejiang_config } from "./maps/tianditu/zhejiang/get_config.ts";
 
 async function create_dist_dir() {
   try {
@@ -47,6 +48,33 @@ async function main() {
     );
   } catch (err) {
     console.error("获取湖南配置失败，跳过:", err);
+  }
+
+  try {
+    console.log("Getting zhejiang maps...");
+    const zhejiang_maps = await get_zhejiang_config();
+    if (zhejiang_maps.status == "OK") {
+      const items = zhejiang_maps.data.data.map(
+        (item: Record<string, unknown>) =>
+          (["access", "metaData"] as const).reduce(
+            (acc, key) => ({
+              ...acc,
+              [key]: typeof item[key] === "string"
+                ? JSON.parse(item[key] as string)
+                : item[key],
+            }),
+            item,
+          ),
+      );
+      await Deno.writeTextFile(
+        `./src/maps/tianditu/zhejiang/zhejiang.json`,
+        JSON.stringify(items, null, 2),
+      );
+    } else {
+      console.error("获取浙江配置失败，跳过:", zhejiang_maps);
+    }
+  } catch (err) {
+    console.error("获取浙江配置失败，跳过:", err);
   }
 
   await create_dist_dir();
