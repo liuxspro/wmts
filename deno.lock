@@ -1,21 +1,19 @@
 {
   "version": "5",
   "specifiers": {
-    "jsr:@es-toolkit/es-toolkit@^1.45.1": "1.46.1",
-    "jsr:@hono/hono@^4.12.24": "4.12.24",
+    "jsr:@es-toolkit/es-toolkit@^1.45.1": "1.49.0",
+    "jsr:@hono/hono@^4.12.27": "4.12.27",
     "jsr:@liuxspro/capgen@~0.3.2": "0.3.2",
+    "jsr:@liuxspro/geo@~0.2.1": "0.2.1",
     "jsr:@liuxspro/libs@~0.1.16": "0.1.16",
-    "npm:minijinja-js@^2.15.1": "2.17.1"
+    "npm:minijinja-js@^2.15.1": "2.21.0"
   },
   "jsr": {
-    "@es-toolkit/es-toolkit@1.46.1": {
-      "integrity": "88088d95646fd8b4277414865f8af4e3b241f9422ab750c4be10e8debed7a676"
+    "@es-toolkit/es-toolkit@1.49.0": {
+      "integrity": "65c5efb21703a5c7c4367d4428e2495d209804278ae32dd04d7a663a3104a40b"
     },
-    "@hono/hono@4.11.7": {
-      "integrity": "2a0dc00088fbef98b76f575e3c4ab3d2c770d5e6095be215ae05c2aef25b363a"
-    },
-    "@hono/hono@4.12.24": {
-      "integrity": "a74a40f06ae6704ddd0e8e576f6da9d34666c3e1e0f5412a2c1ff800ffd092f4"
+    "@hono/hono@4.12.27": {
+      "integrity": "3acc640592008e43f7048e8e53275203e0da84fbcd50201121195da7560583dc"
     },
     "@liuxspro/capgen@0.3.2": {
       "integrity": "366a5e5839df7d6a2495a6bffdcb4a424f5adb59affac4819889ce4b8c72d4e8",
@@ -24,22 +22,23 @@
         "npm:minijinja-js"
       ]
     },
-    "@liuxspro/libs@0.1.13": {
-      "integrity": "9008a39a5be810d625655368af6e7902db7213c6d7e500648c1271401480aa10"
+    "@liuxspro/geo@0.2.1": {
+      "integrity": "05e409b0910d158b2bc3f959649fa3373064033f06d01f0ae2b47fdb7eabb82a"
     },
     "@liuxspro/libs@0.1.16": {
       "integrity": "8deffe00251f2fd1199a08a739b4e42ea5e4f99502cb311681879de2db0f6023"
     }
   },
   "npm": {
-    "minijinja-js@2.17.1": {
-      "integrity": "sha512-Q9vlhYmjSEqc64/cVNZpAX27+YUFZdBE5tw/d4snd1j2jo5ORMxS1Vh5Hev/Sx+AMhXkRPcSnB2PnTs8qKnkrg=="
+    "minijinja-js@2.21.0": {
+      "integrity": "sha512-JUJUe3maztFClGP0E156npg5x62GlIl3sE42oi3Hon0uj9KzXOaKhKbi/euTB7tNPVTtRCnXFFOI1Bsyt7q1hA=="
     }
   },
   "workspace": {
     "dependencies": [
-      "jsr:@hono/hono@^4.12.24",
+      "jsr:@hono/hono@^4.12.27",
       "jsr:@liuxspro/capgen@~0.3.2",
+      "jsr:@liuxspro/geo@~0.2.1",
       "jsr:@liuxspro/libs@~0.1.16"
     ]
   }

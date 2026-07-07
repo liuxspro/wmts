@@ -1,5 +1,5 @@
 import { Hono } from "hono";
-import { XYZ } from "@liuxspro/libs/geo";
+import { XYZ } from "@liuxspro/geo";
 
 const app = new Hono();
 
