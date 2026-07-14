@@ -55,16 +55,18 @@ async function main() {
     const zhejiang_maps = await get_zhejiang_config();
     if (zhejiang_maps.status == "OK") {
       const items = zhejiang_maps.data.data.map(
-        (item: Record<string, unknown>) =>
-          (["access", "metaData"] as const).reduce(
+        (item: Record<string, unknown>) => {
+          const { thumb, applyCount, ...rest } = item;
+          return (["access", "metaData"] as const).reduce(
             (acc, key) => ({
               ...acc,
               [key]: typeof item[key] === "string"
                 ? JSON.parse(item[key] as string)
                 : item[key],
             }),
-            item,
-          ),
+            rest,
+          );
+        },
       );
       await Deno.writeTextFile(
         `./src/maps/tianditu/zhejiang/zhejiang.json`,
