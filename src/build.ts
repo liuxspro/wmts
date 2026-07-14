@@ -56,7 +56,8 @@ async function main() {
     if (zhejiang_maps.status == "OK") {
       const items = zhejiang_maps.data.data.map(
         (item: Record<string, unknown>) => {
-          const { thumb, applyCount, ...rest } = item;
+          delete item.thumb;
+          delete item.applyCount;
           return (["access", "metaData"] as const).reduce(
             (acc, key) => ({
               ...acc,
@@ -64,7 +65,7 @@ async function main() {
                 ? JSON.parse(item[key] as string)
                 : item[key],
             }),
-            rest,
+            item,
           );
         },
       );
