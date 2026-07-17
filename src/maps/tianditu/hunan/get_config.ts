@@ -5,7 +5,7 @@ export async function getConfig() {
     signal: AbortSignal.timeout(10_000),
   });
   if (!response.ok) {
-    throw new Error(`获取江苏配置失败: HTTP ${response.status}`);
+    throw new Error(`获取湖南配置失败: HTTP ${response.status}`);
   }
   const data = await response.json();
   const maps = data.data;
