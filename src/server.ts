@@ -14,12 +14,17 @@ import {
   osm_router,
 } from "./server/router.ts";
 import wrap from "./server/wrap.ts";
+import common from "./maps/common/common.ts";
 
 const app = new Hono();
 
 const HTML = await Deno.readTextFile(new URL("./index.html", import.meta.url));
 
 app.get("/", (c) => c.html(HTML));
+app.get("/common", (c) => {
+  c.header("Content-Type", "text/xml;charset=UTF-8");
+  return c.body(common);
+});
 
 app.use("/dist/*", serveStatic({ root: "./" }));
 app.use(trimTrailingSlash());
