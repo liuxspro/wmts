@@ -441,7 +441,7 @@
   },
   {
     "id": 161268,
-    "name": "2024年第三季度0.5米",
+    "name": "2024年第三季度0.5米影像",
     "year": 2024,
     "url": "https://hunan.tianditu.gov.cn/iserver/services/HNImageTime/rest/maps/img2024Q3_05m",
     "remark": "2023年第三季度0.5米",
@@ -595,7 +595,7 @@
   },
   {
     "id": 161284,
-    "name": "2025年第四季度0.5米",
+    "name": "2025年第四季度0.5米影像",
     "year": 2025,
     "url": "https://hunan.tianditu.gov.cn/iserver/services/HNImageTime/rest/maps/img2025Q4_05m",
     "remark": "2025年第四季度0.5米",
@@ -614,5 +614,27 @@
     "transducer": null,
     "orga": "湖南省第三测绘院",
     "tileUrl": "https://hunan.tianditu.gov.cn/iserver/services/HNImageTime/TDT/img2025Q4_05m/default/Custom_img2025Q4_05m/{z}/{y}/{x}.png"
+  },
+  {
+    "id": 161285,
+    "name": "2026年1-2月1米影像",
+    "year": 2026,
+    "url": "https://hunan.tianditu.gov.cn/iserver/services/HNImageTime/rest/maps/img2026M1_2_1m",
+    "remark": "2026年1-2月1米影像",
+    "status": 0,
+    "sortNumber": 258,
+    "createTime": "2026-07-22T09:01:44",
+    "updateTime": "2026-07-22T09:01:44",
+    "time": "2026年1-2月",
+    "region": "湖南",
+    "regionCode": "430000",
+    "layer": "img2026M1_2_1m",
+    "resolution": "1",
+    "projection": "c",
+    "minLevel": 7,
+    "maxLevel": 18,
+    "transducer": null,
+    "orga": "湖南省第三测绘院",
+    "tileUrl": "https://hunan.tianditu.gov.cn/iserver/services/HNImageTime/TDT/img2026M1_2_1m/default/Custom_img2026M1_2_1m/{z}/{y}/{x}.png"
   }
 ]
