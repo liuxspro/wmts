@@ -3,6 +3,7 @@ import { get_jiangsu_config } from "./maps/tianditu/江苏/get_config.ts";
 import { get_config as get_beijing_config } from "./maps/tianditu/beijing/get_config.ts";
 import { getConfig as get_hunan_config } from "./maps/tianditu/hunan/get_config.ts";
 import { getConfig as get_zhejiang_config } from "./maps/tianditu/zhejiang/get_config.ts";
+import { getConfig as get_henan_config } from "./maps/tianditu/henan/get_config.ts";
 
 async function create_dist_dir() {
   try {
@@ -78,6 +79,17 @@ async function main() {
     }
   } catch (err) {
     console.error("获取浙江配置失败，跳过:", err);
+  }
+
+  try {
+    console.log("Getting henan maps...");
+    const henan_maps = await get_henan_config();
+    await Deno.writeTextFile(
+      `./src/maps/tianditu/henan/henan.json`,
+      JSON.stringify(henan_maps, null, 2),
+    );
+  } catch (err) {
+    console.error("获取河南配置失败，跳过:", err);
   }
 
   await create_dist_dir();
