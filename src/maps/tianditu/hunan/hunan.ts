@@ -70,11 +70,21 @@ const hn_layers = hunan_maps.map((map) => {
   );
 });
 
+const dizhi = new MapLayer(
+  "湖南 1：25万地质图",
+  "湖南 1：25万地质图",
+  "huana_1_25_dizhi",
+  hn_bbox,
+  custom_cgcs2000_quad,
+  "https://hunan.tianditu.gov.cn/api/iserver/services/map-agscachev2-Layers/rest/maps/Layers/tileImage.png?zrzyTK=123&mapServerId=146&redirect=false&transparent=true&cacheEnabled=true&_cache=true&origin=%7B%22x%22%3A-180%2C%22y%22%3A90%7D&overlapDisplayed=false&x={x}&y={y}&width=256&height=256&scale={z}",
+  "image/png",
+);
+
 export const service: Service = {
   title: "天地图 湖南",
   abstract: "天地图 湖南 历史影像",
   keywords: ["天地图", "湖南苏", "历史影像"],
 };
 
-const cap = new Capabilities(service, hn_layers).xml;
+const cap = new Capabilities(service, [...hn_layers, dizhi]).xml;
 export default cap;
