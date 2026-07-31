@@ -1,0 +1,37 @@
+[
+  {
+    "name": "2025",
+    "url": "https://hebei.tianditu.gov.cn/geoesb/proxy/8ce550428e8141d4a38d0d83ea9badc0/886e60bb7e014f22a707de23e6f6505d?service=WMTS&request=GetTile&version=1.0.0&style=default&tilematrixSet=CustomCRS4326ScaleYXT2025&format=image%2Fpng&width=256&height=256&layer=img"
+  },
+  {
+    "name": "2024",
+    "url": "https://hebei.tianditu.gov.cn/geoesb/proxy/2934b07ade944f1792c66651d8cabf67/886e60bb7e014f22a707de23e6f6505d?service=WMTS&request=GetTile&version=1.0.0&style=default&tilematrixSet=CustomCRS4326ScaleHBYX2024&format=image%2Fpng&width=256&height=256&layer=HBYX2024"
+  },
+  {
+    "name": "2023",
+    "url": "https://hebei.tianditu.gov.cn/geoesb/proxy/11f718e2e30c474b96386c660f092760/886e60bb7e014f22a707de23e6f6505d?service=WMTS&request=GetTile&version=1.0.0&style=default&tilematrixSet=CustomCRS4326ScaleYXT2023&format=image%2Fpng&width=256&height=256&layer=YXT2023"
+  },
+  {
+    "name": "2022",
+    "url": "https://hebei.tianditu.gov.cn/geoesb/proxy/31c13e14668842dc925817b8d0b4249e/886e60bb7e014f22a707de23e6f6505d?service=WMTS&request=GetTile&version=1.0.0&style=default&tilematrixSet=CustomCRS4326ScaleYXT2022&format=image%2Fpng&width=256&height=256&layer=YXT2022"
+  },
+  {
+    "name": "2021",
+    "url": "https://hebei.tianditu.gov.cn/dfcmaptile/services/ogc/wmts/YXT2021?service=WMTS&request=GetTile&version=1.0.0&style=default&tilematrixSet=CustomCRS4326ScaleYXT2021&format=image%2Fpng&width=256&height=256&layer=YXT2021"
+  },
+  {
+    "name": "2020",
+    "url": "https://hebei.tianditu.gov.cn/geoesb/proxy/183c7767438349a586add2d2db3ae589/886e60bb7e014f22a707de23e6f6505d?service=WMTS&request=GetTile&version=1.0.0&style=default&tilematrixSet=CustomCRS4326ScaleHBYX2020&format=image%2Fpng&width=256&height=256&layer=HBYX2020",
+    "maxZoom": 17
+  },
+  {
+    "name": "2019",
+    "url": "https://hebei.tianditu.gov.cn/geoesb/proxy/3afc365f4d9c4b3482f8d3904749cc10/886e60bb7e014f22a707de23e6f6505d?service=WMTS&request=GetTile&version=1.0.0&style=default&tilematrixSet=CustomCRS4326ScaleHBYX2019&format=image%2Fpng&width=256&height=256&layer=HBYX2019",
+    "maxZoom": 17
+  },
+  {
+    "name": "2018",
+    "url": "https://hebei.tianditu.gov.cn/geoesb/proxy/6f6296a505504ecfb9a38167e67ad286/886e60bb7e014f22a707de23e6f6505d?service=WMTS&request=GetTile&version=1.0.0&style=default&tilematrixSet=CustomCRS4326ScaleHBYX2018&format=image%2Fpng&width=256&height=256&layer=HBYX2018",
+    "maxZoom": 17
+  }
+]
