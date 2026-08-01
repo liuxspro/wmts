@@ -33,5 +33,40 @@
     "name": "2018",
     "url": "https://hebei.tianditu.gov.cn/geoesb/proxy/6f6296a505504ecfb9a38167e67ad286/886e60bb7e014f22a707de23e6f6505d?service=WMTS&request=GetTile&version=1.0.0&style=default&tilematrixSet=CustomCRS4326ScaleHBYX2018&format=image%2Fpng&width=256&height=256&layer=HBYX2018",
     "maxZoom": 17
+  },
+  {
+    "name": "2017",
+    "url": "https://hebei.tianditu.gov.cn/geoesb/proxy/961172565cb3433780ea6c26788728d9/886e60bb7e014f22a707de23e6f6505d?service=WMTS&request=GetTile&version=1.0.0&style=default&tilematrixSet=CustomCRS4326ScaleHBYX2017&format=image%2Fpng&width=256&height=256&layer=HBYX2017",
+    "maxZoom": 17
+  },
+  {
+    "name": "2016",
+    "url": "https://hebei.tianditu.gov.cn/geoesb/proxy/dd8843f4c88149daa7f87cb9c6ab226f/886e60bb7e014f22a707de23e6f6505d?service=WMTS&request=GetTile&version=1.0.0&style=default&tilematrixSet=CustomCRS4326ScaleHBYX2016&format=image%2Fpng&width=256&height=256&layer=HBYX2016",
+    "maxZoom": 17
+  },
+  {
+    "name": "2015",
+    "url": "https://hebei.tianditu.gov.cn/geoesb/proxy/971e86b320fe4ed5ae153f169ac55464/886e60bb7e014f22a707de23e6f6505d?service=WMTS&request=GetTile&version=1.0.0&style=default&tilematrixSet=CustomCRS4326ScaleHBYX2015&format=image%2Fpng&width=256&height=256&layer=HBYX2015",
+    "maxZoom": 17
+  },
+  {
+    "name": "2014",
+    "url": "https://hebei.tianditu.gov.cn/geoesb/proxy/5f102ecadc6a48889c5a6e16be0d9c1e/886e60bb7e014f22a707de23e6f6505d?service=WMTS&request=GetTile&version=1.0.0&style=default&tilematrixSet=CustomCRS4326ScaleHBYX2014&format=image%2Fpng&width=256&height=256&layer=HBYX2014",
+    "maxZoom": 17
+  },
+  {
+    "name": "2013",
+    "url": "https://hebei.tianditu.gov.cn/geoesb/proxy/99094b3f4f5341c6ba31f46779122b8d/886e60bb7e014f22a707de23e6f6505d?service=WMTS&request=GetTile&version=1.0.0&style=default&tilematrixSet=CustomCRS4326ScaleHBYX2013&format=image%2Fpng&width=256&height=256&layer=HBYX2013",
+    "maxZoom": 17
+  },
+  {
+    "name": "2012",
+    "url": "https://hebei.tianditu.gov.cn/geoesb/proxy/0d4d622cef484cf5b0b31f001dacb172/886e60bb7e014f22a707de23e6f6505d?service=WMTS&request=GetTile&version=1.0.0&style=default&tilematrixSet=CustomCRS4326ScaleHBYX2012&format=image%2Fpng&width=256&height=256&layer=HBYX2012",
+    "maxZoom": 17
+  },
+  {
+    "name": "2011",
+    "url": "https://hebei.tianditu.gov.cn/geoesb/proxy/6b8df867608e48d7b57bcf6b94b45373/886e60bb7e014f22a707de23e6f6505d?service=WMTS&request=GetTile&version=1.0.0&style=default&tilematrixSet=CustomCRS4326ScaleHBYX2011&format=image%2Fpng&width=256&height=256&layer=HBYX2011",
+    "maxZoom": 17
   }
 ]
