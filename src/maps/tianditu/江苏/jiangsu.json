@@ -108,5 +108,10 @@
     "name": "2026年1季度",
     "id": "image2026q1",
     "url": "//jiangsu.tianditu.gov.cn/tdtsite06/rest/services/quarterlyImg/img2026q1r2/MapServer"
+  },
+  {
+    "name": "2026年2季度",
+    "id": "img2026q2",
+    "url": "//jiangsu.tianditu.gov.cn/tdtsite06/rest/services/quarterlyImg/img2026q2r2/MapServer"
   }
 ]
