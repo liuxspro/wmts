@@ -1,0 +1,55 @@
+[
+  {
+    "name": "2024",
+    "url": "https://shanxi.tianditu.gov.cn/dataserver/SX_DOM_History_TDT/wmts?layer=SX_DOM_BAS_2024&style=default&tilematrixset=Matrix_SX_DOM_BAS_2024_0&Service=WMTS&Request=GetTile&Version=1.0.0&Format=image%2Fpng"
+  },
+  {
+    "name": "2023",
+    "url": "https://shanxi.tianditu.gov.cn/dataserver/SX_DOM_History_TDT/wmts?layer=SX_DOM_BAS_2023&style=default&tilematrixset=Matrix_SX_DOM_BAS_2023_0&Service=WMTS&Request=GetTile&Version=1.0.0&Format=image%2Fpng"
+  },
+  {
+    "name": "2022",
+    "url": "https://shanxi.tianditu.gov.cn/dataserver/SX_DOM_History_TDT/wmts?layer=SX_DOM_BAS_2022&style=default&tilematrixset=Matrix_SX_DOM_BAS_2022_0&Service=WMTS&Request=GetTile&Version=1.0.0&Format=image%2Fpng"
+  },
+  {
+    "name": "2021",
+    "url": "https://shanxi.tianditu.gov.cn/dataserver/SX_DOM_History_TDT/wmts?layer=SX_DOM_BAS_2021&style=default&tilematrixset=Matrix_SX_DOM_BAS_2021_0&Service=WMTS&Request=GetTile&Version=1.0.0&Format=image%2Fpng"
+  },
+  {
+    "name": "2020",
+    "url": "https://shanxi.tianditu.gov.cn/dataserver/SX_DOM_History_TDT/wmts?layer=SX_DOM_BAS_2020&style=default&tilematrixset=Matrix_SX_DOM_BAS_2020_0&Service=WMTS&Request=GetTile&Version=1.0.0&Format=image%2Fpng"
+  },
+  {
+    "name": "2019",
+    "url": "https://shanxi.tianditu.gov.cn/dataserver/SX_DOM_History_TDT/wmts?layer=SX_DOM_BAS_2019&style=default&tilematrixset=Matrix_SX_DOM_BAS_2019_0&Service=WMTS&Request=GetTile&Version=1.0.0&Format=image%2Fpng"
+  },
+  {
+    "name": "2018",
+    "url": "https://shanxi.tianditu.gov.cn/dataserver/SX_DOM_History_TDT/wmts?layer=SX_DOM_BAS_2018&style=default&tilematrixset=Matrix_SX_DOM_BAS_2018_0&Service=WMTS&Request=GetTile&Version=1.0.0&Format=image%2Fpng"
+  },
+  {
+    "name": "2017",
+    "url": "https://shanxi.tianditu.gov.cn/dataserver/SX_DOM_History_TDT/wmts?layer=SX_DOM_2017&style=default&tilematrixset=Matrix_SX_DOM_2017_0&Service=WMTS&Request=GetTile&Version=1.0.0&Format=image%2Fpng",
+    "maxZoom": 15
+  },
+  {
+    "name": "2016",
+    "url": "https://shanxi.tianditu.gov.cn/dataserver/SX_DOM_History_TDT/wmts?layer=SX_DOM_2016&style=default&tilematrixset=Matrix_SX_DOM_2016_0&Service=WMTS&Request=GetTile&Version=1.0.0&Format=image%2Fpng",
+    "maxZoom": 15
+  },
+  {
+    "name": "2015",
+    "url": "https://shanxi.tianditu.gov.cn/dataserver/SX_DOM_History_TDT/wmts?layer=SX_DOM_2015&style=default&tilematrixset=Matrix_SX_DOM_2015_0&Service=WMTS&Request=GetTile&Version=1.0.0&Format=image%2Fpng",
+    "maxZoom": 15
+  },
+  {
+    "name": "2014",
+    "url": "https://shanxi.tianditu.gov.cn/dataserver/SX_DOM_History_TDT/wmts?layer=SX_DOM_2014&style=default&tilematrixset=Matrix_SX_DOM_2014_0&Service=WMTS&Request=GetTile&Version=1.0.0&Format=image%2Fpng",
+    "maxZoom": 15
+  },
+  {
+    "name": "2013",
+    "url": "https://shanxi.tianditu.gov.cn/dataserver/SX_DOM_History_TDT/wmts?layer=SX_DOM_2013&style=default&tilematrixset=Matrix_SX_DOM_2013_0&Service=WMTS&Request=GetTile&Version=1.0.0&Format=image%2Fpng",
+    "maxZoom": 15
+  }
+]

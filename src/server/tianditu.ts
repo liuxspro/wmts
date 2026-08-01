@@ -12,6 +12,7 @@ import shanghai from "../maps/tianditu/shanghai.ts";
 import hunan from "../maps/tianditu/hunan/hunan.ts";
 import henan from "../maps/tianditu/henan/henan.ts";
 import hebei from "../maps/tianditu/hebei/hebei.ts";
+import shanxi from "../maps/tianditu/shanxi/shanxi.ts";
 
 const app = new Hono();
 
@@ -52,6 +53,7 @@ app.route("/hunan", create_router(hunan));
 app.route("/zhejiang", create_router(浙江));
 app.route("/henan", create_router(henan));
 app.route("/hebei", create_router(hebei));
+app.route("/shanxi", create_router(shanxi));
 
 app.get("/wenzhou", (c) => {
   c.header("Content-Type", "text/xml;charset=UTF-8");
