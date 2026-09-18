@@ -1,0 +1,122 @@
+[
+  {
+    "name": "1996年南昌市影像",
+    "layer": "img1996",
+    "url": "https://jiangxi.tianditu.gov.cn/ime-cloud/rest/img1996/wmts",
+    "matrixSet": "guobiao",
+    "bbox": [
+      -180,
+      -90,
+      180,
+      90
+    ]
+  },
+  {
+    "name": "2010年南昌市影像",
+    "layer": "NCS_DOM_2010_001",
+    "url": "https://jiangxi.tianditu.gov.cn/ime-cloud/rest/NCS_DOM_2010_001/wmts",
+    "matrixSet": "guobiao",
+    "bbox": [
+      115.41987854329034,
+      28.15082672957359,
+      116.57251953008449,
+      29.135890771191775
+    ]
+  },
+  {
+    "name": "2015年南昌市影像",
+    "layer": "NCS_DOM_2015",
+    "url": "https://jiangxi.tianditu.gov.cn/ime-cloud/rest/NCS_DOM_2015/wmts",
+    "matrixSet": "guobiao",
+    "bbox": [
+      115.42017379683288,
+      28.149640313404074,
+      116.57209130210397,
+      29.135241247981412
+    ]
+  },
+  {
+    "name": "2019年南昌市影像",
+    "layer": "NCS_DOM_2019",
+    "url": "https://jiangxi.tianditu.gov.cn/ime-cloud/rest/NCS_DOM_2019/wmts",
+    "matrixSet": "guobiao",
+    "bbox": [
+      115.42002812468623,
+      28.150101170738733,
+      116.57260636434063,
+      29.135731183652656
+    ]
+  },
+  {
+    "name": "2020年南昌市影像",
+    "layer": "NCS_DOM_2020",
+    "url": "https://jiangxi.tianditu.gov.cn/ime-cloud/rest/NCS_DOM_2020/wmts",
+    "matrixSet": "guobiao",
+    "bbox": [
+      115.42940742934108,
+      28.158275044105267,
+      116.56340556530701,
+      29.126518315355952
+    ]
+  },
+  {
+    "name": "2022年江西省影像",
+    "layer": "2022YX100",
+    "url": "https://jiangxi.tianditu.gov.cn/ime-cloud/rest/JX_YX_2022/wmts",
+    "matrixSet": "guobiao",
+    "bbox": [
+      113.31969254561052,
+      24.206171383930354,
+      118.73356638458894,
+      30.360181122255728
+    ]
+  },
+  {
+    "name": "2023年江西省影像",
+    "layer": "2023tif2",
+    "url": "https://jiangxi.tianditu.gov.cn/ime-cloud/rest/JX_YX_2023/wmts",
+    "matrixSet": "guobiao",
+    "bbox": [
+      113.31969052339163,
+      24.2061729849126,
+      118.73356648088509,
+      30.36018149913913
+    ]
+  },
+  {
+    "name": "2024年江西省影像",
+    "layer": "2024YX100",
+    "url": "https://jiangxi.tianditu.gov.cn/ime-cloud/rest/JX_YX_2024/wmts",
+    "matrixSet": "guobiao",
+    "bbox": [
+      113.32506185444744,
+      24.20417250533406,
+      118.73330956302688,
+      30.360276734214526
+    ]
+  },
+  {
+    "name": "2025年第一季度江西省影像",
+    "layer": "2025-1hk",
+    "url": "https://jiangxi.tianditu.gov.cn/ime-cloud/rest/JX_YX_2025_1/wmts",
+    "matrixSet": "guobiao",
+    "bbox": [
+      113.32506283409244,
+      24.204173577760795,
+      118.73330951637712,
+      30.360276683146587
+    ]
+  },
+  {
+    "name": "2025年第二季度江西省影像",
+    "layer": "2025Q2100",
+    "url": "https://jiangxi.tianditu.gov.cn/ime-cloud/rest/JX_YX_2025_2/wmts",
+    "matrixSet": "guobiao",
+    "bbox": [
+      113.32506220821821,
+      24.20402448701749,
+      118.73330213384054,
+      30.360283782705793
+    ]
+  }
+]
