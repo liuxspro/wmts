@@ -3,17 +3,17 @@ import { tianditu_cap } from "../maps/tianditu/main.ts";
 import { gen_sd_cap } from "../maps/tianditu/shandong.ts";
 import { cap as 福建 } from "../maps/tianditu/fujian.ts";
 import { create_router } from "../utils.ts";
-import 江苏 from "../maps/tianditu/江苏/router.ts";
+import 江苏 from "../maps/tianditu/jiangsu/router.ts";
 import 浙江 from "../maps/tianditu/zhejiang/zhejiang.ts";
-import 广东 from "../maps/tianditu/广东/router.ts";
+import 广东 from "../maps/tianditu/guangdong/router.ts";
 import 温州 from "../maps/tianditu/wenzhou.ts";
-import beijing from "../maps/tianditu/beijing/router.ts";
-import shanghai from "../maps/tianditu/shanghai.ts";
-import hunan from "../maps/tianditu/hunan/hunan.ts";
-import henan from "../maps/tianditu/henan/henan.ts";
-import hebei from "../maps/tianditu/hebei/hebei.ts";
-import shanxi from "../maps/tianditu/shanxi/shanxi.ts";
-import jiangxi from "../maps/tianditu/jiangxi/jiangxi.ts";
+import 北京 from "../maps/tianditu/beijing/router.ts";
+import 上海 from "../maps/tianditu/shanghai.ts";
+import 湖南 from "../maps/tianditu/hunan/hunan.ts";
+import 河南 from "../maps/tianditu/henan/henan.ts";
+import 河北 from "../maps/tianditu/hebei/hebei.ts";
+import 山西 from "../maps/tianditu/shanxi/shanxi.ts";
+import 江西 from "../maps/tianditu/jiangxi/jiangxi.ts";
 
 const app = new Hono();
 
@@ -48,14 +48,14 @@ app.get("/sdhis/:id/:el", (c) => {
 app.route("/fujian", create_router(福建));
 app.route("/jiangsu", 江苏);
 app.route("/guangdong", 广东);
-app.route("/beijing", beijing);
-app.route("/shanghai", create_router(shanghai));
-app.route("/hunan", create_router(hunan));
+app.route("/beijing", 北京);
+app.route("/shanghai", create_router(上海));
+app.route("/hunan", create_router(湖南));
 app.route("/zhejiang", create_router(浙江));
-app.route("/henan", create_router(henan));
-app.route("/hebei", create_router(hebei));
-app.route("/shanxi", create_router(shanxi));
-app.route("/jiangxi", create_router(jiangxi));
+app.route("/henan", create_router(河南));
+app.route("/hebei", create_router(河北));
+app.route("/shanxi", create_router(山西));
+app.route("/jiangxi", create_router(江西));
 
 app.get("/wenzhou", (c) => {
   c.header("Content-Type", "text/xml;charset=UTF-8");

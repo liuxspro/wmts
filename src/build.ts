@@ -1,5 +1,5 @@
 import { maps } from "./maps.ts";
-import { get_jiangsu_config } from "./maps/tianditu/江苏/get_config.ts";
+import { get_jiangsu_config } from "./maps/tianditu/jiangsu/get_config.ts";
 import { get_config as get_beijing_config } from "./maps/tianditu/beijing/get_config.ts";
 import { getConfig as get_hunan_config } from "./maps/tianditu/hunan/get_config.ts";
 import { getConfig as get_zhejiang_config } from "./maps/tianditu/zhejiang/get_config.ts";
