@@ -7,7 +7,7 @@
   },
   "imports": {
     "@liuxspro/libs": "jsr:@liuxspro/libs@^0.1.16",
-    "@liuxspro/geo": "jsr:@liuxspro/geo@^0.2.2",
+    "@liuxspro/geo": "jsr:@liuxspro/geo@^0.3.2",
     "hono": "jsr:@hono/hono@^4.13.8",
     "@liuxspro/capgen": "jsr:@liuxspro/capgen@^0.3.2"
   }

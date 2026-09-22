@@ -7,17 +7,15 @@ import {
   Service,
   TileMatrix,
 } from "@liuxspro/capgen";
+import { zoom_to_scale } from "@liuxspro/geo";
 
 const hn_bbox: BBox = [
   [108.78311200, 24.63442600],
   [115.545019, 30.563407],
 ];
 
-function zoomToScale(zoom: number): number {
-  return (256 * Math.pow(2, zoom) * 0.0254 / 96) / (2 * Math.PI * 6378137);
-}
-
 // 使用 scale 表示 zoom
+// scale 是dpi96的，但是比例分母又是028mm的，奇怪🤔
 class CustomCRS84TileMatrixSet extends CRS84TileMatrixSet {
   protected override generateMatrixs(
     minZoom: number,
@@ -35,7 +33,7 @@ class CustomCRS84TileMatrixSet extends CRS84TileMatrixSet {
       const topLeftCorner: [number, number] = [90, -180]; // EPSG:4326
 
       return {
-        identifier: `${zoomToScale(zoom)}`,
+        identifier: `${zoom_to_scale(zoom, 96)}`,
         scale_denominator: Number(scale),
         top_left_corner: topLeftCorner,
         tile_width: tileSize,
