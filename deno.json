@@ -2,8 +2,8 @@
   "minimumDependencyAge": 0,
   "tasks": {
     "dev": "deno run -A --watch ./src/server.ts",
-    "build": "deno run -A ./src/build.ts",
-    "deploy": "deployctl deploy"
+    "update": "deno run -A ./src/build.ts",
+    "compile": "deno compile -A -o dist/server.exe --engine quickjs ./src/server.ts"
   },
   "imports": {
     "@liuxspro/libs": "jsr:@liuxspro/libs@^0.1.16",

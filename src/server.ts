@@ -16,9 +16,11 @@ import {
 import wrap from "./server/wrap.ts";
 import common from "./maps/common/common.ts";
 
-const app = new Hono();
+// Imported as a text module so the content is embedded in the module graph,
+// which keeps it available in `deno compile`d binaries and on Deno Deploy.
+import HTML from "./index.html" with { type: "text" };
 
-const HTML = await Deno.readTextFile(new URL("./index.html", import.meta.url));
+const app = new Hono();
 
 app.get("/", (c) => c.html(HTML));
 app.get("/common", (c) => {
