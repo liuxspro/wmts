@@ -18,6 +18,7 @@ const config = {
     { year: 2022, mk: "bd60ffe96379e0c9cbc1be02b06e3622" },
     { year: 2023, mk: "73ad26c4aa6957eef051ecc5a15308b4" },
     { year: 2024, mk: "3ddec00f5f435270285ffc7ad1a60ce5" },
+    { year: 2025, mk: "87ef1846fbacfb91a8f45eff68115cd7" },
   ],
 };
 
