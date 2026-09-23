@@ -23,7 +23,7 @@ async function main() {
     console.log("Getting jiangsu maps...");
     const jiangsu_maps = await get_jiangsu_config();
     await Deno.writeTextFile(
-      `./src/maps/tianditu/江苏/jiangsu.json`,
+      `./src/maps/tianditu/jiangsu/jiangsu.json`,
       JSON.stringify(jiangsu_maps, null, 2),
     );
   } catch (err) {
