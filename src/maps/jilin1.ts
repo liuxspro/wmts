@@ -6,39 +6,33 @@ import {
   web_mercator_quad,
 } from "@liuxspro/capgen";
 
-// https://www.jl1mall.com/rskit/RSsserviceManage
+// https://www.jl1mall.com/rskit/MyRSservice 我的套件
+// https://www.jl1mall.com/rskit/RSsserviceManage 查看套件明细
+// 基于WMTS方式加载（官方） https://api.jl1mall.com/getCapabilities?mk=图层 MK&tk=套件TK
 
-const jl1_2022 = new MapLayer(
-  "吉林一号 - 2022年度全国高质量一张图",
-  "吉林一号 - 2022年度全国高质量一张图",
-  "jl1_2022",
-  mercator_bbox,
-  web_mercator_quad.clone(),
-  "https://api.jl1mall.com/getMap?TileMatrix={z}&TileCol={x}&TileRow={y}&sch=wmts&route=1&mk=bd60ffe96379e0c9cbc1be02b06e3622",
-  "image/jpeg",
-);
+const config = {
+  tile_url:
+    "https://api.jl1mall.com/getMap?TileMatrix={z}&TileCol={x}&TileRow={y}&sch=wmts&route=1&mk={mk}",
+  format: "image/jpeg",
+  layers: [
+    { year: 2022, mk: "bd60ffe96379e0c9cbc1be02b06e3622" },
+    { year: 2023, mk: "73ad26c4aa6957eef051ecc5a15308b4" },
+    { year: 2024, mk: "3ddec00f5f435270285ffc7ad1a60ce5" },
+  ],
+};
 
-const jl1_2023 = new MapLayer(
-  "吉林一号 - 2023年度全国高质量一张图",
-  "吉林一号 - 2023年度全国高质量一张图",
-  "jl1_2023",
-  mercator_bbox,
-  web_mercator_quad.clone(),
-  "https://api.jl1mall.com/getMap?TileMatrix={z}&TileCol={x}&TileRow={y}&sch=wmts&route=1&mk=73ad26c4aa6957eef051ecc5a15308b4",
-  "image/jpeg",
-);
-
-const jl1_2024 = new MapLayer(
-  "吉林一号 - 2024年度全国高质量一张图",
-  "吉林一号 - 2024年度全国高质量一张图",
-  "jl1_2024",
-  mercator_bbox,
-  web_mercator_quad.clone(),
-  "https://api.jl1mall.com/getMap?TileMatrix={z}&TileCol={x}&TileRow={y}&sch=wmts&route=1&mk=3ddec00f5f435270285ffc7ad1a60ce5",
-  "image/jpeg",
-);
-
-export const layers = [jl1_2022, jl1_2023, jl1_2024];
+export const layers = config.layers.map((layer) => {
+  const title = `吉林一号 - ${layer.year}年度全国高质量一张图`;
+  return new MapLayer(
+    title,
+    title,
+    `jl1_${layer.year}`,
+    mercator_bbox,
+    web_mercator_quad.clone(),
+    config.tile_url.replaceAll("{mk}", layer.mk),
+    config.format,
+  );
+});
 
 export const service: Service = {
   title: "吉林一号",
@@ -55,5 +49,3 @@ export function jl1_cap(token: string) {
     }),
   ).xml;
 }
-
-// export const cap = new Capabilities(service, layers).xml;
