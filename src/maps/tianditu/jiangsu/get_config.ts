@@ -5,8 +5,11 @@ interface MapItem {
 }
 
 export async function get_jiangsu_config() {
+  // 该站点的 HTTPS 仅支持 TLS 1.2 + 静态 RSA/CBC 套件（AES128-SHA、AES256-SHA），
+  // 没有 TLS 1.3，也没有 ECDHE/AEAD 套件，Deno 的 rustls 客户端会直接
+  // HandshakeFailure，因此这里只能走 HTTP（curl、浏览器等 OpenSSL/schannel 客户端不受影响）。
   const config_url =
-    "https://jiangsu.tianditu.gov.cn/server/mulitdate/getConfig?type=多时相配置";
+    "http://jiangsu.tianditu.gov.cn/server/mulitdate/getConfig?type=多时相配置";
 
   const response = await fetch(config_url, {
     signal: AbortSignal.timeout(10_000),
