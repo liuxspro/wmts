@@ -14,6 +14,7 @@ import 河南 from "../maps/tianditu/henan/henan.ts";
 import 河北 from "../maps/tianditu/hebei/hebei.ts";
 import 山西 from "../maps/tianditu/shanxi/shanxi.ts";
 import 江西 from "../maps/tianditu/jiangxi/jiangxi.ts";
+import 新疆 from "../maps/tianditu/xinjiang/xinjiang.ts";
 
 const app = new Hono();
 
@@ -56,6 +57,7 @@ app.route("/henan", create_router(河南));
 app.route("/hebei", create_router(河北));
 app.route("/shanxi", create_router(山西));
 app.route("/jiangxi", create_router(江西));
+app.route("/xinjiang", create_router(新疆));
 
 app.get("/wenzhou", (c) => {
   c.header("Content-Type", "text/xml;charset=UTF-8");
