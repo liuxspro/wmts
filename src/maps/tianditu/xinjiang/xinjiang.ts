@@ -37,7 +37,7 @@ const xinjiang_layers = xinjiang_maps.map((map) => {
   ];
   const url =
     `${map.url}?layer=${map.layer}&style=default&tilematrixset=${map.matrixSet}` +
-    `&Service=WMTS&Request=GetTile&Version=1.0.0&Format=image%2Fjpeg` +
+    `&Service=WMTS&Request=GetTile&Version=1.0.0&Format=image%2Fpng` +
     `&TileMatrix={z}&TileCol={x}&TileRow={y}`;
 
   return new MapLayer(
@@ -47,7 +47,7 @@ const xinjiang_layers = xinjiang_maps.map((map) => {
     bbox,
     cgcs2000_quad.clone().setZoom(1, MAX_ZOOM),
     url,
-    "image/jpeg",
+    "image/png",
   );
 });
 
