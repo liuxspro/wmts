@@ -1,6 +1,6 @@
 ---
 name: tianditu-province-layer
-description: 在 wmts 仓库中新增或排查天地图省级历史影像（多时相）WMTS 图层。涵盖创建 src/maps/tianditu/<province>/{get_config.ts,<province>.json,<province>.ts}、在 src/server/tianditu.ts 注册路由、在 src/build.ts 增加配置抓取，以及用真实瓦片验证。当用户要求"接入/新增某省天地图历史影像""多时相配置"，或反馈"capabilities 能打开但不出图/瓦片错位"时使用。
+description: 在 wmts 仓库中新增或排查天地图省级历史影像（多时相）WMTS 图层。涵盖创建 src/maps/tianditu/<province>/{get_config.ts,<province>.json,<province>.ts}、在 src/server/tianditu.ts 注册路由、在 src/build.ts 增加配置抓取，以及用真实瓦片验证。当用户要求"接入/新增某省天地图历史影像""多时相配置"，或反馈"capabilities 能打开但不出图/瓦片错位"时使用。用户已给出可出图的瓦片 URL 时，走"快速路径"直接出 4490/3857 两版候选让用户验证。
 ---
 
 # 天地图省级历史影像图层接入
@@ -10,7 +10,7 @@ description: 在 wmts 仓库中新增或排查天地图省级历史影像（多�
 适用于把某个省级（或市级）天地图站点的历史影像 / 多时相 WMTS 服务接入本仓库。
 典型形态是：列表接口返回若干期影像，每期对应一个标准 WMTS 服务，瓦片集多为
 `guobiao`（EPSG:4490 平方公里网格）。已接入的同类实现：`hunan`、`henan`、`hebei`、
-`shanxi`、`jiangxi`。
+`shanxi`、`jiangxi`、`xinjiang`。
 
 ## 文件结构
 
@@ -24,7 +24,107 @@ description: 在 wmts 仓库中新增或排查天地图省级历史影像（多�
 
 目录名沿用既有写法即可（既有中文目录 `江苏`、`beijing`、`jiangxi` 并存）。
 
-## 步骤
+## 快速路径：用户直接给出瓦片 URL
+
+当用户能贴出一条能出图的 `GetTile` 请求（浏览器 Network 里复制的即可），**不要花时间
+反推投影、比例尺基准或矩阵集**，也不要指望服务的 `GetCapabilities` —— 它经常
+根本不返回 `<TileMatrixSet>`（新疆就是），只有瓦片 URL 是可靠信息。
+
+做法是同时生成 **4490 与 3857 两版 capabilities**，挂两个路由让用户实测，确认后再删掉
+错的那一版。新疆就是这样接进来的：源服务自报 EPSG:4326，实测 4490 可用、3857 错位。
+
+### 1. 把瓦片 URL 拆成模板
+
+保留 URL 里 `layer=`、`style=`、`tilematrixset=` 的真实取值，把 `TileMatrix/TileCol/TileRow`
+换成 capgen 占位符，其余查询串原样保留：
+
+```ts
+const url =
+  `${map.url}?layer=${map.layer}&style=default&tilematrixset=${map.matrixSet}` +
+  `&Service=WMTS&Request=GetTile&Version=1.0.0&Format=image%2Fjpeg` +
+  `&TileMatrix={z}&TileCol={x}&TileRow={y}`;
+```
+
+`{z}` 会被 capgen 换成 TileMatrix **标识符**，所以源服务的 TileMatrix 必须是 `1,2,3…`
+这类数字 id。若实测 id 是比例尺字符串（如 `1:100万`），需要继承矩阵集并覆写
+`generateMatrixs`，参考 `hunan/hunan.ts` 的 `CustomCRS84TileMatrixSet`。
+
+只想确认某个坐标有没有数据时，4326 网格的行列号是
+`floor((lon+180)/(360/2^z))`、`floor((90-lat)/(360/2^z))`；注意跨度是 `360/2^z`，
+**不是**分辨率 `360/(2^z × 256)`。
+
+### 2. 一次写两版标准矩阵集
+
+两版都只用 capgen 自带的标准矩阵集，不要自定义：
+
+| 候选 | 矩阵集              | 适用                                                              |
+| ---- | ------------------- | ----------------------------------------------------------------- |
+| 4490 | `cgcs2000_quad`     | 源服务 EPSG:4490/4326，平方公里网格（绝大多数天地图省级历史影像） |
+| 3857 | `web_mercator_quad` | 源服务 EPSG:3857 / GoogleMapsCompatible                           |
+
+```ts
+import {
+  type BBox,
+  Capabilities,
+  cgcs2000_quad,
+  MapLayer,
+  Service,
+  type TileMatrixSet,
+  web_mercator_quad,
+} from "@liuxspro/capgen";
+
+const MAX_ZOOM = 16; // 先用实测上限，见陷阱 6
+
+function create_layers(quad: TileMatrixSet, suffix = ""): MapLayer[] {
+  return maps.map((map) => {
+    /* …bbox 裁剪、url 模板同上… */
+    return new MapLayer(
+      `新疆 ${map.name}${suffix}`,
+      `新疆 ${map.name}${suffix}`,
+      `xinjiang_${map.layer}${suffix ? "_3857" : ""}`,
+      bbox,
+      quad,
+      url,
+      "image/jpeg",
+    );
+  });
+}
+
+export const cap_3857 = new Capabilities(
+  { title: "天地图 新疆 (EPSG:3857)", abstract: "…", keywords: [] },
+  create_layers(web_mercator_quad.clone().setZoom(1, MAX_ZOOM), " (3857)"),
+).xml;
+
+const cap = new Capabilities(
+  { title: "天地图 新疆", abstract: "…", keywords: [] },
+  create_layers(cgcs2000_quad.clone().setZoom(1, MAX_ZOOM)),
+).xml;
+export default cap;
+```
+
+`clone()` 不能省：`setZoom` 会改动矩阵集 id，直接改全局单例会污染其它图层。
+
+### 3. 挂两个路由，交给用户测
+
+```ts
+app.route("/xinjiang", create_router(新疆));
+app.route("/xinjiang3857", create_router(新疆3857));
+```
+
+请用户分别打开并比对：
+
+- `http://localhost:8000/xinjiang/1.0.0/WMTSCapabilities.xml`
+- `http://localhost:8000/xinjiang3857/1.0.0/WMTSCapabilities.xml`
+
+**不要自己猜哪一版对**。3857 版常常错位，因为瓦片 URL 里的 `tilematrixset` 只能固定成
+源服务的 4326 网格，行列号却按墨卡托算——这是预期结果，不是代码写错。
+
+### 4. 用户确认后收尾
+
+删掉落选的那一版：`cap_3857`、`web_mercator_quad` 导入、`service_3857`、`suffix`
+参数、对应路由，只留实测可用的矩阵集；然后重跑 `deno check` / `deno lint`。
+
+## 常规步骤
 
 ### 1. 摸清数据源
 
@@ -208,6 +308,9 @@ const bbox: BBox = [
 把层级范围（`tileMatrixSetLinks[].matrixIds[].identifier` 的最小/最大值）也解析进 JSON
 （注意 `setZoom` 会把矩阵集 id 改成 `CGCS2000QuadF{min}T{max}`，这是正常的）。
 
+空瓦片也可能返回 HTTP 200：新疆 17 级起返回 334 字节的透明 PNG。探测时必须同时看
+字节大小和魔数，不能只看状态码；只有几百字节的 PNG/JPEG 基本都是空图。
+
 ### 7. 稀疏图层要用数据范围内的点探测
 
 只有市域数据的图层（如 1996 南昌影像），用裁剪后的省域中心点探测会得到 404，
@@ -225,3 +328,5 @@ const bbox: BBox = [
 ## 参考文件
 
 - `templates/tile-probe.ts`：瓦片探针，复制到仓库根目录运行后删除。
+- `src/maps/tianditu/xinjiang/`：快速路径的完整实例（用户给瓦片 URL → 4490 与 3857 双版本 →
+  用户确认后只留 4490）。
