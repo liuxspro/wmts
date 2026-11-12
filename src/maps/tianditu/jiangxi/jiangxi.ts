@@ -21,7 +21,7 @@ const jiangxi_bbox: BBox = [
   [118.7336, 30.3602],
 ];
 
-const jiangxi_layers = jiangxi_maps.map((map) => {
+export const jiangxi_layers = jiangxi_maps.map((map) => {
   const url =
     `${map.url}?SERVICE=WMTS&REQUEST=GetTile&VERSION=1.0.0&LAYER=${map.layer}&STYLE=default&TILEMATRIXSET=${map.matrixSet}&TILEMATRIX={z}&TILEROW={y}&TILECOL={x}&FORMAT=image/jpeg`;
   // 部分图层（如 1996 年南昌影像）的范围是全球，此处裁剪到江西省

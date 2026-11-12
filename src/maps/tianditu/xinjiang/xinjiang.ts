@@ -24,7 +24,7 @@ const xinjiang_bbox: BBox = [
 // 服务声明 0~16/18/22 级，实测 16 级以上为空瓦片
 const MAX_ZOOM = 16;
 
-const xinjiang_layers = xinjiang_maps.map((map) => {
+export const xinjiang_layers = xinjiang_maps.map((map) => {
   const bbox: BBox = [
     [
       Math.max(map.bbox[0], xinjiang_bbox[0][0]),

@@ -16,7 +16,7 @@ const shanxi_bbox: BBox = [
   [114.56041700, 40.74364900],
 ];
 
-const shanxi_layers = shanxi_maps.map((map) => {
+export const shanxi_layers = shanxi_maps.map((map) => {
   return new MapLayer(
     `山西 ${map.name} 年影像地图`,
     `山西 ${map.name} 年影像地图`,

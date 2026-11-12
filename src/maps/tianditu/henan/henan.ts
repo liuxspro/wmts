@@ -16,7 +16,7 @@ const henan_bbox: BBox = [
   [116.64701100, 36.37418400],
 ];
 
-const henan_layers = henan_maps.map((map) => {
+export const henan_layers = henan_maps.map((map) => {
   return new MapLayer(
     `河南 ${map.time} 影像地图`,
     `河南 ${map.time} 影像地图`,
