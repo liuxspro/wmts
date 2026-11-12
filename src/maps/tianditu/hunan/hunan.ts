@@ -47,14 +47,14 @@ class CustomCRS84TileMatrixSet extends CRS84TileMatrixSet {
 
 const custom_cgcs2000_quad = new CustomCRS84TileMatrixSet(
   "CRS84 for the World",
-  "CustomGCS2000Quad",
+  "HunanCGCS2000Quad",
   "EPSG:4490",
   "http://www.opengis.net/def/wkss/OGC/1.0/GoogleCRS84Quad",
   7,
   18,
 );
 
-const hn_layers = hunan_maps.map((map) => {
+export const hn_layers = hunan_maps.map((map) => {
   const url =
     `${map.url}/tileImage.png?origin=%7B%22x%22%3A-180%2C%22y%22%3A90%7D&x={x}&y={y}&scale={z}`;
   return new MapLayer(
@@ -68,7 +68,7 @@ const hn_layers = hunan_maps.map((map) => {
   );
 });
 
-const dizhi = new MapLayer(
+export const hn_dizhi = new MapLayer(
   "湖南 1：25万地质图",
   "湖南 1：25万地质图",
   "huana_1_25_dizhi",
@@ -84,5 +84,5 @@ export const service: Service = {
   keywords: ["天地图", "湖南苏", "历史影像"],
 };
 
-const cap = new Capabilities(service, [...hn_layers, dizhi]).xml;
+const cap = new Capabilities(service, [...hn_layers, hn_dizhi]).xml;
 export default cap;
