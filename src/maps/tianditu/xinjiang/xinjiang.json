@@ -1,5 +1,33 @@
 [
   {
+    "name": "2026影像9月2米",
+    "layer": "2026img09_2m",
+    "url": "https://xinjiang.tianditu.gov.cn/v/adf-web-mapservicepublishweb/wmtsoperations/2026img09_2m/wmts",
+    "matrixSet": "default028mm",
+    "bbox": [
+      -180,
+      -90,
+      180,
+      90
+    ],
+    "startLevel": 0,
+    "endLevel": 16
+  },
+  {
+    "name": "2026影像8月2米",
+    "layer": "2026img08_2m",
+    "url": "https://xinjiang.tianditu.gov.cn/v/adf-web-mapservicepublishweb/wmtsoperations/2026img08_2m/wmts",
+    "matrixSet": "default028mm",
+    "bbox": [
+      -180,
+      -90,
+      180,
+      90
+    ],
+    "startLevel": 0,
+    "endLevel": 16
+  },
+  {
     "name": "2026影像7月2米",
     "layer": "2026img07_2m",
     "url": "https://xinjiang.tianditu.gov.cn/v/adf-web-mapservicepublishweb/wmtsoperations/2026img07_2m/wmts",
