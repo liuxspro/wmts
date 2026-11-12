@@ -44,7 +44,7 @@ export const service: Service = {
   keywords: ["天地图", "福建", "多时相影像"],
 };
 
-const tianditu_fj_layers: MapLayer[] = [];
+export const tianditu_fj_layers: MapLayer[] = [];
 Object.entries(img_fj_2025_his).forEach(([time, name]) => {
   tianditu_fj_layers.push(
     new MapLayer(

@@ -68,7 +68,7 @@ const custom_cgcs2000_quadF6T16 = new CustomCRS84TileMatrixSet(
   16,
 );
 
-const bj_layers = beijing_maps.map((map) => {
+export const bj_layers = beijing_maps.map((map) => {
   const bbox = map.id <= 65 ? beijing_old_bbox : beijing_bbox;
   const quad = map.id <= 65 ? custom_cgcs2000_quadF6T16 : custom_cgcs2000_quad;
   return new MapLayer(

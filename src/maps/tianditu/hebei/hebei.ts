@@ -16,7 +16,7 @@ const hebei_bbox: BBox = [
   [119.84668700, 42.61476900],
 ];
 
-const hebei_layers = hebei_maps.map((map) => {
+export const hebei_layers = hebei_maps.map((map) => {
   return new MapLayer(
     `河北 ${map.name} 年影像地图`,
     `河北 ${map.name} 年影像地图`,
