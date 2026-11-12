@@ -8,6 +8,7 @@ import { cap as gggis } from "./maps/gggis.ts";
 import { cap as jl } from "./maps/tianditu/jilin.ts";
 import { cap as yandex } from "./maps/yandex.ts";
 import { collection } from "./maps/collection.ts";
+import { collection as tianditu_province } from "./maps/tianditu/collection.ts";
 
 export const maps = {
   debug,
@@ -19,5 +20,6 @@ export const maps = {
   gggis,
   jl,
   yandex,
+  tianditu_province,
   collection,
 };

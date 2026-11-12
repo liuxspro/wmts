@@ -24,7 +24,7 @@ const js_bbox: BBox = [
   [122.090304, 35.212659],
 ];
 
-const js_layer = jiangsu_maps.map((map) => {
+export const js_layers = jiangsu_maps.map((map) => {
   return new MapLayer(
     `江苏 ${map.name} 影像地图`,
     `${map.name}`,
@@ -41,5 +41,5 @@ export const service: Service = {
   keywords: ["天地图", "江苏", "历史影像"],
 };
 
-const cap = new Capabilities(service, js_layer).xml;
+const cap = new Capabilities(service, js_layers).xml;
 export default cap;
