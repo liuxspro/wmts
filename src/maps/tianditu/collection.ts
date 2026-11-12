@@ -12,7 +12,7 @@ import { js_layers } from "./jiangsu/江苏.ts";
 import { bj_layers } from "./beijing/beijing.ts";
 import { gd_layers } from "./guangdong/guangdong.ts";
 import { sh_layers } from "./shanghai.ts";
-import { tianditu_fj_layers } from "./fujian.ts";
+// import { tianditu_fj_layers } from "./fujian.ts";
 import { hn_dizhi, hn_layers } from "./hunan/hunan.ts";
 import { henan_layers } from "./henan/henan.ts";
 import { hebei_layers } from "./hebei/hebei.ts";
@@ -22,7 +22,7 @@ import { xinjiang_layers } from "./xinjiang/xinjiang.ts";
 
 export const service: Service = {
   title: "天地图 省级历史影像",
-  abstract: "天地图省级节点历史影像合集，不含浙江、山东、温州",
+  abstract: "天地图省级节点历史影像合集",
   keywords: ["天地图", "省级", "历史影像"],
 };
 
@@ -31,7 +31,7 @@ export const layers = [
   ...bj_layers,
   ...gd_layers,
   ...sh_layers,
-  ...tianditu_fj_layers,
+  // ...tianditu_fj_layers,
   ...hn_layers,
   hn_dizhi,
   ...henan_layers,
