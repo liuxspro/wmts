@@ -89,5 +89,12 @@
     "minZoom": 7,
     "maxZoom": 18,
     "crs": "cgcs2000"
+  },
+  {
+    "key": "dom2023",
+    "name": "广东省2023年影像图",
+    "minZoom": 7,
+    "maxZoom": 18,
+    "crs": "cgcs2000"
   }
 ]
